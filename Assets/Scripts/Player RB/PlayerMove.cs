@@ -7,9 +7,10 @@ public class PlayerMove : MonoBehaviour
 
     private Rigidbody rb;
 
-    public float moveSpeed = 6f;
+    public float moveSpeed;
+    public float normalSpeed = 6f;
     public float jumpForce = 12f;
-
+    public float sprintSpeed = 60f;
 
     public LayerMask layerMask;
     public bool Grounded;
@@ -17,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        moveSpeed = 6f;
     }
 
 
@@ -34,6 +37,23 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
 
         Grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 0.4f, layerMask);
+
+        //sprinting
+        if ((Input.GetKeyDown(KeyCode.LeftShift) && moveSpeed == normalSpeed)
+        {
+            moveSpeed = sprintSpeed;
+        }
+        else ((Input.GetKeyDown(KeyCode.LeftShift) && moveSpeed == sprintSpeed)
+        {
+            moveSpeed = normalSpeed;
+        }
+        //if (!(Input.GetKeyDown(KeyCode.LeftShift)))
+        //{
+        //    moveSpeed = normalSpeed;
+        //}
+
+
+
 
     }
 }

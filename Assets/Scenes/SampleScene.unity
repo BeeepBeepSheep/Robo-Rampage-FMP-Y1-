@@ -10525,7 +10525,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
+  normalSpeed: 6
   jumpForce: 12
+  sprintSpeed: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -10600,14 +10602,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344152824}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.70710695, z: -0, w: 0.7071066}
   m_LocalPosition: {x: 1, y: 3, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1658475156}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1344152830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10621,7 +10623,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
+  normalSpeed: 6
   jumpForce: 12
+  sprintSpeed: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -26757,7 +26761,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
+  normalSpeed: 6
   jumpForce: 12
+  sprintSpeed: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 64
