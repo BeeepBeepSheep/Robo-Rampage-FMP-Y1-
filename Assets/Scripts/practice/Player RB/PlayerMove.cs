@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed = 6f;
     public float jumpForce = 12f;
 
+
     public LayerMask layerMask;
     public bool Grounded;
 
