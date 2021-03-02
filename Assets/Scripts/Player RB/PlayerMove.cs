@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float moveSpeed;
     public float normalSpeed = 6f;
     public float jumpForce = 12f;
-    public float sprintSpeed = 600f;
+    public float sprintSpeed = 2f;
     public float crouchSpeed = 3f;
 
     public LayerMask layerMask;
@@ -45,11 +45,11 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            moveSpeed = sprintSpeed;
+            moveSpeed =  moveSpeed * sprintSpeed;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            moveSpeed = normalSpeed;
+            moveSpeed = moveSpeed * normalSpeed;
         }
 
 
