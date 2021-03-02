@@ -2330,7 +2330,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e8ddd6b512b78fb4cafdbb048378c72a, type: 2}
+  - {fileID: 2100000, guid: 71febe4266539e74baa8efbf19be64bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10528,6 +10528,7 @@ MonoBehaviour:
   normalSpeed: 6
   jumpForce: 12
   sprintSpeed: 10
+  crouchSpeed: 3
   layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -10626,6 +10627,7 @@ MonoBehaviour:
   normalSpeed: 6
   jumpForce: 12
   sprintSpeed: 10
+  crouchSpeed: 3
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -13274,7 +13276,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e8ddd6b512b78fb4cafdbb048378c72a, type: 2}
+  - {fileID: 2100000, guid: 71febe4266539e74baa8efbf19be64bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26764,6 +26766,7 @@ MonoBehaviour:
   normalSpeed: 6
   jumpForce: 12
   sprintSpeed: 10
+  crouchSpeed: 3
   layerMask:
     serializedVersion: 2
     m_Bits: 64
