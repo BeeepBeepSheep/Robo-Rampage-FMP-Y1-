@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
 
-        Grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 1f, layerMask);
+        Grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 0.4f, layerMask);
 
     }
 }
