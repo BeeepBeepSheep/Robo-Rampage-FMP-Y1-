@@ -39,14 +39,20 @@ public class PlayerMove : MonoBehaviour
         Grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 0.4f, layerMask);
 
         //sprinting
-        if ((Input.GetKeyDown(KeyCode.LeftShift) && moveSpeed == normalSpeed)
+
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             moveSpeed = sprintSpeed;
         }
-        else ((Input.GetKeyDown(KeyCode.LeftShift) && moveSpeed == sprintSpeed)
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             moveSpeed = normalSpeed;
         }
+
+
+
         //if (!(Input.GetKeyDown(KeyCode.LeftShift)))
         //{
         //    moveSpeed = normalSpeed;
