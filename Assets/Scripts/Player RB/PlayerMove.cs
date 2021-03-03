@@ -47,7 +47,7 @@ public class PlayerMove : MonoBehaviour
         rb.velocity = newMovePosition;
 
         //sprinting
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Grounded )
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Grounded)
         {
             moveSpeed = sprintSpeed;
             Debug.Log("sprinting");
@@ -99,34 +99,29 @@ public class PlayerMove : MonoBehaviour
         //air speed
         if (moveSpeed == sprintSpeed && !Grounded)
         {
-            if (Grounded)
-            {
-                //Invoke("AirSpeedDelay", .1f);
-                moveSpeed = moveSpeed;
-            }
-            Invoke("AirSpeedDelay", .4f);
-            //Invoke("AirSpeedDelay", .1f);
+            Invoke("AirSpeedDelay", .8f);
             Debug.Log("Air speed delay");
         }
 
         StopSprintStrafe();
     }
-
-    void SecendDelay()
-    {
-        if (!Grounded)
-        {
-            moveSpeed = normalSpeed;
-        }
-    }
     void AirSpeedDelay()
     {
+        if (Grounded)
+        {
+            moveSpeed = moveSpeed;
+        }
         if (!Grounded)
         {
-            Invoke("SecondDelay", 1f);
-            //moveSpeed = normalSpeed;
+            Invoke("AirSpeedDelay", .1f);
+            moveSpeed = normalSpeed;
         }
+        //moveSpeed = normalSpeed;
     }
+    //void JumP()
+    //{
+
+    //}
     void StopSprintStrafe()
     {
         if (Input.GetKeyDown(KeyCode.A) && moveSpeed == normalSpeed)
