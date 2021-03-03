@@ -99,29 +99,34 @@ public class PlayerMove : MonoBehaviour
         //air speed
         if (moveSpeed == sprintSpeed && !Grounded)
         {
-            Invoke("AirSpeedDelay", .8f);
+            if (Grounded)
+            {
+                //Invoke("AirSpeedDelay", .1f);
+                moveSpeed = moveSpeed;
+            }
+            Invoke("AirSpeedDelay", .4f);
+            //Invoke("AirSpeedDelay", .1f);
             Debug.Log("Air speed delay");
         }
 
         StopSprintStrafe();
     }
-    void AirSpeedDelay()
+
+    void SecendDelay()
     {
-        if(Grounded)
-        {
-            moveSpeed = moveSpeed;
-        }
         if (!Grounded)
         {
-            Invoke("AirSpeedDelay", .1f);
             moveSpeed = normalSpeed;
         }
-        //moveSpeed = normalSpeed;
     }
-    //void JumP()
-    //{
-
-    //}
+    void AirSpeedDelay()
+    {
+        if (!Grounded)
+        {
+            Invoke("SecondDelay", 1f);
+            //moveSpeed = normalSpeed;
+        }
+    }
     void StopSprintStrafe()
     {
         if (Input.GetKeyDown(KeyCode.A) && moveSpeed == normalSpeed)
