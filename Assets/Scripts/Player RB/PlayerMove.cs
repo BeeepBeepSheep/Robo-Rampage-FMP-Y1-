@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody rb;
 
     //assignables
-    public Transform orientation;
     public Transform playerCam;
 
     //speed & jump
@@ -16,18 +15,12 @@ public class PlayerMove : MonoBehaviour
     public float normalSpeed = 6f;
     public float jumpForce = 12f;
     public float sprintSpeed = 25f;
-    public float crouchSpeed = 3f;
+    public float aimingSpeed = 3f;
 
     //ground checking
     public LayerMask whatIsGround;
     public bool Grounded;
 
-    //wall wunning
-    public LayerMask whatIsWall;
-    public float wallrunForce, maxWallrunTime, maxWallSpeed;
-    bool isWallRight, isWallLeft;
-    bool isWallRunning;
-    public float maxCameraTilt, CameraTilt;
 
     void Start()
     {
@@ -39,11 +32,6 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-
-        CheckForWall();
-        WallRunInput();
-
-
         //walking
         float x = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float y = Input.GetAxisRaw("Vertical") * moveSpeed;
@@ -60,12 +48,33 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && Grounded)
         {
             moveSpeed = sprintSpeed;
+            Debug.Log("sprinting");
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift) && moveSpeed != aimingSpeed)
         {
             moveSpeed = normalSpeed;
+            Debug.Log("walking");
         }
 
+        //aim speed
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Grounded)
+        {
+            moveSpeed = aimingSpeed;
+            Debug.Log("aiming");
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1) && moveSpeed == aimingSpeed)
+        {
+            moveSpeed = normalSpeed;
+            Debug.Log("stopped aiming");
+
+        }
+
+        //stoping aim sprinting
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            moveSpeed = aimingSpeed;
+        }
+          
         //jumping
 
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
@@ -78,58 +87,7 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
-        //jump off walls
-        WallJump();
-    }
-
-    //wallrunning
-    private void WallRunInput()
-    {
-        if (WallRunInput.GetKey(KeyCode.D) && isWallRight) StartWallRun;
-        if (WallRunInput.GetKey(KeyCode.A) && isWallLeft) StartWallRun;
-    }
-    private void StartWallRun()
-    {
-        rb.useGravity = false;
-        isWallRunning = true;
-
-        if(rb.velocity.magnitude <= maxWallSpeed)
-        {
-            rb.AddForce(orientation.forward * wallrunForce * maxWallrunTime.deltaTime);
-
-            //make sure character sticks to the wall
-            if (isWallRight)
-                rb.AddForce(orietation.right * wallrunForce / 5 * maxWallrunTime.deltaTime);
-            else
-                rb.AddForce(-orietation.right * wallrunForce / 5 * maxWallrunTime.deltaTime);
-        }
-    }
-    private void CheckForWall()
-    {
-        isWallRight = Physics.Raycast(transform.position, orientation.right, 1f, whatIsWall);
-        isWallLeft = Physics.Raycast(transform.position, -orientation.right, 1f, whatIsWall);
-        //leave wall
-        if (!isWallLeft && !isWallRight) StopWallRun();
 
     }
-    private void StopWallRun()
-    {
-        rb.useGravity = true;
-        isWallRunning = false;
-    }
-    private void WallJump()
-    {
-        if (isWallRunning)
-        {
-            //normal jump
-            if (isWallLeft && !WallRunInput.GetKey(HeyCode.D) || isWallRight && !isWallRight && !WallRunInput.GetKey(KeyCode.A))
-            {
-                rb.AddForce(Vector2.up * jumpForce * 1.5f);
-                rb.AddForce(normalVector * jumpForce * 0.5f);
-            }
 
-            //add more force
-            rb.AddForce(orientation.forward * jumpForce * 1f);
-        }    
-    }
 }
