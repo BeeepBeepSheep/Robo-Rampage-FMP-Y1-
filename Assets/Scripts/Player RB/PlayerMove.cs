@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     public float jumpForce;
     public float sprintSpeed;
     public float aimingSpeed;
+    public float crouchSpeed;
 
     //ground checking
     public LayerMask whatIsGround;
@@ -47,21 +48,23 @@ public class PlayerMove : MonoBehaviour
 
         //stop sprint strafe
 
-        //Debug.Log ("strafe test");
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             moveSpeed = normalSpeed;
+            //Debug.Log("strafe test left");
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             moveSpeed = normalSpeed;
+            //Debug.Log("strafe test right");
         }
 
 
 
 
         //sprinting
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.W) && Grounded )
+        if (Input.GetKeyDown(KeyCode.LeftShift)) //&& Grounded )
         {
             moveSpeed = sprintSpeed;
             Debug.Log("sprinting");
@@ -99,10 +102,16 @@ public class PlayerMove : MonoBehaviour
             if (!(Input.GetKeyDown(KeyCode.LeftShift)))
             {
                 //need to wait a seccond before setting move speed back
+                //Invoke("SpeedDelay", 1.0f);
                 moveSpeed = normalSpeed;
             }
 
         }
+        //void SpeedDelay()
+        //{
+        //    moveSpeed = normalSpeed;
+        //    Debug.Log("test");
+        //}
 
     }
 }
