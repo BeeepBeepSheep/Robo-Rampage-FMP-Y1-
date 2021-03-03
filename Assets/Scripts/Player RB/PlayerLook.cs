@@ -6,8 +6,8 @@ public class PlayerLook : MonoBehaviour
 {
     //sensitivity
     public float mouseSensitivity;
-    public float normalSensitivity = 500f;
-    public float aimSensitivity = 300f;
+    public float normalSensitivity;
+    public float aimSensitivity;
 
     //guns
     public GameObject aimingGun;
@@ -19,7 +19,7 @@ public class PlayerLook : MonoBehaviour
 
     void Start()
     {
-        mouseSensitivity = 500f;
+        mouseSensitivity = normalSensitivity;
         Cursor.lockState = CursorLockMode.Locked;
     }
 

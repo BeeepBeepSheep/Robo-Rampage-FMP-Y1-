@@ -12,14 +12,15 @@ public class PlayerMove : MonoBehaviour
 
     //speed & jump
     public float moveSpeed;
-    public float normalSpeed = 6f;
-    public float jumpForce = 12f;
-    public float sprintSpeed = 25f;
-    public float aimingSpeed = 3f;
+    public float normalSpeed;
+    public float jumpForce;
+    public float sprintSpeed;
+    public float aimingSpeed;
 
     //ground checking
     public LayerMask whatIsGround;
     public bool Grounded;
+
 
 
     void Start()
@@ -44,8 +45,23 @@ public class PlayerMove : MonoBehaviour
 
         rb.velocity = newMovePosition;
 
+        //stop sprint strafe
+
+        //Debug.Log ("strafe test");
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            moveSpeed = normalSpeed;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            moveSpeed = normalSpeed;
+        }
+
+
+
+
         //sprinting
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Grounded)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.W) && Grounded )
         {
             moveSpeed = sprintSpeed;
             Debug.Log("sprinting");
@@ -74,9 +90,9 @@ public class PlayerMove : MonoBehaviour
         {
             moveSpeed = aimingSpeed;
         }
-          
-        //jumping
 
+
+        //jumping
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
@@ -89,5 +105,4 @@ public class PlayerMove : MonoBehaviour
         }
 
     }
-
 }
