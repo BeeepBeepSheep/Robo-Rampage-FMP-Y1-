@@ -34,37 +34,20 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+
         //walking
         float x = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float y = Input.GetAxisRaw("Vertical") * moveSpeed;
 
         Grounded = Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), 0.4f, whatIsGround);
 
-
         Vector3 movePosition = transform.right * x + transform.forward * y;
         Vector3 newMovePosition = new Vector3(movePosition.x, rb.velocity.y, movePosition.z);
 
         rb.velocity = newMovePosition;
 
-        //stop sprint strafe
-
-        
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            moveSpeed = normalSpeed;
-            //Debug.Log("strafe test left");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            moveSpeed = normalSpeed;
-            //Debug.Log("strafe test right");
-        }
-
-
-
-
         //sprinting
-        if (Input.GetKeyDown(KeyCode.LeftShift)) //&& Grounded )
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Grounded )
         {
             moveSpeed = sprintSpeed;
             Debug.Log("sprinting");
@@ -99,19 +82,55 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-            if (!(Input.GetKeyDown(KeyCode.LeftShift)))
-            {
-                //need to wait a seccond before setting move speed back
-                //Invoke("SpeedDelay", 1.0f);
-                moveSpeed = normalSpeed;
-            }
-
         }
-        //void SpeedDelay()
-        //{
-        //    moveSpeed = normalSpeed;
-        //    Debug.Log("test");
-        //}
 
+        //stop sprint strafe
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            moveSpeed = normalSpeed;
+            //Debug.Log("strafe test left");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            moveSpeed = normalSpeed;
+            //Debug.Log("strafe test right");
+        }
+
+        //air speed
+        if (moveSpeed == sprintSpeed && !Grounded)
+        {
+            Invoke("AirSpeedDelay", .8f);
+            Debug.Log("Air speed delay");
+        }
+
+        StopSprintStrafe();
+    }
+    void AirSpeedDelay()
+    {
+        if(Grounded)
+        {
+            moveSpeed = moveSpeed;
+        }
+        if (!Grounded)
+        {
+            Invoke("AirSpeedDelay", .1f);
+            moveSpeed = normalSpeed;
+        }
+        //moveSpeed = normalSpeed;
+    }
+    //void JumP()
+    //{
+
+    //}
+    void StopSprintStrafe()
+    {
+        if (Input.GetKeyDown(KeyCode.A) && moveSpeed == normalSpeed)
+        {
+            moveSpeed = normalSpeed;
+        }
+        if (Input.GetKeyDown(KeyCode.D) && moveSpeed == normalSpeed)
+        {
+            moveSpeed = normalSpeed;
+        }
     }
 }
