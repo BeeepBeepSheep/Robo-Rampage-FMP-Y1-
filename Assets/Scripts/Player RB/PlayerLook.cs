@@ -39,11 +39,15 @@ public class PlayerLook : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             mouseSensitivity = aimSensitivity;
+            notAimingGun.SetActive(false);
+            aimingGun.SetActive(true);
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             mouseSensitivity = normalSensitivity;
+            notAimingGun.SetActive(true);
+            aimingGun.SetActive(false);
         }
     }
 }
