@@ -77,51 +77,40 @@ public class PlayerMove : MonoBehaviour
             moveSpeed = aimingSpeed;
         }
 
-
-        //jumping
-        if (Input.GetKeyDown(KeyCode.Space) && Grounded)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-        }
-
         //stop sprint strafe
         if (Input.GetKeyDown(KeyCode.A))
         {
             moveSpeed = normalSpeed;
-            //Debug.Log("strafe test left");
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             moveSpeed = normalSpeed;
-            //Debug.Log("strafe test right");
         }
 
         //air speed
         if (moveSpeed == sprintSpeed && !Grounded)
         {
-            Invoke("AirSpeedDelay", .8f);
+            Invoke("AirSpeedDelay", 1f);
             Debug.Log("Air speed delay");
+        }
+
+        //jumping
+        if (Input.GetKeyDown(KeyCode.Space) && Grounded)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            Invoke("AirSpeedDelay", 1.5f);
         }
 
         StopSprintStrafe();
     }
     void AirSpeedDelay()
     {
-        if (Grounded)
-        {
-            moveSpeed = moveSpeed;
-        }
         if (!Grounded)
-        {
-            Invoke("AirSpeedDelay", .1f);
+        {           
+            AirSpeedDelay();
             moveSpeed = normalSpeed;
         }
-        //moveSpeed = normalSpeed;
     }
-    //void JumP()
-    //{
-
-    //}
     void StopSprintStrafe()
     {
         if (Input.GetKeyDown(KeyCode.A) && moveSpeed == normalSpeed)
