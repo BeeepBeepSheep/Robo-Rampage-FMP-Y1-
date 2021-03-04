@@ -20801,9 +20801,10 @@ MonoBehaviour:
   moveSpeed: 0
   normalSpeed: 6
   jumpForce: 12
-  sprintSpeed: 25
+  sprintSpeed: 22
   aimingSpeed: 3
-  returnToSprintSpeed: 25
+  crouchSpeed: 0
+  airSpeed: 18
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64

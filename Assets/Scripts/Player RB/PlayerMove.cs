@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     public float sprintSpeed;
     public float aimingSpeed;
     public float crouchSpeed;
+    public float airSpeed;
 
     //ground checking
     public LayerMask whatIsGround;
@@ -82,6 +83,8 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            Invoke("AirSpeedDelay", 1f);
+
         }
 
         //stop sprint strafe
@@ -99,11 +102,15 @@ public class PlayerMove : MonoBehaviour
         //air speed
         if (moveSpeed == sprintSpeed && !Grounded)
         {
-            Invoke("AirSpeedDelay", .8f);
-            Debug.Log("Air speed delay");
+            Invoke("AirMoveSpeed", 1f);
+            Debug.Log("AirMoveSpeed");
         }
 
         StopSprintStrafe();
+    }
+    void AirMoveSpeed()
+    {
+        moveSpeed = airSpeed;
     }
     void AirSpeedDelay()
     {
@@ -113,8 +120,8 @@ public class PlayerMove : MonoBehaviour
         }
         if (!Grounded)
         {
-            Invoke("AirSpeedDelay", .1f);
-            moveSpeed = normalSpeed;
+            Invoke("AirSpeedDelay", .8f);
+            moveSpeed = airSpeed;
         }
         //moveSpeed = normalSpeed;
     }
