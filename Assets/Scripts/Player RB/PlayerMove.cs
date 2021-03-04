@@ -51,33 +51,15 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && Grounded)
         {
             moveSpeed = sprintSpeed;
-            Debug.Log("sprinting");
+            //Debug.Log("sprinting");
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && moveSpeed != aimingSpeed)
         {
             moveSpeed = normalSpeed;
-            Debug.Log("walking");
+            //Debug.Log("walking");
         }
 
-        //aim speed
-        if (Input.GetKeyDown(KeyCode.Mouse1) && Grounded)
-        {
-            moveSpeed = aimingSpeed;
-            Debug.Log("aiming");
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse1) && moveSpeed == aimingSpeed)
-        {
-            moveSpeed = normalSpeed;
-            Debug.Log("stopped aiming");
-
-        }
-
-        //stoping aim sprinting
-        if (Input.GetKeyDown(KeyCode.Mouse1) && Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            moveSpeed = aimingSpeed;
-        }
-
+        AimSpeed();
 
         //jumping
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
@@ -103,8 +85,9 @@ public class PlayerMove : MonoBehaviour
         if (moveSpeed == sprintSpeed && !Grounded)
         {
             Invoke("AirMoveSpeed", 1f);
-            Debug.Log("AirMoveSpeed");
+            //Debug.Log("AirMoveSpeed");
         }
+
 
         StopSprintStrafe();
     }
@@ -123,12 +106,8 @@ public class PlayerMove : MonoBehaviour
             Invoke("AirSpeedDelay", .8f);
             moveSpeed = airSpeed;
         }
-        //moveSpeed = normalSpeed;
     }
-    //void JumP()
-    //{
 
-    //}
     void StopSprintStrafe()
     {
         if (Input.GetKeyDown(KeyCode.A) && moveSpeed == normalSpeed)
@@ -138,6 +117,14 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D) && moveSpeed == normalSpeed)
         {
             moveSpeed = normalSpeed;
+        }
+    }
+
+    void AimSpeed()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            moveSpeed = aimingSpeed;
         }
     }
 }
