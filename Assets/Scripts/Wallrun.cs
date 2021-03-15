@@ -67,11 +67,11 @@ public class Wallrun : MonoBehaviour
 
             if (isLeftWall)
             {
-                cam.transform.localEulerAngles = new Vector3(0f, 0f, -10f);
+                cam.transform.localEulerAngles = new Vector3(0f, 0f, -20f);
             }
             if (isRightWall)
             {
-                cam.transform.localEulerAngles = new Vector3(0f, 0f, 10f);
+                cam.transform.localEulerAngles = new Vector3(0f, 0f, 20f);
             }
         }
     }
