@@ -1,3 +1,1 @@
-had problem with interferance from default script (fixed)
-
-seccond character controller (rigid body tutorial) https://www.youtube.com/watch?v=nfX8cnRxrHg
+need to switch to 2019.4.10f1
