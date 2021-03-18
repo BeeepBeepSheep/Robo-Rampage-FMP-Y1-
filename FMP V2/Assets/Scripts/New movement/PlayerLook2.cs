@@ -13,6 +13,7 @@ public class PlayerLook2 : MonoBehaviour
     float mouseX;
     float mouseY;
 
+
     float multiplier = 0.01f;
 
     float xRotation;
@@ -36,5 +37,20 @@ public class PlayerLook2 : MonoBehaviour
 
         cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        //aiming sensivity
+        Aim();
+    }
+
+    void Aim()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            multiplier = 0.003f;
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            multiplier = 0.01f;
+        }
     }
 }
