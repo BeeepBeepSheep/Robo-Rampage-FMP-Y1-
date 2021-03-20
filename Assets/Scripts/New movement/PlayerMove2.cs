@@ -13,11 +13,17 @@ public class PlayerMove2 : MonoBehaviour
     [SerializeField] float airMultiplier = 0.4f;
     float movementMultiplier = 10f;
 
+    [Header("Sprinting")]
+    [SerializeField] float walkSpeed = 4f;
+    [SerializeField] float sprintSpeed = 4f;
+    [SerializeField] float acceleration = 10f;
+
     [Header("Jumping")]
     public float jumpForce = 5f;
 
     [Header("Keybinds")]
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Drag")]
     [SerializeField] float groundDrag = 6f;
@@ -27,6 +33,7 @@ public class PlayerMove2 : MonoBehaviour
     float verticalMovement;
 
     [Header("Ground Detection")]
+    //[SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundMask;
     bool isGrounded;
     float groundDistance = 0.4f;
@@ -66,6 +73,7 @@ public class PlayerMove2 : MonoBehaviour
 
         MyInput();
         ControlDrag();
+        ControlSpeed();
 
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
@@ -85,7 +93,20 @@ public class PlayerMove2 : MonoBehaviour
 
     void Jump()
     {
+        //rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void ControlSpeed()
+    {
+        if (Input.GetKey(sprintKey) && isGrounded)
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, sprintSpeed, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, walkSpeed, acceleration * Time.deltaTime);
+        }
     }
 
     void ControlDrag()
