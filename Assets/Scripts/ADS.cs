@@ -8,6 +8,11 @@ public class ADS : MonoBehaviour
     public GameObject aimingGun;
     public GameObject notAimingGun;
 
+    //cross hair
+    public GameObject Dot;
+    public GameObject Cross;
+
+
     void Update()
     {
         //aiming
@@ -15,12 +20,19 @@ public class ADS : MonoBehaviour
         {
             aimingGun.SetActive(true);
             notAimingGun.SetActive(false);
+
+            Dot.SetActive(true);
+            Cross.SetActive(false);
+
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             aimingGun.SetActive(false);
             notAimingGun.SetActive(true);
+
+            Dot.SetActive(false);
+            Cross.SetActive(true);
         }
     }
 }
