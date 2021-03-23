@@ -31,8 +31,8 @@ public class ADS : MonoBehaviour
             aimingGun.SetActive(false);
             notAimingGun.SetActive(true);
 
-            Dot.SetActive(false);
-            Cross.SetActive(true);
+            Dot.SetActive(true);
+            Cross.SetActive(false);
         }
     }
 }
