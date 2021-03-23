@@ -12,6 +12,14 @@ public class ADS : MonoBehaviour
     public GameObject Dot;
     public GameObject Cross;
 
+    public Camera cam;
+    public float mainFov = 70f;
+
+    void Start()
+    {
+        cam.fieldOfView = mainFov;
+    }
+
 
     void Update()
     {
@@ -24,6 +32,8 @@ public class ADS : MonoBehaviour
             Dot.SetActive(true);
             Cross.SetActive(false);
 
+            cam.fieldOfView = mainFov - 10f;
+
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
@@ -33,6 +43,8 @@ public class ADS : MonoBehaviour
 
             Dot.SetActive(true);
             Cross.SetActive(false);
+
+            cam.fieldOfView = mainFov;
         }
     }
 }

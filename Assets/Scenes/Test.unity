@@ -7560,7 +7560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &394506617
 Transform:
   m_ObjectHideFlags: 0
@@ -8525,7 +8525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &484393058
 Transform:
   m_ObjectHideFlags: 0
@@ -9497,7 +9497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &571262946
 Transform:
   m_ObjectHideFlags: 0
@@ -11777,6 +11777,8 @@ MonoBehaviour:
   notAimingGun: {fileID: 939645166}
   Dot: {fileID: 273438211}
   Cross: {fileID: 579839705}
+  cam: {fileID: 581068155}
+  mainFov: 70
 --- !u!43 &664556423
 Mesh:
   m_ObjectHideFlags: 0
@@ -15394,6 +15396,8 @@ MonoBehaviour:
   notAimingGun: {fileID: 939645166}
   Dot: {fileID: 0}
   Cross: {fileID: 0}
+  cam: {fileID: 581068155}
+  mainFov: 70
 --- !u!1 &944631595
 GameObject:
   m_ObjectHideFlags: 0
@@ -35691,7 +35695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1440301329
 Transform:
   m_ObjectHideFlags: 0
@@ -43940,7 +43944,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 817b03c36fdca0644a6e7d15077f9fea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.298
+      value: -0.233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 817b03c36fdca0644a6e7d15077f9fea,
         type: 3}
