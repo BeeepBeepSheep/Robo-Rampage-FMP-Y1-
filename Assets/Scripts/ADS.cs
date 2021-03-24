@@ -47,7 +47,7 @@ public class ADS : MonoBehaviour
             cam.fieldOfView = mainFov;
         }
 
-        //sprinting
+        //sprinting fov
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             cam.fieldOfView = mainFov + 10f;
