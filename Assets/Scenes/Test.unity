@@ -11757,6 +11757,8 @@ MonoBehaviour:
   impactEffect: {fileID: 86068072}
   impactForce: 30
   cam: {fileID: 581068155}
+  maxAmmo: 10
+  reloadTime: 1
 --- !u!114 &297992666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16224,6 +16226,8 @@ MonoBehaviour:
   impactEffect: {fileID: 86068072}
   impactForce: 30
   cam: {fileID: 581068155}
+  maxAmmo: 10
+  reloadTime: 1
 --- !u!1 &579839705
 GameObject:
   m_ObjectHideFlags: 0
@@ -18431,6 +18435,7 @@ GameObject:
   - component: {fileID: 646438514}
   - component: {fileID: 646438515}
   - component: {fileID: 646438516}
+  - component: {fileID: 646438517}
   m_Layer: 8
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -18485,6 +18490,25 @@ MonoBehaviour:
   Primary: {fileID: 606040269}
   Secondary: {fileID: 358863816}
   PrimaryActive: 0
+--- !u!95 &646438517
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646438513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3cd216924ca56e445a30b0e7b2b64dab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &663069649
 GameObject:
   m_ObjectHideFlags: 0
@@ -18551,6 +18575,8 @@ MonoBehaviour:
   impactEffect: {fileID: 86068072}
   impactForce: 2000
   cam: {fileID: 581068155}
+  maxAmmo: 10
+  reloadTime: 1
 --- !u!43 &664556423
 Mesh:
   m_ObjectHideFlags: 0
@@ -22939,7 +22965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &972604238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24499,6 +24525,8 @@ MonoBehaviour:
   impactEffect: {fileID: 86068072}
   impactForce: 100
   cam: {fileID: 581068155}
+  maxAmmo: 10
+  reloadTime: 1
 --- !u!4 &1128813938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 817b03c36fdca0644a6e7d15077f9fea,
@@ -39261,6 +39289,8 @@ MonoBehaviour:
   impactEffect: {fileID: 86068072}
   impactForce: 30
   cam: {fileID: 581068155}
+  maxAmmo: 10
+  reloadTime: 1
 --- !u!114 &1248351559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54968,3 +54998,5 @@ MonoBehaviour:
   impactEffect: {fileID: 86068072}
   impactForce: 100
   cam: {fileID: 581068155}
+  maxAmmo: 10
+  reloadTime: 1

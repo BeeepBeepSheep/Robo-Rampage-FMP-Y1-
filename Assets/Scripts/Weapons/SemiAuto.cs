@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class SemiAuto : MonoBehaviour
 {
@@ -10,10 +11,29 @@ public class SemiAuto : MonoBehaviour
     public float impactForce = 30f;
     public Camera cam;
 
+    public int maxAmmo = 10;
+    private int currantAmmo;
+    public float reloadTime = 1f;
+    private bool isReloading;
+
     private float nextTimeToFire = 0f;
 
+    public Animator animator;
+    public GameObject reloadSymbol;
+
+    void Start()
+    {
+        currantAmmo = maxAmmo;
+    }
     void Update()
     {
+        if (isReloading)
+            return;
+        if (currantAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
         //change to just get button for single fire (getButtonDown for full auto
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
@@ -21,8 +41,24 @@ public class SemiAuto : MonoBehaviour
             Shoot();
         }
     }
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        Debug.Log("Reloading");
+
+        animator.SetBool("Reloading", true);
+        reloadSymbol.SetActive(true);
+        yield return new WaitForSeconds(reloadTime);
+
+        animator.SetBool("Reloading", false);
+        reloadSymbol.SetActive(false);
+        currantAmmo = maxAmmo;
+        isReloading = false;
+    }
     void Shoot()
     {
+        currantAmmo--;
+
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
