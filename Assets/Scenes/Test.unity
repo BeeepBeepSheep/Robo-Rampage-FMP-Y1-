@@ -11759,6 +11759,8 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 1
+  animator: {fileID: 646438517}
+  reloadSymbol: {fileID: 972604237}
 --- !u!114 &297992666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16228,6 +16230,8 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 1
+  animator: {fileID: 646438517}
+  reloadSymbol: {fileID: 972604237}
 --- !u!1 &579839705
 GameObject:
   m_ObjectHideFlags: 0
@@ -18577,6 +18581,8 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 1
+  animator: {fileID: 646438517}
+  reloadSymbol: {fileID: 972604237}
 --- !u!43 &664556423
 Mesh:
   m_ObjectHideFlags: 0
@@ -24527,6 +24533,8 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 1
+  animator: {fileID: 646438517}
+  reloadSymbol: {fileID: 972604237}
 --- !u!4 &1128813938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 817b03c36fdca0644a6e7d15077f9fea,
@@ -39291,6 +39299,8 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 1
+  animator: {fileID: 646438517}
+  reloadSymbol: {fileID: 972604237}
 --- !u!114 &1248351559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55000,3 +55010,5 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 1
+  animator: {fileID: 646438517}
+  reloadSymbol: {fileID: 972604237}
