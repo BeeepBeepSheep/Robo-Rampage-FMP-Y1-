@@ -1,19 +1,24 @@
 ﻿using UnityEngine;
 
-public class Pistol : MonoBehaviour
+public class Autamatic : MonoBehaviour
 {
     public float damage = 34f;
     public float range = 100f;
+    public float fireRate = 30f;
+
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public float impactForce = 30f;
-
     public Camera cam;
+
+    private float nextTimeToFire = 0f;
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        //change to just get button for single fire (getButtonDown for full auto
+        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
+            nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
     }
