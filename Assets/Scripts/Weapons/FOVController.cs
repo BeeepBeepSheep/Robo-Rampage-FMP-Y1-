@@ -1,13 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ADS : MonoBehaviour
+public class FOVController : MonoBehaviour
 {
-    //guns
-    public GameObject aimingGun;
-    public GameObject notAimingGun;
-
     //cross hair
     public GameObject Dot;
     public GameObject Cross;
@@ -26,21 +22,14 @@ public class ADS : MonoBehaviour
         //aiming
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            aimingGun.SetActive(true);
-            notAimingGun.SetActive(false);
-
             Dot.SetActive(true);
             Cross.SetActive(false);
 
             cam.fieldOfView = mainFov - 10f;
-
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            aimingGun.SetActive(false);
-            notAimingGun.SetActive(true);
-
             Dot.SetActive(true);
             Cross.SetActive(false);
 
@@ -48,7 +37,7 @@ public class ADS : MonoBehaviour
         }
 
         //sprinting fov
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             cam.fieldOfView = mainFov + 10f;
         }
