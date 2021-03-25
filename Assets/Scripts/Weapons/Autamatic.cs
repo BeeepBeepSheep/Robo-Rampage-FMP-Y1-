@@ -6,7 +6,6 @@ public class Autamatic : MonoBehaviour
     public float range = 100f;
     public float fireRate = 30f;
 
-    public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public float impactForce = 30f;
     public Camera cam;
@@ -24,7 +23,6 @@ public class Autamatic : MonoBehaviour
     }
     void Shoot()
     {
-        muzzleFlash.Play();
         RaycastHit hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {

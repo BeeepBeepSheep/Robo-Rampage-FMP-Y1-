@@ -7,6 +7,8 @@ TagManager:
   - RunnableWall
   - OutOfBounds
   - Enemy
+  - ADS
+  - HIP
   layers:
   - Default
   - TransparentFX
