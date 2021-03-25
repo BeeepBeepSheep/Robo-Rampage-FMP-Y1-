@@ -26,17 +26,28 @@ public class Autamatic : MonoBehaviour
     {
         currantAmmo = maxAmmo;
     }
+    void OnEnable()
+    {
+        isReloading = false;
+        animator.SetBool("Reloading", false);
+        reloadSymbol.SetActive(false);
+    }
     void Update()
     {
         if (isReloading)
             return;
-        if(currantAmmo <= 0)
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+        if (currantAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
         //change to just get button for single fire (getButtonDown for full auto
-        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
@@ -50,9 +61,12 @@ public class Autamatic : MonoBehaviour
 
         animator.SetBool("Reloading", true);
         reloadSymbol.SetActive(true);
-        yield return new WaitForSeconds(reloadTime);
+
+        yield return new WaitForSeconds(reloadTime - .25f);
 
         animator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(.25f);
+
         reloadSymbol.SetActive(false);
         currantAmmo = maxAmmo;
         isReloading = false;
@@ -62,17 +76,17 @@ public class Autamatic : MonoBehaviour
         currantAmmo--;
 
         RaycastHit hit;
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
 
             Enemy enemy = hit.transform.GetComponent<Enemy>();
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
 
-            if(hit.rigidbody != null)
+            if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }

@@ -25,10 +25,21 @@ public class SemiAuto : MonoBehaviour
     {
         currantAmmo = maxAmmo;
     }
+    void OnEnable()
+    {
+        isReloading = false;
+        animator.SetBool("Reloading", false);
+        reloadSymbol.SetActive(false);
+    }
     void Update()
     {
         if (isReloading)
             return;
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
         if (currantAmmo <= 0)
         {
             StartCoroutine(Reload());
@@ -48,9 +59,12 @@ public class SemiAuto : MonoBehaviour
 
         animator.SetBool("Reloading", true);
         reloadSymbol.SetActive(true);
-        yield return new WaitForSeconds(reloadTime);
+
+        yield return new WaitForSeconds(reloadTime - .25f);
 
         animator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(.25f);
+
         reloadSymbol.SetActive(false);
         currantAmmo = maxAmmo;
         isReloading = false;
