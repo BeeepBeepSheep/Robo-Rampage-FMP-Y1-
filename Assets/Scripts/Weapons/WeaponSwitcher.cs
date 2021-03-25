@@ -7,19 +7,47 @@ public class WeaponSwitcher : MonoBehaviour
     public GameObject Primary;
     public GameObject Secondary;
 
+    public bool PrimaryActive;
 
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Primary.SetActive(true);
-            Secondary.SetActive(false);
+            SwitchToPrimary();
+            Debug.Log(PrimaryActive);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Primary.SetActive(false);
-            Secondary.SetActive(true);
+            SwitchToSecondary();
+            Debug.Log(PrimaryActive);
         }
+        if (PrimaryActive)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                SwitchToSecondary();
+            }
+        }
+        if (!PrimaryActive)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                SwitchToPrimary();
+            }
+        }
+    }
+
+    void SwitchToPrimary()
+    {
+        PrimaryActive = true;
+        Primary.SetActive(true);
+        Secondary.SetActive(false);
+    }
+    void SwitchToSecondary()
+    {
+        PrimaryActive = false;
+        Primary.SetActive(false);
+        Secondary.SetActive(true);
     }
 }
