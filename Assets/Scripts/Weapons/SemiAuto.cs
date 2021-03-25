@@ -17,8 +17,10 @@ public class SemiAuto : MonoBehaviour
     private bool isReloading;
 
     private float nextTimeToFire = 0f;
+    public bool isSprinting;
 
-    public Animator animator;
+    public Animator shootAnim;
+    public Animator reloadAnim;
     public GameObject reloadSymbol;
 
     void Start()
@@ -28,7 +30,7 @@ public class SemiAuto : MonoBehaviour
     void OnEnable()
     {
         isReloading = false;
-        animator.SetBool("Reloading", false);
+        reloadAnim.SetBool("Reloading", false);
         reloadSymbol.SetActive(false);
     }
     void Update()
@@ -45,51 +47,68 @@ public class SemiAuto : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        //change to just get button for single fire (getButtonDown for full auto
+        SprintCheck();
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            shootAnim.SetBool("Shooting", false);
         }
     }
     IEnumerator Reload()
     {
         isReloading = true;
         Debug.Log("Reloading");
+        shootAnim.SetBool("Shooting", false);
 
-        animator.SetBool("Reloading", true);
+
+        reloadAnim.SetBool("Reloading", true);
         reloadSymbol.SetActive(true);
 
         yield return new WaitForSeconds(reloadTime - .25f);
 
-        animator.SetBool("Reloading", false);
+        reloadAnim.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
 
         reloadSymbol.SetActive(false);
         currantAmmo = maxAmmo;
         isReloading = false;
     }
+    void SprintCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            isSprinting = true;
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            isSprinting = false;
+    }
     void Shoot()
     {
-        currantAmmo--;
-
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        if (!isSprinting)
         {
-            Debug.Log(hit.transform.name);
+            currantAmmo--;
 
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
-            if (enemy != null)
+            RaycastHit hit;
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
             {
-                enemy.TakeDamage(damage);
-            }
+                Debug.Log(hit.transform.name);
 
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
+                Enemy enemy = hit.transform.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                }
+
+                if (hit.rigidbody != null)
+                {
+                    hit.rigidbody.AddForce(-hit.normal * impactForce);
+                }
+                GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGameObject, 2f);
             }
-            GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGameObject, 2f);
+            shootAnim.SetBool("Shooting", true);
         }
     }
 }

@@ -15,12 +15,10 @@ public class WeaponSwitcher : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SwitchToPrimary();
-            Debug.Log(PrimaryActive);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SwitchToSecondary();
-            Debug.Log(PrimaryActive);
         }
         if (PrimaryActive)
         {
@@ -40,14 +38,16 @@ public class WeaponSwitcher : MonoBehaviour
 
     void SwitchToPrimary()
     {
-        PrimaryActive = true;
         Primary.SetActive(true);
         Secondary.SetActive(false);
+        Debug.Log(PrimaryActive);
+        PrimaryActive = true;
     }
     void SwitchToSecondary()
     {
-        PrimaryActive = false;
         Primary.SetActive(false);
         Secondary.SetActive(true);
+        Debug.Log(PrimaryActive);
+        PrimaryActive = false;
     }
 }
