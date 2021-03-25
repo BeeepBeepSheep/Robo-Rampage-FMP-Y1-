@@ -10,6 +10,7 @@ public class Autamatic : MonoBehaviour
     public float impactForce = 30f;
     public Camera cam;
 
+
     private float nextTimeToFire = 0f;
 
     void Update()
