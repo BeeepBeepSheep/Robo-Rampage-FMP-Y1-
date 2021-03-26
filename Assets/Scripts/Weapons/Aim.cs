@@ -13,7 +13,7 @@ public class Aim : MonoBehaviour
         {
             canAim = true;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             canAim = false;
             StopAim();
