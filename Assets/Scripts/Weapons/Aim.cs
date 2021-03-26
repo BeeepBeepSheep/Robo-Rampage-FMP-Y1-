@@ -6,18 +6,32 @@ public class Aim : MonoBehaviour
 {
     public GameObject ADS;
     public GameObject HIP;
+    bool canAim;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            canAim = true;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            canAim = false;
+            StopAim();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1) && canAim)
         {
             ADS.SetActive(true);
             HIP.SetActive(false);
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            ADS.SetActive(false);
-            HIP.SetActive(true);
+            StopAim();
         }
+    }
+    void StopAim()
+    {
+        ADS.SetActive(false);
+        HIP.SetActive(true);
     }
 
 }

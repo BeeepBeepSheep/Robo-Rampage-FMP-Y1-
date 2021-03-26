@@ -17,7 +17,6 @@ public class SemiAuto : MonoBehaviour
     private bool isReloading;
 
     private float nextTimeToFire = 0f;
-    public bool isSprinting;
 
     public Animator shootAnim;
     public Animator reloadAnim;
@@ -47,7 +46,6 @@ public class SemiAuto : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        SprintCheck();
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
@@ -77,38 +75,29 @@ public class SemiAuto : MonoBehaviour
         currantAmmo = maxAmmo;
         isReloading = false;
     }
-    void SprintCheck()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-            isSprinting = true;
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-            isSprinting = false;
-    }
+
     void Shoot()
     {
-        if (!isSprinting)
+        currantAmmo--;
+
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            currantAmmo--;
+            Debug.Log(hit.transform.name);
 
-            RaycastHit hit;
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                Debug.Log(hit.transform.name);
-
-                Enemy enemy = hit.transform.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(damage);
-                }
-
-                if (hit.rigidbody != null)
-                {
-                    hit.rigidbody.AddForce(-hit.normal * impactForce);
-                }
-                GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(impactGameObject, 2f);
+                enemy.TakeDamage(damage);
             }
-            shootAnim.SetBool("Shooting", true);
+
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * impactForce);
+            }
+            GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(impactGameObject, 2f);
         }
+        shootAnim.SetBool("Shooting", true);
     }
 }
