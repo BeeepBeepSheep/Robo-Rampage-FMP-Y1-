@@ -7,6 +7,11 @@ public class Aim : MonoBehaviour
     public GameObject ADS;
     public GameObject HIP;
     bool canAim;
+
+    private void Start()
+    {
+        canAim = true;
+    }
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.LeftShift))

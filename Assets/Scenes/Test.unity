@@ -4936,7 +4936,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 513
+      m_Bits: 512
     maxCollisionShapes: 256
     quality: 1
     voxelSize: 0.5
@@ -18911,7 +18911,6 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 6
   reloadTime: 4
-  isSprinting: 0
   shootAnim: {fileID: 646438517}
   reloadAnim: {fileID: 646438517}
   reloadSymbol: {fileID: 972604237}
@@ -25191,7 +25190,6 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 2
-  isSprinting: 0
   shootAnim: {fileID: 646438517}
   reloadAnim: {fileID: 646438517}
   reloadSymbol: {fileID: 972604237}
@@ -39796,7 +39794,6 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 24
   reloadTime: 2
-  isSprinting: 0
   shootAnim: {fileID: 646438517}
   reloadAnim: {fileID: 646438517}
   reloadSymbol: {fileID: 972604237}
@@ -52877,8 +52874,8 @@ MonoBehaviour:
   orientation: {fileID: 1150882247}
   moveSpeed: 6
   airMultiplier: 0.4
-  walkSpeed: 10
-  sprintSpeed: 25
+  walkSpeed: 7
+  sprintSpeed: 15
   acceleration: 10
   jumpForce: 20
   jumpKey: 32
@@ -55050,7 +55047,6 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   maxAmmo: 10
   reloadTime: 2
-  isSprinting: 0
   shootAnim: {fileID: 0}
   reloadAnim: {fileID: 0}
   reloadSymbol: {fileID: 972604237}
