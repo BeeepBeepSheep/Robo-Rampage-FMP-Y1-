@@ -35,8 +35,7 @@ public class Aim : MonoBehaviour
     }
     void StopAim()
     {
-        ADS.SetActive(false);
         HIP.SetActive(true);
+        ADS.SetActive(false);
     }
-
 }

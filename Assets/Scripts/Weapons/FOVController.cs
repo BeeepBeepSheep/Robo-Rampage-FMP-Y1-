@@ -30,8 +30,8 @@ public class FOVController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            Dot.SetActive(true);
-            Cross.SetActive(false);
+            Dot.SetActive(false);
+            Cross.SetActive(true);
 
             cam.fieldOfView = mainFov;
         }
