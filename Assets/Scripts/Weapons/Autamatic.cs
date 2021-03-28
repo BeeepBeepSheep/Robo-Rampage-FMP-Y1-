@@ -19,12 +19,15 @@ public class Autamatic : MonoBehaviour
     private float nextTimeToFire = 0f;
     public bool isSprinting;
 
+    AudioSource gunShot;
+
     public Animator shootAnim;
     public Animator reloadAnim;
     public GameObject reloadSymbol;
 
     void Start()
     {
+        gunShot = GetComponent<AudioSource>();
         currantAmmo = maxAmmo;
     }
     void OnEnable()
@@ -79,6 +82,7 @@ public class Autamatic : MonoBehaviour
     void Shoot()
     {
         currantAmmo--;
+        gunShot.Play();
 
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))

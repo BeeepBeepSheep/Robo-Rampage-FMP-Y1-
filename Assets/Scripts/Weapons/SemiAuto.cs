@@ -16,6 +16,7 @@ public class SemiAuto : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading;
 
+    AudioSource gunShot;
     private float nextTimeToFire = 0f;
 
     public Animator shootAnim;
@@ -24,6 +25,7 @@ public class SemiAuto : MonoBehaviour
 
     void Start()
     {
+        gunShot = GetComponent<AudioSource>();
         currantAmmo = maxAmmo;
     }
     void OnEnable()
@@ -79,6 +81,7 @@ public class SemiAuto : MonoBehaviour
     void Shoot()
     {
         currantAmmo--;
+        gunShot.Play();
 
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
