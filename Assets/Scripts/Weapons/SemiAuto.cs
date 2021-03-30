@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class SemiAuto : MonoBehaviour
 {
     public float damage = 34f;
@@ -15,6 +15,7 @@ public class SemiAuto : MonoBehaviour
     private int currantAmmo;
     public float reloadTime = 1f;
     private bool isReloading;
+    public Text ammoDisplay;
 
     AudioSource gunShot;
     private float nextTimeToFire = 0f;
@@ -36,6 +37,7 @@ public class SemiAuto : MonoBehaviour
     }
     void Update()
     {
+        ammoDisplay.text = currantAmmo.ToString();
         if (isReloading)
             return;
         if (Input.GetKeyDown(KeyCode.R) && !isReloading)
