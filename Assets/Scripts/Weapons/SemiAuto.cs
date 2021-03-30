@@ -90,7 +90,7 @@ public class SemiAuto : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            Health enemy = hit.transform.GetComponent<Health>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
