@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu2 : MonoBehaviour
 {
     public static bool GameISPaused = false;
     public GameObject pauseMenuUI;
+
+    public GameObject Equipment;
+    public GameObject Settings;
+
 
     void Update()
     {
@@ -22,7 +27,8 @@ public class PauseMenu2 : MonoBehaviour
         }
     }
 
-    public void Resume()
+
+        public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -42,5 +48,24 @@ public class PauseMenu2 : MonoBehaviour
         pauseMenuUI.SetActive(true);
 
         Time.timeScale = 0f;
+    }
+    public void OpenSettings()
+    {
+    }
+    public void OpenEquipment()
+    {
+    }
+    public void QuitToDesktop()
+    {
+        //Application.Quit();
+        Debug.Log("Quit");
+    }
+    public void QuitToMenu()
+    {
+        //SceneManager.LoadScene("");
+    }
+    public void Quit()
+    {
+
     }
 }
