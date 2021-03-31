@@ -7,13 +7,6 @@ public class PauseMenu2 : MonoBehaviour
     public static bool GameISPaused = false;
     public GameObject pauseMenuUI;
 
-    public GameObject PlayerLookScript;
-
-    void Awake()
-    {
-        PlayerLookScript.GetComponent("MoveCam");//.enabled = true;
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -29,18 +22,18 @@ public class PauseMenu2 : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         GameISPaused = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        PlayerLookScript.GetComponent("MoveCam");//.enabled = true;
+        Debug.Log("resume");
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -49,6 +42,5 @@ public class PauseMenu2 : MonoBehaviour
         pauseMenuUI.SetActive(true);
 
         Time.timeScale = 0f;
-        PlayerLookScript.GetComponent("MoveCam");//.enabled = false;
     }
 }
