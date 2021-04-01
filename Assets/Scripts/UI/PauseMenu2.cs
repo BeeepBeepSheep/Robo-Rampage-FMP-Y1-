@@ -12,8 +12,6 @@ public class PauseMenu2 : MonoBehaviour
     public GameObject Equipment;
     public GameObject Settings;
 
-    public Animator Slide;
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -31,7 +29,7 @@ public class PauseMenu2 : MonoBehaviour
 
     public void Start()
     {
-       // Resume();
+        Resume();
     }
 
     public void Resume()
@@ -55,18 +53,19 @@ public class PauseMenu2 : MonoBehaviour
         pauseMenuUI.SetActive(true);
 
         Time.timeScale = 0f;
-        //Slide.SetBool("IsClicked", false);
+
+        Settings.SetActive(false);
+        Equipment.SetActive(false);
     }
     public void OpenSettings()
     {
-        //Slide.SetBool("IsClicked", true);
         Debug.Log("Open settings");
+        Settings.SetActive(true);
     }
     public void OpenEquipment()
     {
-        //Slide.SetBool("IsClicked", true);
-        Slide.SetTrigger("Click");
         Debug.Log("Open Equipment");
+        Equipment.SetActive(true);
     }
     public void QuitToDesktop()
     {
