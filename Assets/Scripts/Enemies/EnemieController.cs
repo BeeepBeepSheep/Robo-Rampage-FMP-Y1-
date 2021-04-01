@@ -8,6 +8,8 @@ public class EnemieController : MonoBehaviour
     public float lookRadius = 10f;
     Transform target;
     NavMeshAgent agent;
+
+    public Animator animController;
     void Start()
     {
         target = PlayerManeger.instance.player.transform;
@@ -17,18 +19,22 @@ public class EnemieController : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
-
-        if(distance <= lookRadius)
+        if (distance <= lookRadius)
         {
-            agent.SetDestination(target.position);
+            Debug.Log("chasing");
 
+            agent.SetDestination(target.position);
+            //animController.SetBool("isChasing", true);
             if (distance <= agent.stoppingDistance)
             {
-                //attack target
-                //face target
+                Attack();
                 FaceTarget();
 
             }
+        }
+        else
+        {
+            Debug.Log("idle");
         }
     }
     void FaceTarget()
@@ -36,6 +42,10 @@ public class EnemieController : MonoBehaviour
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+    void Attack()
+    {
+        Debug.Log("attacking");
     }
     private void OnDrawGizmosSelected()
     {
