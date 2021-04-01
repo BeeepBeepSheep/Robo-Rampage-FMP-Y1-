@@ -6,6 +6,7 @@ public class WeaponSwitcher : MonoBehaviour
 {
     public GameObject Primary;
     public GameObject Secondary;
+    public GameObject Tertarary;
 
     public bool PrimaryActive;
 
@@ -26,6 +27,8 @@ public class WeaponSwitcher : MonoBehaviour
             {
                 SwitchToSecondary();
             }
+            SwitchToTertarary();
+
         }
         if (!PrimaryActive)
         {
@@ -33,6 +36,7 @@ public class WeaponSwitcher : MonoBehaviour
             {
                 SwitchToPrimary();
             }
+            SwitchToTertarary();
         }
     }
 
@@ -40,6 +44,7 @@ public class WeaponSwitcher : MonoBehaviour
     {
         Primary.SetActive(true);
         Secondary.SetActive(false);
+        Tertarary.SetActive(false);
         Debug.Log(PrimaryActive);
         PrimaryActive = true;
     }
@@ -47,7 +52,19 @@ public class WeaponSwitcher : MonoBehaviour
     {
         Primary.SetActive(false);
         Secondary.SetActive(true);
+        Tertarary.SetActive(false);
         Debug.Log(PrimaryActive);
         PrimaryActive = false;
+    }
+    void SwitchToTertarary()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Primary.SetActive(false);
+            Secondary.SetActive(false);
+            Tertarary.SetActive(true);
+            Debug.Log(PrimaryActive);
+            PrimaryActive = false;
+        }
     }
 }
