@@ -8,7 +8,6 @@ public class EnemieController : MonoBehaviour
     public float lookRadius = 10f;
     Transform target;
     NavMeshAgent agent;
-    public Animator animController;
     void Start()
     {
         target = PlayerManeger.instance.player.transform;
