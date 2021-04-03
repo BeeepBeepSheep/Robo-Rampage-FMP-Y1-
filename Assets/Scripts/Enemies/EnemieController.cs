@@ -9,6 +9,7 @@ public class EnemieController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
 
+
     public Animator animController;
     void Start()
     {
@@ -21,7 +22,7 @@ public class EnemieController : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= lookRadius)
         {
-            Debug.Log("chasing");
+            //Debug.Log("chasing");
             animController.SetInteger("State", 3);
 
             agent.SetDestination(target.position);
@@ -36,7 +37,7 @@ public class EnemieController : MonoBehaviour
         else
         {
             animController.SetInteger("State", 1);
-            Debug.Log("idle");
+            //Debug.Log("idle");
         }
     }
     void FaceTarget()
@@ -47,7 +48,7 @@ public class EnemieController : MonoBehaviour
     }
     void Attack()
     {
-        Debug.Log("attacking");
+        //Debug.Log("attacking");
         animController.SetInteger("State", 2);
     }
     private void OnDrawGizmosSelected()

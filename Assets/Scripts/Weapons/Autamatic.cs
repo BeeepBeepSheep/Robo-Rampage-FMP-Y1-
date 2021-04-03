@@ -11,6 +11,7 @@ public class Autamatic : MonoBehaviour
     public GameObject impactEffect;
     public float impactForce = 30f;
     public Camera cam;
+    public Animator HitReg;
 
     public int maxAmmo = 10;
     private int currantAmmo;
@@ -96,6 +97,7 @@ public class Autamatic : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                HitReg.SetTrigger("Hit");
             }
 
             if (hit.rigidbody != null)
