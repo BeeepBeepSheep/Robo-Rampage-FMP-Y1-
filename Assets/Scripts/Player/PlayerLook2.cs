@@ -14,7 +14,7 @@ public class PlayerLook2 : MonoBehaviour
     float mouseY;
 
 
-    float multiplier = 0.01f;
+    public float multiplier = 0.01f;
 
     float xRotation;
     float yRotation;
@@ -46,7 +46,7 @@ public class PlayerLook2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            multiplier = 0.003f;
+            multiplier = 0.0035f;
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
