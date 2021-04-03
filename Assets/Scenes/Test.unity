@@ -56137,7 +56137,6 @@ MonoBehaviour:
   cam: {fileID: 221888963}
   orientation: {fileID: 1150882247}
   multiplier: 0.01
-  aimMultiplyer: 0.001
 --- !u!54 &1997606859
 Rigidbody:
   m_ObjectHideFlags: 0
