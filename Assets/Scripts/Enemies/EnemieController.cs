@@ -22,9 +22,10 @@ public class EnemieController : MonoBehaviour
         if (distance <= lookRadius)
         {
             Debug.Log("chasing");
+            animController.SetInteger("State", 3);
 
             agent.SetDestination(target.position);
-            //animController.SetBool("isChasing", true);
+
             if (distance <= agent.stoppingDistance)
             {
                 Attack();
@@ -34,6 +35,7 @@ public class EnemieController : MonoBehaviour
         }
         else
         {
+            animController.SetInteger("State", 1);
             Debug.Log("idle");
         }
     }
@@ -46,6 +48,7 @@ public class EnemieController : MonoBehaviour
     void Attack()
     {
         Debug.Log("attacking");
+        animController.SetInteger("State", 2);
     }
     private void OnDrawGizmosSelected()
     {
