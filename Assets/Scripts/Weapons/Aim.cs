@@ -30,10 +30,10 @@ public class Aim : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1) && canAim)
         {
             ADS.SetActive(true);
-            muzleflasAim.SetActive(true);
+            //muzleflasAim.SetActive(true);
 
             HIP.SetActive(false);
-            muzleflashHip.SetActive(false);
+            //muzleflashHip.SetActive(false);
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
@@ -43,9 +43,9 @@ public class Aim : MonoBehaviour
     void StopAim()
     {
         HIP.SetActive(true);
-        muzleflashHip.SetActive(true);
+        //muzleflashHip.SetActive(true);
 
         ADS.SetActive(false);
-        muzleflasAim.SetActive(false);
+        //muzleflasAim.SetActive(false);
     }
 }
