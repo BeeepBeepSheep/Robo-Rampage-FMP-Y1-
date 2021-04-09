@@ -19,6 +19,19 @@ public class FOVController : MonoBehaviour
 
     void Update()
     {
+
+        //sprinting fov
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            cam.fieldOfView = mainFov;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            cam.fieldOfView = mainFov + 10f;
+            return;
+        }
+
+
         //aiming
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -27,22 +40,11 @@ public class FOVController : MonoBehaviour
 
             cam.fieldOfView = mainFov - 10f;
         }
-
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             Dot.SetActive(false);
             Cross.SetActive(true);
 
-            cam.fieldOfView = mainFov;
-        }
-
-        //sprinting fov
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            cam.fieldOfView = mainFov + 10f;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
             cam.fieldOfView = mainFov;
         }
     }

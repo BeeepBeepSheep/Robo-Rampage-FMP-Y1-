@@ -64,28 +64,35 @@ public class MiniGunShoot : MonoBehaviour
     }
     void Shoot()
     {
-        currantAmmo--;
-        gunShot.Play();
-
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            Debug.Log(hit.transform.name);
-
-            Health enemy = hit.transform.GetComponent<Health>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-                HitReg.SetTrigger("Hit");
-            }
-
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
-            }
-            GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGameObject, 2f);
+            return;
         }
-        shootAnim.SetBool("Shooting", true);
+        else
+        {
+            currantAmmo--;
+            gunShot.Play();
+
+            RaycastHit hit;
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+            {
+                Debug.Log(hit.transform.name);
+
+                Health enemy = hit.transform.GetComponent<Health>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                    HitReg.SetTrigger("Hit");
+                }
+
+                if (hit.rigidbody != null)
+                {
+                    hit.rigidbody.AddForce(-hit.normal * impactForce);
+                }
+                GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGameObject, 2f);
+            }
+            shootAnim.SetBool("Shooting", true);
+        }
     }
 }
