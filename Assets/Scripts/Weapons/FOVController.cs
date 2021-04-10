@@ -34,7 +34,7 @@ public class FOVController : MonoBehaviour
         }
         if(StopADS.activeInHierarchy == true)
         {
-            Debug.Log("cant ads");
+            //Debug.Log("cant ads");
             return;
         }
 

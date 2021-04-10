@@ -42,7 +42,11 @@ public class Revolver : MonoBehaviour
         ammoDisplay.text = currantAmmo.ToString();
         if (isReloading)
             return;
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
+        //if (currantAmmo <= 0)
+        //{
+        //    return;
+        //}
+            if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
             StartCoroutine(Reload());
             return;
