@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float health = 100f;
+    public float currantHealth = 0f;
+    public float maxHealth = 100f;
 
+    public GameObject healthBar;
+
+    void Start()
+    {
+        currantHealth = maxHealth;
+    }
     public void TakeDamage(float amount)
     {
-        health -= amount;
-        if(health <= 0f)
+        currantHealth -= amount;
+
+        float calcHealth = currantHealth / maxHealth;
+        SetHealthBar(calcHealth);
+
+        if(currantHealth <= 0f)
         {
             Die();
         }
@@ -17,5 +28,10 @@ public class Health : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+    public void SetHealthBar(float myHealth)
+    {
+        //myHealth value 0-1
+        healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 }
