@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Autamatic : MonoBehaviour
+public class Revolver : MonoBehaviour
 {
     public float damage = 34f;
     public float range = 100f;
@@ -19,10 +19,8 @@ public class Autamatic : MonoBehaviour
     private bool isReloading;
     public Text ammoDisplay;
 
-    private float nextTimeToFire = 0f;
-    public bool isSprinting;
-
     AudioSource gunShot;
+    private float nextTimeToFire = 0f;
 
     public Animator shootAnim;
     public Animator reloadAnim;
@@ -54,12 +52,12 @@ public class Autamatic : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButtonDown("Fire2") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire2"))
         {
             shootAnim.SetBool("Shooting", false);
         }
@@ -69,6 +67,7 @@ public class Autamatic : MonoBehaviour
         isReloading = true;
         Debug.Log("Reloading");
         shootAnim.SetBool("Shooting", false);
+
 
         reloadAnim.SetBool("Reloading", true);
         reloadSymbol.SetActive(true);

@@ -11,6 +11,8 @@ public class FOVController : MonoBehaviour
     public Camera cam;
     public float mainFov = 70f;
 
+    public GameObject StopADS;
+
     void Start()
     {
         cam.fieldOfView = mainFov;
@@ -30,7 +32,11 @@ public class FOVController : MonoBehaviour
             cam.fieldOfView = mainFov + 10f;
             return;
         }
-
+        if(StopADS.activeInHierarchy == true)
+        {
+            Debug.Log("cant ads");
+            return;
+        }
 
         //aiming
         if (Input.GetKeyDown(KeyCode.Mouse1))
