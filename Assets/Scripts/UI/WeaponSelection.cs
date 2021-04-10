@@ -87,7 +87,7 @@ public class WeaponSelection : MonoBehaviour
         Knife.SetActive(false);
         Uzi.SetActive(false);
     }
-    public void Shotgun_Selection()
+    public void Shotgun2_Selection()
     {
         Pistol.SetActive(false);
         Shotgun2.SetActive(true);
