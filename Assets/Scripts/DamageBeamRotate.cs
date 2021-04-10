@@ -11,4 +11,14 @@ public class DamageBeamRotate : MonoBehaviour
     {
         transform.Rotate(Vector3.up * Time.deltaTime * speed);
     }
+    void OnTriggerEnter(Collider other)
+    {
+
+        //the hit needs to be when it collids cuz it aint using raycast
+        //Health player = hit.transform.GetComponent<Health>();
+        //if (player != null)
+        //{
+        //    player.TakeDamage(damage);
+        //}
+    }
 }

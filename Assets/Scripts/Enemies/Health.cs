@@ -31,7 +31,6 @@ public class Health : MonoBehaviour
     }
     public void SetHealthBar(float myHealth)
     {
-        //myHealth value 0-1
         healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 }
