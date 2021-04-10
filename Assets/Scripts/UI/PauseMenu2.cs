@@ -12,6 +12,8 @@ public class PauseMenu2 : MonoBehaviour
     public GameObject Equipment;
     public GameObject Settings;
 
+    public GameObject weaponInfo;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -40,6 +42,8 @@ public class PauseMenu2 : MonoBehaviour
         GameISPaused = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+
+        weaponInfo.SetActive(true);
         Debug.Log("resume");
     }
 
@@ -54,6 +58,7 @@ public class PauseMenu2 : MonoBehaviour
 
         Time.timeScale = 0f;
 
+        weaponInfo.SetActive(false);
         Settings.SetActive(false);
         Equipment.SetActive(false);
     }

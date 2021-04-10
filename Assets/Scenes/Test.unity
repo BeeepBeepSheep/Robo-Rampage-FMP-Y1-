@@ -3100,13 +3100,13 @@ MonoBehaviour:
   AR: {fileID: 297992663}
   Minigun: {fileID: 459203136}
   Sniper: {fileID: 1460771815}
-  Lmg: {fileID: 0}
-  Rifle: {fileID: 0}
-  Shotgun1: {fileID: 0}
+  Lmg: {fileID: 1038371495}
+  Rifle: {fileID: 534691565}
+  Shotgun1: {fileID: 663069649}
   Pistol: {fileID: 1248351556}
-  Shotgun2: {fileID: 0}
+  Shotgun2: {fileID: 904646601}
   Knife: {fileID: 181071541}
-  Uzi: {fileID: 0}
+  Uzi: {fileID: 950049687}
 --- !u!1 &78629618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1765116360898588, guid: bdd91695cfcf4b643963af1fce587ef5,
@@ -12531,11 +12531,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198359171}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -493, y: -391, z: 0}
+  m_LocalPosition: {x: -231.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 366160308}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &203871192
 PrefabInstance:
@@ -21605,7 +21605,6 @@ RectTransform:
   - {fileID: 1303080168}
   - {fileID: 825564360}
   - {fileID: 1207787462}
-  - {fileID: 198359174}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21629,6 +21628,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1303080167}
   Equipment: {fileID: 78091056}
   Settings: {fileID: 1871819458}
+  weaponInfo: {fileID: 825564359}
 --- !u!1 &372479394
 GameObject:
   m_ObjectHideFlags: 0
@@ -98422,7 +98422,7 @@ GameObject:
   - component: {fileID: 1992131628}
   - component: {fileID: 1992131627}
   m_Layer: 5
-  m_Name: Equipment
+  m_Name: EquipmentButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
