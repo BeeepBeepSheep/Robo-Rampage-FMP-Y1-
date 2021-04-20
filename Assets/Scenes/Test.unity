@@ -69710,10 +69710,10 @@ GameObject:
   - component: {fileID: 2058579434}
   - component: {fileID: 2058579433}
   - component: {fileID: 2058579432}
+  - component: {fileID: 2058579435}
   - component: {fileID: 2058579431}
   - component: {fileID: 2058579430}
   - component: {fileID: 2058579429}
-  - component: {fileID: 2058579435}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -69845,7 +69845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ae0b51bf5d49c4c93261d1233d7575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 7
   attacking: 0
   animator: {fileID: 5105906}
   player1: {fileID: 134493272}

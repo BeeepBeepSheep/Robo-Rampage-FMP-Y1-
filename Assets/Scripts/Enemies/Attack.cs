@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public float damage = 10f;
+    public float damage = 0f;
     public bool attacking;
     public Animator animator;
     public GameObject player1;
@@ -27,12 +27,12 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(.50f);
         damageIndicator.SetActive(true);
 
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.35f);
         Health player = player1.GetComponent<Health>();
         player.TakeDamage(damage);
         Debug.Log("takes damage");
 
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.15f);
         damageIndicator.SetActive(false);
         attacking = false;
     }
