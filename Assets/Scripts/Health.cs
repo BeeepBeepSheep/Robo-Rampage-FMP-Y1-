@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float currantHealth = 0f;
     public float maxHealth = 100f;
-
     public GameObject healthBar;
-
+    public Text healthDisplay;
     void Start()
     {
         currantHealth = maxHealth;
+    }
+    private void Update()
+    {
+        healthDisplay.text = currantHealth.ToString();
     }
     public void TakeDamage(float amount)
     {
