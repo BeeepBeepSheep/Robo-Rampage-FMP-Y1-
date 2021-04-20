@@ -44,7 +44,10 @@ public class Health : MonoBehaviour
     }
     void Die()
     {
-        Destroy(gameObject);
+        if (gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
     public void SetHealthBar(float myHealth)
     {
