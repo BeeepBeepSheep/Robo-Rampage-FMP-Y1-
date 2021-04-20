@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public float damage = 0f;
+    public float damage;
     public bool attacking;
     public Animator animator;
     public GameObject player1;
     public GameObject damageIndicator;
 
+    public float minDamage;
+    public float maxDamage;
+    void Start()
+    {
+        //damage = Random.Range(5f, 10f);
+    }
     void Update()
     {
+        damage = Random.Range(minDamage, maxDamage);
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_Arm_1"))
         {
             if (attacking)
