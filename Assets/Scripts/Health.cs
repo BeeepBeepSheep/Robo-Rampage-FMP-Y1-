@@ -20,21 +20,22 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currantHealth -= amount;
-
-        float calcHealth = currantHealth / maxHealth;
-        //SetHealthBar(calcHealth);
-
-        if(currantHealth <= 0f)
+        if (currantHealth <= 0f)
         {
             Die();
+        }
+        if (gameObject.tag == "Enemy")
+        {
+            float calcHealth = currantHealth / maxHealth;
+            SetHealthBar(calcHealth);
         }
     }
     void Die()
     {
         Destroy(gameObject);
     }
-    //public void SetHealthBar(float myHealth)
-    //{
-    //    healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
-    //}
+    public void SetHealthBar(float myHealth)
+    {
+        healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+    }
 }

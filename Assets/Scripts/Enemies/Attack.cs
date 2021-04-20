@@ -22,11 +22,11 @@ public class Attack : MonoBehaviour
     IEnumerator DoDamage()
     {
         attacking = true;
-        yield return new WaitForSeconds(.7f);
+        yield return new WaitForSeconds(.75f);
         Health player = player1.GetComponent<Health>();
         player.TakeDamage(damage);
         Debug.Log("takes damage");
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.25f);
 
         attacking = false;
     }
