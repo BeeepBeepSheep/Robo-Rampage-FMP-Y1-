@@ -73,11 +73,14 @@ public class PauseMenu2 : MonoBehaviour
     {
         Debug.Log("Open settings");
         Settings.SetActive(true);
+        Equipment.SetActive(false);
     }
     public void OpenEquipment()
     {
         Debug.Log("Open Equipment");
         Equipment.SetActive(true);
+        Settings.SetActive(false);
+
     }
     public void QuitToDesktop()
     {

@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     public GameObject healthBar;
     public Text healthDisplay;
+    public GameObject lowHealthIndicator;
     void Start()
     {
         currantHealth = maxHealth;
@@ -18,6 +19,14 @@ public class Health : MonoBehaviour
         if (gameObject.tag == "Player")
         {
             healthDisplay.text = currantHealth.ToString();
+            if (currantHealth <= 25f)
+            {
+                lowHealthIndicator.SetActive(true);
+            }
+            else
+            {
+                lowHealthIndicator.SetActive(false);
+            }
         }
     }
     public void TakeDamage(float amount)

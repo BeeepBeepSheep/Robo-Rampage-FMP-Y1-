@@ -8,6 +8,8 @@ public class Attack : MonoBehaviour
     public bool attacking;
     public Animator animator;
     public GameObject player1;
+    public GameObject damageIndicator;
+
     void Update()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_Arm_1"))
@@ -22,12 +24,16 @@ public class Attack : MonoBehaviour
     IEnumerator DoDamage()
     {
         attacking = true;
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(.50f);
+        damageIndicator.SetActive(true);
+
+        yield return new WaitForSeconds(.25f);
         Health player = player1.GetComponent<Health>();
         player.TakeDamage(damage);
         Debug.Log("takes damage");
-        yield return new WaitForSeconds(.25f);
 
+        yield return new WaitForSeconds(.25f);
+        damageIndicator.SetActive(false);
         attacking = false;
     }
 }
