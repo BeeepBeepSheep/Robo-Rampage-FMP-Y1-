@@ -17,7 +17,6 @@ public class DamageBeamRotate : MonoBehaviour
         if (player != null)
         {
             player.TakeDamage(damage);
-            Debug.Log("Hit?");
         }
     }
 }
