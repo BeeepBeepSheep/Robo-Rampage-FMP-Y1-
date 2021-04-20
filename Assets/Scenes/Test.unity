@@ -1782,7 +1782,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27460,7 +27459,7 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   HitReg: {fileID: 1207787465}
   maxAmmo: 2
-  reloadTime: 1.5
+  reloadTime: 2
   ammoDisplay: {fileID: 2025754718}
   shootAnim: {fileID: 646438517}
   reloadAnim: {fileID: 646438517}
