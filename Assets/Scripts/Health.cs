@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
         currantHealth -= amount;
 
         float calcHealth = currantHealth / maxHealth;
-        SetHealthBar(calcHealth);
+        //SetHealthBar(calcHealth);
 
         if(currantHealth <= 0f)
         {
@@ -33,8 +33,8 @@ public class Health : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    public void SetHealthBar(float myHealth)
-    {
-        healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
-    }
+    //public void SetHealthBar(float myHealth)
+    //{
+    //    healthBar.transform.localScale = new Vector3(myHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+    //}
 }

@@ -22,6 +22,7 @@ public class Attack : MonoBehaviour
     IEnumerator DoDamage()
     {
         attacking = true;
+        yield return new WaitForSeconds(.7f);
         Health player = player1.GetComponent<Health>();
         player.TakeDamage(damage);
         Debug.Log("takes damage");
