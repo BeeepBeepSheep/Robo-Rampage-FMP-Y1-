@@ -12,6 +12,8 @@ public class PauseMenu2 : MonoBehaviour
     public GameObject Equipment;
     public GameObject Settings;
 
+    public GameObject player;
+
     public GameObject weaponInfo;
 
     void Update()
@@ -39,9 +41,12 @@ public class PauseMenu2 : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        player.SetActive(true);
+
         GameISPaused = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+
 
         weaponInfo.SetActive(true);
         Debug.Log("resume");
@@ -52,6 +57,8 @@ public class PauseMenu2 : MonoBehaviour
         Debug.Log("pause");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        player.SetActive(false);
 
         GameISPaused = true;
         pauseMenuUI.SetActive(true);

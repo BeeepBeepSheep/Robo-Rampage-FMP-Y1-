@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - ADS
   - HIP
+  - Common
+  - Rare
+  - Legendary
   layers:
   - Default
   - TransparentFX
