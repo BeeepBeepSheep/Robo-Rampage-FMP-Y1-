@@ -8,8 +8,7 @@ public class EnemieController : MonoBehaviour
     public float lookRadius = 10f;
     Transform target;
     NavMeshAgent agent;
-
-
+    public GameObject attackField;
     public Animator animController;
     void Start()
     {
@@ -31,7 +30,6 @@ public class EnemieController : MonoBehaviour
             {
                 Attack();
                 FaceTarget();
-
             }
         }
         else
