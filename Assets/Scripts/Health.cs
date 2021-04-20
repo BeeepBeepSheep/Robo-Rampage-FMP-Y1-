@@ -15,7 +15,10 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
-        healthDisplay.text = currantHealth.ToString();
+        if (gameObject.tag == "Player")
+        {
+            healthDisplay.text = currantHealth.ToString();
+        }
     }
     public void TakeDamage(float amount)
     {
