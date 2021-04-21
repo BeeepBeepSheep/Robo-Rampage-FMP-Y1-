@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public GameObject healthBar;
     public Text healthDisplay;
     public GameObject lowHealthIndicator;
+    public GameObject Body;
     void Start()
     {
         currantHealth = maxHealth;
@@ -44,6 +45,10 @@ public class Health : MonoBehaviour
     }
     void Die()
     {
+        if (gameObject.tag == "Head")
+        {
+            Destroy(Body);
+        }
         if (gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
