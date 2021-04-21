@@ -47,11 +47,17 @@ public class Health : MonoBehaviour
     {
         if (gameObject.tag == "Head")
         {
+            KillLogic.kills ++;
             Destroy(Body);
         }
         if (gameObject.tag == "Enemy")
         {
+            KillLogic.kills ++;
             Destroy(gameObject);
+        }
+        if (gameObject.tag == "Player")
+        {
+            //die
         }
     }
     public void SetHealthBar(float myHealth)
