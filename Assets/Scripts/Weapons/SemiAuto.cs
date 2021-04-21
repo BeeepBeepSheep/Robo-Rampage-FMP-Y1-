@@ -18,6 +18,10 @@ public class SemiAuto : MonoBehaviour
     private bool isReloading;
     public Text ammoDisplay;
 
+    public Color Common;
+    public Color Rare;
+    public Color Legendary;
+
     AudioSource gunShot;
     private float nextTimeToFire = 0f;
 
@@ -35,6 +39,19 @@ public class SemiAuto : MonoBehaviour
         isReloading = false;
         reloadAnim.SetBool("Reloading", false);
         reloadSymbol.SetActive(false);
+        //-----
+        if(gameObject.tag == "Common")
+        {
+            ammoDisplay.color = Common;
+        }
+        if (gameObject.tag == "Rare")
+        {
+            ammoDisplay.color = Rare;
+        }
+        if (gameObject.tag == "Legendary")
+        {
+            ammoDisplay.color = Legendary;
+        }
     }
     void Update()
     {

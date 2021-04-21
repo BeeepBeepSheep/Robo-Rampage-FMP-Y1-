@@ -19,6 +19,10 @@ public class Autamatic : MonoBehaviour
     private bool isReloading;
     public Text ammoDisplay;
 
+    public Color Common;
+    public Color Rare;
+    public Color Legendary;
+
     private float nextTimeToFire = 0f;
     public bool isSprinting;
 
@@ -38,6 +42,19 @@ public class Autamatic : MonoBehaviour
         isReloading = false;
         reloadAnim.SetBool("Reloading", false);
         reloadSymbol.SetActive(false);
+
+        if (gameObject.tag == "Common")
+        {
+            ammoDisplay.color = Common;
+        }
+        if (gameObject.tag == "Rare")
+        {
+            ammoDisplay.color = Rare;
+        }
+        if (gameObject.tag == "Legendary")
+        {
+            ammoDisplay.color = Legendary;
+        }
     }
     void Update()
     {

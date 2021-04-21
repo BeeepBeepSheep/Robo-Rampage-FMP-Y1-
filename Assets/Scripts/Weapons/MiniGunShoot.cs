@@ -17,6 +17,10 @@ public class MiniGunShoot : MonoBehaviour
     private int currantAmmo;
     public Text ammoDisplay;
 
+    public Color Common;
+    public Color Rare;
+    public Color Legendary;
+
     private float nextTimeToFire = 0f;
     public bool isSprinting;
 
@@ -35,7 +39,19 @@ public class MiniGunShoot : MonoBehaviour
     {
         reloadAnim.SetBool("Reloading", false);
         reloadSymbol.SetActive(false);
-        //max ammo will equil the amount of kill every time u rebuy the weapon
+
+        if (gameObject.tag == "Common")
+        {
+            ammoDisplay.color = Common;
+        }
+        if (gameObject.tag == "Rare")
+        {
+            ammoDisplay.color = Rare;
+        }
+        if (gameObject.tag == "Legendary")
+        {
+            ammoDisplay.color = Legendary;
+        }
     }
     void Update()
     {
