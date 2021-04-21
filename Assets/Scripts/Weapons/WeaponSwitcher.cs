@@ -10,7 +10,10 @@ public class WeaponSwitcher : MonoBehaviour
 
     public bool PrimaryActive;
 
-
+    void Start()
+    {
+        SwitchToSecondary();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
