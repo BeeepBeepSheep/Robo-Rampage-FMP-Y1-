@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class OutOfBounds : MonoBehaviour
 {
+    public GameObject player1;
     private void OnTriggerEnter(Collider reload)
     {
-        Debug.Log("Restarted due to fall");
+        Health player = player1.GetComponent<Health>();
+        player.TakeDamage(100);
+    }
+    public void Restart()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

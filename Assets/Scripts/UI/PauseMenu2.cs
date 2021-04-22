@@ -8,6 +8,7 @@ public class PauseMenu2 : MonoBehaviour
 {
     public static bool GameISPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject tabDeathMenu;
 
     public GameObject Equipment;
     public GameObject Settings;
@@ -47,6 +48,7 @@ public class PauseMenu2 : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
 
+        tabDeathMenu.SetActive(false);
 
         weaponInfo.SetActive(true);
         Debug.Log("resume");
@@ -64,6 +66,8 @@ public class PauseMenu2 : MonoBehaviour
         pauseMenuUI.SetActive(true);
 
         Time.timeScale = 0f;
+
+        tabDeathMenu.SetActive(false);
 
         weaponInfo.SetActive(false);
         Settings.SetActive(false);

@@ -25,6 +25,7 @@ public class WeaponSelection : MonoBehaviour
         Lmg.SetActive(false);
         Rifle.SetActive(false);
         Shotgun1.SetActive(false);
+
     }
     public void Minigun_Selection()
     {
@@ -34,6 +35,7 @@ public class WeaponSelection : MonoBehaviour
         Lmg.SetActive(false);
         Rifle.SetActive(false);
         Shotgun1.SetActive(false);
+
     }
     public void Sniper_Selection()
     {
@@ -43,6 +45,7 @@ public class WeaponSelection : MonoBehaviour
         Lmg.SetActive(false);
         Rifle.SetActive(false);
         Shotgun1.SetActive(false);
+
     }
     public void LMG_Selection()
     {
@@ -52,6 +55,7 @@ public class WeaponSelection : MonoBehaviour
         Lmg.SetActive(true);
         Rifle.SetActive(false);
         Shotgun1.SetActive(false);
+
     }
     public void Rifle_Selection()
     {
@@ -61,6 +65,7 @@ public class WeaponSelection : MonoBehaviour
         Lmg.SetActive(false);
         Rifle.SetActive(true);
         Shotgun1.SetActive(false);
+
     }
     public void Shotgun1_Selection()
     {
@@ -70,6 +75,7 @@ public class WeaponSelection : MonoBehaviour
         Lmg.SetActive(false);
         Rifle.SetActive(false);
         Shotgun1.SetActive(true);
+
     }
 
 
@@ -79,6 +85,7 @@ public class WeaponSelection : MonoBehaviour
         Shotgun2.SetActive(false);
         Knife.SetActive(true);
         Uzi.SetActive(false);
+
     }
     public void Pistol_Selection()
     {
@@ -86,6 +93,7 @@ public class WeaponSelection : MonoBehaviour
         Shotgun2.SetActive(false);
         Knife.SetActive(false);
         Uzi.SetActive(false);
+
     }
     public void Shotgun2_Selection()
     {
@@ -93,6 +101,7 @@ public class WeaponSelection : MonoBehaviour
         Shotgun2.SetActive(true);
         Knife.SetActive(false);
         Uzi.SetActive(false);
+
     }
     public void Uzi_Selection()
     {
@@ -100,5 +109,6 @@ public class WeaponSelection : MonoBehaviour
         Shotgun2.SetActive(false);
         Knife.SetActive(false);
         Uzi.SetActive(true);
+
     }
 }

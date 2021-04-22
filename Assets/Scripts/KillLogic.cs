@@ -9,6 +9,9 @@ public class KillLogic : MonoBehaviour
     public TextMeshProUGUI KillCounter;
     public static int kills;
 
+
+
+
     void Start()
     {
         kills = 0;
@@ -16,8 +19,6 @@ public class KillLogic : MonoBehaviour
 
     void Update()
     {
-
-
         KillCounter.text = kills.ToString();
     }
 }

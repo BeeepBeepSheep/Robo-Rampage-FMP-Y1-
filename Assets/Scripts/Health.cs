@@ -10,10 +10,15 @@ public class Health : MonoBehaviour
     public GameObject healthBar;
     public Text healthDisplay;
     public GameObject lowHealthIndicator;
-    public GameObject Body;
+    public GameObject body;
+    public GameObject deathMenu;
     void Start()
     {
         currantHealth = maxHealth;
+        if (gameObject.tag == "Player")
+        {
+            deathMenu.SetActive(false);
+        }
     }
     private void Update()
     {
@@ -35,6 +40,7 @@ public class Health : MonoBehaviour
         currantHealth -= amount;
         if (currantHealth <= 0f)
         {
+            PlayerDie();
             Die();
         }
         if (gameObject.tag == "Enemy")
@@ -47,17 +53,22 @@ public class Health : MonoBehaviour
     {
         if (gameObject.tag == "Head")
         {
-            KillLogic.kills ++;
-            Destroy(Body);
+            KillLogic.kills++;
+            Destroy(body);
         }
         if (gameObject.tag == "Enemy")
         {
-            KillLogic.kills ++;
+            KillLogic.kills++;
             Destroy(gameObject);
         }
+    }
+    public void PlayerDie()
+    {
         if (gameObject.tag == "Player")
         {
-            //die
+            deathMenu.SetActive(true);
+            Destroy(body);
+            return;
         }
     }
     public void SetHealthBar(float myHealth)
