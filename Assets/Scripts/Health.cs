@@ -15,14 +15,14 @@ public class Health : MonoBehaviour
     void Start()
     {
         currantHealth = maxHealth;
-        if (gameObject.tag == "Player")
+        if (gameObject.tag == "PlayerCapsual")
         {
             deathMenu.SetActive(false);
         }
     }
     private void Update()
     {
-        if (gameObject.tag == "Player")
+        if (gameObject.tag == "PlayerCapsual")
         {
             healthDisplay.text = currantHealth.ToString("0");
             if (currantHealth <= 25f)
@@ -68,7 +68,7 @@ public class Health : MonoBehaviour
     }
     public void PlayerDie()
     {
-        if (gameObject.tag == "Player")
+        if (gameObject.tag == "PlayerCapsual")
         {
             deathMenu.SetActive(true);
             Destroy(body);

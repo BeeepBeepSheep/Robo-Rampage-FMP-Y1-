@@ -12,6 +12,9 @@ TagManager:
   - Common
   - Rare
   - Legendary
+  - DeadEnemy
+  - PlayerCapsual
+  - DamageIndicator
   layers:
   - Default
   - TransparentFX

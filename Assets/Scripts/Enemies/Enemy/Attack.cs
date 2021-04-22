@@ -8,13 +8,14 @@ public class Attack : MonoBehaviour
     public bool attacking;
     public Animator animator;
     public GameObject player1;
-    public GameObject damageIndicator;
+    //public GameObject damageIndicator;
 
     public float minDamage;
     public float maxDamage;
     void Start()
     {
-        //damage = Random.Range(5f, 10f);
+        player1 = GameObject.FindGameObjectWithTag("PlayerCapsual");
+        //damageIndicator = GameObject.FindGameObjectWithTag("DamageIndicator");
     }
     void Update()
     {
@@ -32,7 +33,7 @@ public class Attack : MonoBehaviour
     {
         attacking = true;
         yield return new WaitForSeconds(.50f);
-        damageIndicator.SetActive(true);
+        //damageIndicator.SetActive(true);
 
         yield return new WaitForSeconds(.35f);
         Health player = player1.GetComponent<Health>();
@@ -40,7 +41,7 @@ public class Attack : MonoBehaviour
         Debug.Log("takes damage");
 
         yield return new WaitForSeconds(.15f);
-        damageIndicator.SetActive(false);
+        //damageIndicator.SetActive(false);
         attacking = false;
     }
 }

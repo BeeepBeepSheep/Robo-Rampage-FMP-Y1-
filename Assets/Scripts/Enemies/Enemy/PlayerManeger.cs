@@ -13,6 +13,9 @@ public class PlayerManeger : MonoBehaviour
         instance = this;
     }
     #endregion
-
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     public GameObject player;
 }
