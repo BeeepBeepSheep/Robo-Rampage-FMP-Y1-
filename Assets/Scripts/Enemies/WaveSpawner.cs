@@ -28,9 +28,17 @@ public class WaveSpawner : MonoBehaviour
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         if(totalEnemies.Length == 0 && !canSpawn && currantWaveNumber+1 != waves.Length)
         {
-            currantWaveNumber ++;
+            KillLogic.wave++;
+            currantWaveNumber++;
             canSpawn = true;
+            //waves.length is total waves
         }
+        
+    }
+    void SpawnNextWave()
+    {
+        currantWaveNumber++;
+        canSpawn = true;
     }
     void SpawnWave()
     {
