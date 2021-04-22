@@ -16,7 +16,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPonts;
 
     private Wave currantWave;
-    private int currantWaveNumber;
+    public int currantWaveNumber;
     private float nextSpawnTime;
 
     private bool canSpawn = true;
@@ -26,7 +26,7 @@ public class WaveSpawner : MonoBehaviour
         currantWave = waves[currantWaveNumber];
         SpawnWave();
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if(totalEnemies.Length == 0 && !canSpawn)
+        if(totalEnemies.Length == 0 && !canSpawn && currantWaveNumber+1 != waves.Length)
         {
             currantWaveNumber ++;
             canSpawn = true;
