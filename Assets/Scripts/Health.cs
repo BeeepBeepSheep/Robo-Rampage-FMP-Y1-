@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     {
         if (gameObject.tag == "Player")
         {
-            healthDisplay.text = currantHealth.ToString();
+            healthDisplay.text = currantHealth.ToString("0");
             if (currantHealth <= 25f)
             {
                 lowHealthIndicator.SetActive(true);
