@@ -48,7 +48,7 @@ public class PauseMenu2 : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
 
-        tabDeathMenu.SetActive(false);
+        //tabDeathMenu.SetActive(false);
 
         weaponInfo.SetActive(true);
         Debug.Log("resume");
@@ -67,7 +67,7 @@ public class PauseMenu2 : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        tabDeathMenu.SetActive(false);
+        //tabDeathMenu.SetActive(false);
 
         weaponInfo.SetActive(false);
         Settings.SetActive(false);
