@@ -12,5 +12,40 @@ public class Wave
 }
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] Wave[] waves;
+    public Wave[] waves;
+    public Transform[] spawnPonts;
+
+    private Wave currantWave;
+    private int currantWaveNumber;
+    private float nextSpawnTime;
+
+    private bool canSpawn = true;
+
+    private void Update()
+    {
+        currantWave = waves[currantWaveNumber];
+        SpawnWave();
+        GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if(totalEnemies.Length == 0 && !canSpawn)
+        {
+            currantWaveNumber ++;
+            canSpawn = true;
+        }
+    }
+    void SpawnWave()
+    {
+        if(canSpawn && nextSpawnTime < Time.time)
+        {
+            GameObject randomEnemy = currantWave.typeOfEnemies[Random.Range(0, currantWave.typeOfEnemies.Length)];
+            Transform randomPoint = spawnPonts[Random.Range(0, spawnPonts.Length)];
+            Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
+            currantWave.numberOfEnemes--;
+            nextSpawnTime = Time.time + currantWave.spawnInterval;
+
+            if(currantWave.numberOfEnemes == 0)
+            {
+                canSpawn = false;
+            }
+        }
+    }
 }
