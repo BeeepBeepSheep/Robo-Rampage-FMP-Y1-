@@ -58560,17 +58560,13 @@ MonoBehaviour:
   waves:
   - waveName: Wave1
     numberOfEnemes: 4
-    typeOfEnemies:
-    - {fileID: 1608452622674065494, guid: bb6bf6e26fe5e0b4abd60d6d75b3daf0, type: 3}
-    spawnInterval: 0
-  - waveName: Wave2
-    numberOfEnemes: 8
-    typeOfEnemies:
-    - {fileID: 1608452622674065494, guid: bb6bf6e26fe5e0b4abd60d6d75b3daf0, type: 3}
-    spawnInterval: 0
-  spawnPonts:
-  - {fileID: 1928036007}
-  - {fileID: 500480552}
+    spawnInterval: 0.5
+  - waveName: Wave1
+    numberOfEnemes: 4
+    spawnInterval: 0.5
+  spawnPoint: {fileID: 500480552}
+  enemieType: {fileID: 1608452622674065494, guid: bb6bf6e26fe5e0b4abd60d6d75b3daf0,
+    type: 3}
   currantWaveNumber: 0
 --- !u!43 &1708752854
 Mesh:
@@ -65719,36 +65715,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!1 &1928036006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1928036007}
-  m_Layer: 0
-  m_Name: ' (2)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1928036007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928036006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2101487105}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928080598
 GameObject:
   m_ObjectHideFlags: 0
@@ -69391,7 +69357,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 500480552}
-  - {fileID: 1928036007}
   m_Father: {fileID: 1704519898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
