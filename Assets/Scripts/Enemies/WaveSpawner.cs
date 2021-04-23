@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
@@ -28,15 +29,16 @@ public class WaveSpawner : MonoBehaviour
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         if(totalEnemies.Length == 0 && !canSpawn && currantWaveNumber+1 != waves.Length)
         {
-            //if its final wave repeat final wave
             //play animation first use anim even
             SpawnNextWave();
             //waves.length is total waves
         }
-        
+        Array.Resize(ref waves, waves.Length + 1);
+
     }
     void SpawnNextWave()
     {
+        //Array.Resize(ref waves, waves.Length + 1);
         KillLogic.wave++;
         currantWaveNumber++;
         canSpawn = true;
