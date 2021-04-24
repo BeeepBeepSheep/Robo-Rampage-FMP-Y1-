@@ -23,6 +23,8 @@ public class KillLogic : MonoBehaviour
     public GameObject unlockedRare;
     public GameObject unlockedLegendary;
 
+
+    public Animator animator;
     public bool doneCommonNotification;
     public bool doneRareNotification;
     public bool doneLegendaryNotification;
@@ -30,6 +32,11 @@ public class KillLogic : MonoBehaviour
     {
         kills = 0;
         wave = 1;
+
+        doneCommonNotification = false;
+        doneRareNotification = false;
+        doneLegendaryNotification = false;
+
         if (gameObject.tag == "Canvas")
         {
             //Debug.Log("test");
@@ -49,22 +56,40 @@ public class KillLogic : MonoBehaviour
         {
             if (kills >= killsForCommon)
             {
-                //Debug.Log("test2");
                 //Debug.Log("can use common");
                 unlockedCommon.SetActive(true);
                 lockedCommon.SetActive(false);
+
+                if (!doneCommonNotification)
+                {
+                    animator.SetTrigger("CommonNotification");
+                }
+                doneCommonNotification = true;
             }
             if (kills >= killsForRare)
             {
                 //Debug.Log("can use rare");
                 unlockedRare.SetActive(true);
                 lockedRare.SetActive(false);
+
+                if (!doneRareNotification)
+                {
+                    animator.SetTrigger("RareNotification");
+                }
+                doneRareNotification = true;
             }
             if (kills >= killsForLegendary)
             {
                 //Debug.Log("can use legendary");
                 unlockedLegendary.SetActive(true);
                 lockedLegendary.SetActive(false);
+
+                if (!doneLegendaryNotification)
+                {
+                    animator.SetTrigger("LegendaryNotification");
+
+                }
+                doneLegendaryNotification = true;
             }
         }
         KillCounter.text = kills.ToString();

@@ -14600,6 +14600,7 @@ MonoBehaviour:
   unlockedCommon: {fileID: 490943419}
   unlockedRare: {fileID: 185636982}
   unlockedLegendary: {fileID: 311002645}
+  animator: {fileID: 366160311}
   doneCommonNotification: 0
   doneRareNotification: 0
   doneLegendaryNotification: 0
@@ -62058,6 +62059,7 @@ MonoBehaviour:
   unlockedCommon: {fileID: 0}
   unlockedRare: {fileID: 0}
   unlockedLegendary: {fileID: 0}
+  animator: {fileID: 0}
   doneCommonNotification: 0
   doneRareNotification: 0
   doneLegendaryNotification: 0
