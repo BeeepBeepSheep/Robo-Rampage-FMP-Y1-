@@ -11,8 +11,6 @@ public class KillLogic : MonoBehaviour
     public static int kills;
     public static int wave;
 
-
-
     void Start()
     {
         kills = 0;

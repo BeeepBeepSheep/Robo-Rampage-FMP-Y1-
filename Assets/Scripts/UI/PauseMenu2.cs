@@ -51,12 +51,12 @@ public class PauseMenu2 : MonoBehaviour
         //tabDeathMenu.SetActive(false);
 
         weaponInfo.SetActive(true);
-        Debug.Log("resume");
+        //Debug.Log("resume");
     }
 
     public void Pause()
     {
-        Debug.Log("pause");
+        //Debug.Log("pause");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -75,13 +75,13 @@ public class PauseMenu2 : MonoBehaviour
     }
     public void OpenSettings()
     {
-        Debug.Log("Open settings");
+        //Debug.Log("Open settings");
         Settings.SetActive(true);
         Equipment.SetActive(false);
     }
     public void OpenEquipment()
     {
-        Debug.Log("Open Equipment");
+        //Debug.Log("Open Equipment");
         Equipment.SetActive(true);
         Settings.SetActive(false);
 

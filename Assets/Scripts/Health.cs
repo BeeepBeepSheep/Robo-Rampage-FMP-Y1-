@@ -56,14 +56,14 @@ public class Health : MonoBehaviour
             body.tag = "Enemy";
             KillLogic.kills++;
             body.SetActive(false);
-            //Destroy(body);
+            Destroy(body, 1f);
         }
         if (gameObject.tag == "Enemy")
         {
             gameObject.tag = "DeadEnemy";
             KillLogic.kills++;
             gameObject.SetActive(false);
-            //Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
     public void PlayerDie()

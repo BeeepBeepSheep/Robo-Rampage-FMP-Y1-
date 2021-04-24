@@ -84,7 +84,7 @@ public class Autamatic : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Reloading");
+        //Debug.Log("Reloading");
         shootAnim.SetBool("Shooting", false);
 
         reloadAnim.SetBool("Reloading", true);

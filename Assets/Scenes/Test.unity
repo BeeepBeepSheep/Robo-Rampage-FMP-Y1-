@@ -58554,20 +58554,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704519897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728ba77c7ff5c794a90a13b68af01484, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8de804265cb44eaeb0dc55faa5cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - waveName: Wave1
-    numberOfEnemes: 4
-    spawnInterval: 0.5
-  - waveName: Wave1
-    numberOfEnemes: 4
-    spawnInterval: 0.5
-  spawnPoint: {fileID: 500480552}
-  enemieType: {fileID: 1608452622674065494, guid: bb6bf6e26fe5e0b4abd60d6d75b3daf0,
+  enemyPrefab: {fileID: 3777656907830626585, guid: f9282375f2ce3e940ae53ee9e730ad43,
     type: 3}
-  currantWaveNumber: 0
+  timeBetweenEnemySpawn: 0
+  timeBetweenWaves: 5
+  spawnPoints:
+  - {fileID: 500480552}
 --- !u!43 &1708752854
 Mesh:
   m_ObjectHideFlags: 0
