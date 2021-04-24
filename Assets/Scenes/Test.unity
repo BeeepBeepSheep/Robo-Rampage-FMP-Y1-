@@ -18705,6 +18705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581068152}
   - component: {fileID: 581068155}
+  - component: {fileID: 581068156}
   - component: {fileID: 581068154}
   - component: {fileID: 581068153}
   m_Layer: 10
@@ -18812,6 +18813,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &581068156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581068151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a175d8769efa2bb47924d1c39c8023b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &593246165
 GameObject:
   m_ObjectHideFlags: 0
@@ -31082,8 +31095,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 242}
-  m_SizeDelta: {x: 360, y: 100}
+  m_AnchoredPosition: {x: -380, y: 242}
+  m_SizeDelta: {x: 380, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1041297255
 MonoBehaviour:
@@ -33075,7 +33088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Equipment Available
+  m_Text: New Equipment Available ! (Esc)
 --- !u!222 &1189972884
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48731,8 +48744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 242}
-  m_SizeDelta: {x: 360, y: 100}
+  m_AnchoredPosition: {x: -380, y: 242}
+  m_SizeDelta: {x: 380, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1220415005
 MonoBehaviour:
@@ -52747,7 +52760,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Equipment Available
+  m_Text: New Equipment Available ! (Esc)
 --- !u!222 &1380711073
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -67388,8 +67401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 242}
-  m_SizeDelta: {x: 360, y: 100}
+  m_AnchoredPosition: {x: -380, y: 242}
+  m_SizeDelta: {x: 380, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1885610179
 MonoBehaviour:
@@ -69229,7 +69242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Equipment Available
+  m_Text: New Equipment Available ! (Esc)
 --- !u!222 &1948491505
 CanvasRenderer:
   m_ObjectHideFlags: 0
