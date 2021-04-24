@@ -31,7 +31,7 @@ public class InfiniteAmmoSemi : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            shootAnim.SetBool("Shooting", false);
+            shootAnim.SetBool("Stabbing", false);
         }
     }
 
@@ -58,6 +58,6 @@ public class InfiniteAmmoSemi : MonoBehaviour
             GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGameObject, 2f);
         }
-        shootAnim.SetBool("Shooting", true);
+        shootAnim.SetBool("Stabbing", true);
     }
 }
