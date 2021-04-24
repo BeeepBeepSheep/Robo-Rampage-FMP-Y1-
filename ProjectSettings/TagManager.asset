@@ -15,6 +15,7 @@ TagManager:
   - DeadEnemy
   - PlayerCapsual
   - DamageIndicator
+  - Canvas
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,7 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(.35f);
         Health player = player1.GetComponent<Health>();
         player.TakeDamage(damage);
-        Debug.Log("takes damage");
+        //Debug.Log("takes damage");
 
         yield return new WaitForSeconds(.15f);
         //damageIndicator.SetActive(false);

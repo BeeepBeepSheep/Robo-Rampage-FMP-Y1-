@@ -42,7 +42,7 @@ public class InfiniteAmmoSemi : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
             Health enemy = hit.transform.GetComponent<Health>();
             if (enemy != null)
