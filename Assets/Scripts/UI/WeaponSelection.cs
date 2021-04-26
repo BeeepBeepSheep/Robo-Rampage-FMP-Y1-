@@ -16,6 +16,8 @@ public class WeaponSelection : MonoBehaviour
     public GameObject Knife;
     public GameObject Uzi;
 
+    public GameObject Heal;
+
 
     public void AR_Selection()
     {
@@ -77,8 +79,7 @@ public class WeaponSelection : MonoBehaviour
         Shotgun1.SetActive(true);
 
     }
-
-
+    //-----------------------------
     public void Knife_Selection()
     {
         Pistol.SetActive(false);
@@ -110,5 +111,10 @@ public class WeaponSelection : MonoBehaviour
         Knife.SetActive(false);
         Uzi.SetActive(true);
 
+    }
+    //-----------------------------
+    public void Heal_Selection()
+    {
+        Heal.SetActive(true);
     }
 }

@@ -9,7 +9,7 @@ public class OutOfBounds : MonoBehaviour
     private void OnTriggerEnter(Collider reload)
     {
         Health player = player1.GetComponent<Health>();
-        player.TakeDamage(100);
+        player.TakeDamage(1000000);
     }
     public void Restart()
     {
