@@ -14,6 +14,7 @@ public class SpawnWaves : MonoBehaviour
 
     bool spawningWave;
 
+    public Animator anim;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class SpawnWaves : MonoBehaviour
     IEnumerator SpawnEnemyWave(int enemiesToSpawn)
     {
         spawningWave = true;
+        anim.SetBool("NewWave", true);
         yield return new WaitForSeconds(timeBetweenWaves); //We wait here to pause between wave spawning
         for (int i = 0; i < enemiesToSpawn; i++)
         {
@@ -42,5 +44,6 @@ public class SpawnWaves : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenEnemySpawn); //We wait here to give a bit of time between each enemy spawn
         }
         spawningWave = false;
+        anim.SetBool("NewWave", false);
     }
 }
