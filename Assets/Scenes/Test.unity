@@ -1830,7 +1830,7 @@ MonoBehaviour:
   superHeal: {fileID: 2003242931}
   healAmmountIcon: {fileID: 280342682}
   grenadeIcon: {fileID: 1069159511}
-  superHealAmmountIcon: {fileID: 0}
+  superHealAmmountIcon: {fileID: 1261313951}
 --- !u!1 &86068072
 GameObject:
   m_ObjectHideFlags: 0
