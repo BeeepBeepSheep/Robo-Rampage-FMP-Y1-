@@ -15,6 +15,8 @@ public class Heal : MonoBehaviour
 
     public float doHealValue = 1f;
 
+    public GameObject HealingIndicator;
+
     void Start()
     {
         currantHealAmmount = totalHealAmmount;
@@ -22,6 +24,7 @@ public class Heal : MonoBehaviour
     void OnEnable()
     {
         anim.SetBool("IsHealing", false);
+        HealingIndicator.SetActive(false);
     }
     void Update()
     {
@@ -29,6 +32,7 @@ public class Heal : MonoBehaviour
         if (currantHealAmmount <= 0)
         {
             anim.SetBool("IsHealing", false);
+            HealingIndicator.SetActive(false);
             return;
         }
 
@@ -37,6 +41,7 @@ public class Heal : MonoBehaviour
         {
             player.currantHealth = 100f;
             anim.SetBool("IsHealing", false);
+            HealingIndicator.SetActive(false);
             return;
         }
         else
@@ -46,10 +51,12 @@ public class Heal : MonoBehaviour
                 nextTimeToHeal = Time.time + 1f / healRate;
                 IncreaseHealth();
                 anim.SetBool("IsHealing", true);
+                HealingIndicator.SetActive(true);
             }
             if (Input.GetButtonUp("Fire1"))
             {
                 anim.SetBool("IsHealing", false);
+                HealingIndicator.SetActive(false);
             }
         }
     }
