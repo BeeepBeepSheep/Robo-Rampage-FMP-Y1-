@@ -21,6 +21,10 @@ public class WeaponSelection : MonoBehaviour
     public GameObject grenade;
     public GameObject superHeal;
 
+    public GameObject healAmmountIcon;
+    public GameObject grenadeIcon;
+    public GameObject superHealAmmountIcon;
+
     public void AR_Selection()
     {
         ar.SetActive(true);
@@ -132,17 +136,29 @@ public class WeaponSelection : MonoBehaviour
         heal.SetActive(true);
         grenade.SetActive(false);
         superHeal.SetActive(false);
+
+        healAmmountIcon.SetActive(true);
+        grenadeIcon.SetActive(false);
+        superHealAmmountIcon.SetActive(false);
     }
     public void Grenade_Selection()
     {
         heal.SetActive(false);
         grenade.SetActive(true);
         superHeal.SetActive(false);
+
+        healAmmountIcon.SetActive(false);
+        grenadeIcon.SetActive(true);
+        superHealAmmountIcon.SetActive(false);
     }
     public void SuperHeal_Selection()
     {
         heal.SetActive(false);
         grenade.SetActive(false);
         superHeal.SetActive(true);
+
+        healAmmountIcon.SetActive(false);
+        grenadeIcon.SetActive(false);
+        superHealAmmountIcon.SetActive(true);
     }
 }

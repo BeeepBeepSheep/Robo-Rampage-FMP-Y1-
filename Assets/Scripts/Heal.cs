@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
 public class Heal : MonoBehaviour
 {
@@ -8,14 +8,30 @@ public class Heal : MonoBehaviour
     public GameObject player1;
     public float healRate = 5f;
     private float nextTimeToHeal = 0f;
-    public float healAmmount = 1;
 
+    public float totalHealAmmount = 50f;
+    public float currantHealAmmount;
+    public Text healAmmountDisplay;
+
+    public float doHealValue = 1f;
+
+    void Start()
+    {
+        currantHealAmmount = totalHealAmmount;
+    }
     void OnEnable()
     {
         anim.SetBool("IsHealing", false);
     }
     void Update()
     {
+        healAmmountDisplay.text = currantHealAmmount.ToString();
+        if (currantHealAmmount <= 0)
+        {
+            anim.SetBool("IsHealing", false);
+            return;
+        }
+
         Health player = player1.GetComponent<Health>();
         if (player.currantHealth >=100)
         {
@@ -41,8 +57,8 @@ public class Heal : MonoBehaviour
     void IncreaseHealth()
     {
         Debug.Log("healing");
-        //heal player health 
+        currantHealAmmount = currantHealAmmount - doHealValue;
         Health player = player1.GetComponent<Health>();
-        player.TakeDamage(-healAmmount);
+        player.TakeDamage(-doHealValue);
     }
 }
