@@ -18,6 +18,7 @@ public class WeaponSelection : MonoBehaviour
     public GameObject revolvers;
 
     public GameObject heal;
+    public GameObject grenade;
     public GameObject superHeal;
 
     public void AR_Selection()
@@ -129,11 +130,19 @@ public class WeaponSelection : MonoBehaviour
     public void Heal_Selection()
     {
         heal.SetActive(true);
+        grenade.SetActive(false);
+        superHeal.SetActive(false);
+    }
+    public void Grenade_Selection()
+    {
+        heal.SetActive(false);
+        grenade.SetActive(true);
         superHeal.SetActive(false);
     }
     public void SuperHeal_Selection()
     {
         heal.SetActive(false);
+        grenade.SetActive(false);
         superHeal.SetActive(true);
     }
 }
