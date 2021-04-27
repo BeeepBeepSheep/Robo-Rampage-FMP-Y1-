@@ -22152,7 +22152,7 @@ MonoBehaviour:
   Cross: {fileID: 579839705}
   cam: {fileID: 581068155}
   mainFov: 70
-  StopADS: {fileID: 0}
+  StopADS: {fileID: 1885400778}
 --- !u!114 &646438516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22202,7 +22202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TertararyAmmoDisplay: {fileID: 473814455}
   MainAmmoDisplay: {fileID: 627204918}
-  DaulWieldHolder: {fileID: 0}
+  revolvers: {fileID: 1885400778}
 --- !u!1 &663069649
 GameObject:
   m_ObjectHideFlags: 0

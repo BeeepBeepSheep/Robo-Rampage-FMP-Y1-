@@ -7,15 +7,15 @@ public class AmmoDisplayController : MonoBehaviour
     public GameObject TertararyAmmoDisplay;
     public GameObject MainAmmoDisplay;
 
-    public GameObject DaulWieldHolder;
+    public GameObject revolvers;
     void Update()
     {
-        if (DaulWieldHolder.activeInHierarchy == true)
+        if (revolvers.activeInHierarchy == true)
         {
             MainAmmoDisplay.SetActive(false);
             TertararyAmmoDisplay.SetActive(true);
         }
-        if (DaulWieldHolder.activeInHierarchy == false)
+        if (revolvers.activeInHierarchy == false)
         {
             MainAmmoDisplay.SetActive(true);
             TertararyAmmoDisplay.SetActive(false);
