@@ -18645,7 +18645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 45
   range: 51
-  fireRate: 7
+  fireRate: 6
   impactEffect: {fileID: 86068072}
   impactForce: 30
   cam: {fileID: 581068155}
@@ -70237,7 +70237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 45
   range: 51
-  fireRate: 7
+  fireRate: 6
   impactEffect: {fileID: 86068072}
   impactForce: 30
   cam: {fileID: 581068155}
