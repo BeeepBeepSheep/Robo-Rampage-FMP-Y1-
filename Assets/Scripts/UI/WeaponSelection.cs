@@ -4,117 +4,123 @@ using UnityEngine;
 
 public class WeaponSelection : MonoBehaviour
 {
-    public GameObject AR;
-    public GameObject Minigun;
-    public GameObject Sniper;
-    public GameObject Lmg;
-    public GameObject Rifle;
-    public GameObject Shotgun1;
+    public GameObject ar;
+    public GameObject miniGun;
+    public GameObject sniper;
+    public GameObject lmg;
+    public GameObject rifle;
+    public GameObject pumpShotty;
 
-    public GameObject Pistol;
-    public GameObject Shotgun2;
-    public GameObject Knife;
-    public GameObject Uzi;
+    public GameObject pistol;
+    public GameObject sawedShotty;
+    public GameObject knife;
+    public GameObject uzi;
 
-    public GameObject Heal;
-
+    public GameObject heal;
+    public GameObject superHeal;
 
     public void AR_Selection()
     {
-        AR.SetActive(true);
-        Minigun.SetActive(false);
-        Sniper.SetActive(false);
-        Lmg.SetActive(false);
-        Rifle.SetActive(false);
-        Shotgun1.SetActive(false);
+        ar.SetActive(true);
+        miniGun.SetActive(false);
+        sniper.SetActive(false);
+        lmg.SetActive(false);
+        rifle.SetActive(false);
+        pumpShotty.SetActive(false);
 
     }
     public void Minigun_Selection()
     {
-        AR.SetActive(false);
-        Minigun.SetActive(true);
-        Sniper.SetActive(false);
-        Lmg.SetActive(false);
-        Rifle.SetActive(false);
-        Shotgun1.SetActive(false);
+        ar.SetActive(false);
+        miniGun.SetActive(true);
+        sniper.SetActive(false);
+        lmg.SetActive(false);
+        rifle.SetActive(false);
+        pumpShotty.SetActive(false);
 
     }
     public void Sniper_Selection()
     {
-        AR.SetActive(false);
-        Minigun.SetActive(false);
-        Sniper.SetActive(true);
-        Lmg.SetActive(false);
-        Rifle.SetActive(false);
-        Shotgun1.SetActive(false);
+        ar.SetActive(false);
+        miniGun.SetActive(false);
+        sniper.SetActive(true);
+        lmg.SetActive(false);
+        rifle.SetActive(false);
+        pumpShotty.SetActive(false);
 
     }
     public void LMG_Selection()
     {
-        AR.SetActive(false);
-        Minigun.SetActive(false);
-        Sniper.SetActive(false);
-        Lmg.SetActive(true);
-        Rifle.SetActive(false);
-        Shotgun1.SetActive(false);
+        ar.SetActive(false);
+        miniGun.SetActive(false);
+        sniper.SetActive(false);
+        lmg.SetActive(true);
+        rifle.SetActive(false);
+        pumpShotty.SetActive(false);
 
     }
     public void Rifle_Selection()
     {
-        AR.SetActive(false);
-        Minigun.SetActive(false);
-        Sniper.SetActive(false);
-        Lmg.SetActive(false);
-        Rifle.SetActive(true);
-        Shotgun1.SetActive(false);
+        ar.SetActive(false);
+        miniGun.SetActive(false);
+        sniper.SetActive(false);
+        lmg.SetActive(false);
+        rifle.SetActive(true);
+        pumpShotty.SetActive(false);
 
     }
     public void Shotgun1_Selection()
     {
-        AR.SetActive(false);
-        Minigun.SetActive(false);
-        Sniper.SetActive(false);
-        Lmg.SetActive(false);
-        Rifle.SetActive(false);
-        Shotgun1.SetActive(true);
+        ar.SetActive(false);
+        miniGun.SetActive(false);
+        sniper.SetActive(false);
+        lmg.SetActive(false);
+        rifle.SetActive(false);
+        pumpShotty.SetActive(true);
 
     }
     //-----------------------------
     public void Knife_Selection()
     {
-        Pistol.SetActive(false);
-        Shotgun2.SetActive(false);
-        Knife.SetActive(true);
-        Uzi.SetActive(false);
+        pistol.SetActive(false);
+        sawedShotty.SetActive(false);
+        knife.SetActive(true);
+        uzi.SetActive(false);
 
     }
     public void Pistol_Selection()
     {
-        Pistol.SetActive(true);
-        Shotgun2.SetActive(false);
-        Knife.SetActive(false);
-        Uzi.SetActive(false);
+        pistol.SetActive(true);
+        sawedShotty.SetActive(false);
+        knife.SetActive(false);
+        uzi.SetActive(false);
 
     }
     public void Shotgun2_Selection()
     {
-        Pistol.SetActive(false);
-        Shotgun2.SetActive(true);
-        Knife.SetActive(false);
-        Uzi.SetActive(false);
+        pistol.SetActive(false);
+        sawedShotty.SetActive(true);
+        knife.SetActive(false);
+        uzi.SetActive(false);
 
     }
     public void Uzi_Selection()
     {
-        Pistol.SetActive(false);
-        Shotgun2.SetActive(false);
-        Knife.SetActive(false);
-        Uzi.SetActive(true);
+        pistol.SetActive(false);
+        sawedShotty.SetActive(false);
+        knife.SetActive(false);
+        uzi.SetActive(true);
 
     }
     //-----------------------------
     public void Heal_Selection()
     {
-        Heal.SetActive(true);
+        heal.SetActive(true);
+        superHeal.SetActive(false);
+    }
+    public void SuperHeal_Selection()
+    {
+        heal.SetActive(false);
+        superHeal.SetActive(true);
     }
 }
