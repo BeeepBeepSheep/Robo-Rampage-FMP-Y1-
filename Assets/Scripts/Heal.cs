@@ -16,15 +16,24 @@ public class Heal : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToHeal)
-        {
-            nextTimeToHeal = Time.time + 1f / healRate;
-            IncreaseHealth();
-            anim.SetBool("IsHealing", true);
-        }
-        if (Input.GetButtonUp("Fire1"))
+        Health player = player1.GetComponent<Health>();
+        if (player.currantHealth >=100)
         {
             anim.SetBool("IsHealing", false);
+            return;
+        }
+        else
+        {
+            if (Input.GetButton("Fire1") && Time.time >= nextTimeToHeal)
+            {
+                nextTimeToHeal = Time.time + 1f / healRate;
+                IncreaseHealth();
+                anim.SetBool("IsHealing", true);
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                anim.SetBool("IsHealing", false);
+            }
         }
     }
 
