@@ -10807,11 +10807,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 742761301}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -338, y: -242}
+  m_AnchoredPosition: {x: 300, y: 75}
   m_SizeDelta: {x: 200, y: 70}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &217216159
@@ -19383,7 +19383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175f6226e9de56e4abd38b2693cf8c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 45
+  damage: 30
   range: 51
   fireRate: 6
   impactEffect: {fileID: 86068072}
@@ -19391,7 +19391,7 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   HitReg: {fileID: 1207787465}
   maxAmmo: 6
-  reloadTime: 3
+  reloadTime: 2
   ammoDisplay: {fileID: 1012851322}
   shootAnim: {fileID: 514804778}
   reloadAnim: {fileID: 514804778}
@@ -23900,12 +23900,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 742761301}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1176, y: 684}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701341127
 MonoBehaviour:
@@ -25126,16 +25126,16 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 701341126}
-  - {fileID: 1857190826}
   - {fileID: 217216158}
+  - {fileID: 1857190826}
+  - {fileID: 701341126}
   m_Father: {fileID: 825564360}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &755571048
 GameObject:
@@ -51455,14 +51455,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4def394d6aba4944ba51ae8fd31ee631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 34
+  damage: 26
   range: 51
   fireRate: 7
   impactEffect: {fileID: 86068072}
   impactForce: 30
   cam: {fileID: 581068155}
   HitReg: {fileID: 1207787465}
-  maxAmmo: 18
+  maxAmmo: 16
   reloadTime: 2
   ammoDisplay: {fileID: 2025754718}
   Common: {r: 0.23529412, g: 0.49019608, b: 0.21568628, a: 1}
@@ -68073,7 +68073,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1176, y: 684}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857190827
 MonoBehaviour:
@@ -71479,7 +71479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734794e5611d8254bb5c51e7f758a00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 45
+  damage: 30
   range: 51
   fireRate: 6
   impactEffect: {fileID: 86068072}
@@ -71487,7 +71487,7 @@ MonoBehaviour:
   cam: {fileID: 581068155}
   HitReg: {fileID: 1207787465}
   maxAmmo: 6
-  reloadTime: 3
+  reloadTime: 2
   ammoDisplay: {fileID: 182526301}
   shootAnim: {fileID: 1967847757}
   reloadAnim: {fileID: 1967847757}
@@ -72264,10 +72264,10 @@ MonoBehaviour:
   anim: {fileID: 499630093}
   player1: {fileID: 134493272}
   healRate: 5
-  totalHealAmmount: 50
+  totalHealAmmount: 300
   currantHealAmmount: 0
   healAmmountDisplay: {fileID: 1957986913}
-  doHealValue: 1
+  doHealValue: 5
 --- !u!43 &2007993099
 Mesh:
   m_ObjectHideFlags: 0
