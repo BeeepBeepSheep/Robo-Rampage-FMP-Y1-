@@ -8,6 +8,7 @@ public class Heal : MonoBehaviour
     public GameObject player1;
     public float healRate = 5f;
     private float nextTimeToHeal = 0f;
+    public float healAmmount = 1;
 
     void OnEnable()
     {
@@ -31,5 +32,7 @@ public class Heal : MonoBehaviour
     {
         Debug.Log("healing");
         //heal player health 
+        Health player = player1.GetComponent<Health>();
+        player.TakeDamage(-healAmmount);
     }
 }

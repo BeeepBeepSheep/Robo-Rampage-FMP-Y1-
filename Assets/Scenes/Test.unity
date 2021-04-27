@@ -32798,8 +32798,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 499630093}
-  player1: {fileID: 0}
-  healRate: 5
+  player1: {fileID: 134493272}
+  healRate: 15
+  healAmmount: 1
 --- !u!1 &1152411169
 GameObject:
   m_ObjectHideFlags: 0
