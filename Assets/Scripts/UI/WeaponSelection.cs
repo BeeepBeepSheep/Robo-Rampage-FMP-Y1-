@@ -15,6 +15,7 @@ public class WeaponSelection : MonoBehaviour
     public GameObject sawedShotty;
     public GameObject knife;
     public GameObject uzi;
+    public GameObject revolvers;
 
     public GameObject heal;
     public GameObject superHeal;
@@ -86,6 +87,7 @@ public class WeaponSelection : MonoBehaviour
         sawedShotty.SetActive(false);
         knife.SetActive(true);
         uzi.SetActive(false);
+        revolvers.SetActive(false);
 
     }
     public void Pistol_Selection()
@@ -94,6 +96,7 @@ public class WeaponSelection : MonoBehaviour
         sawedShotty.SetActive(false);
         knife.SetActive(false);
         uzi.SetActive(false);
+        revolvers.SetActive(false);
 
     }
     public void Shotgun2_Selection()
@@ -102,6 +105,7 @@ public class WeaponSelection : MonoBehaviour
         sawedShotty.SetActive(true);
         knife.SetActive(false);
         uzi.SetActive(false);
+        revolvers.SetActive(false);
 
     }
     public void Uzi_Selection()
@@ -110,7 +114,16 @@ public class WeaponSelection : MonoBehaviour
         sawedShotty.SetActive(false);
         knife.SetActive(false);
         uzi.SetActive(true);
+        revolvers.SetActive(false);
 
+    }
+    public void Revolvers_Selection()
+    {
+        pistol.SetActive(false);
+        sawedShotty.SetActive(false);
+        knife.SetActive(false);
+        uzi.SetActive(false);
+        revolvers.SetActive(true);
     }
     //-----------------------------
     public void Heal_Selection()
