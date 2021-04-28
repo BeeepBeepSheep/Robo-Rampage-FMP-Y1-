@@ -9595,7 +9595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &181071542
 Transform:
   m_ObjectHideFlags: 0
@@ -17054,7 +17054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &459203137
 Transform:
   m_ObjectHideFlags: 0
@@ -17106,7 +17106,8 @@ MonoBehaviour:
   impactForce: 30
   cam: {fileID: 581068155}
   HitReg: {fileID: 1207787465}
-  maxAmmo: 650
+  maxAmmo: 150
+  currantAmmo: 0
   ammoDisplay: {fileID: 1358603986}
   Common: {r: 0.23529412, g: 0.49019608, b: 0.21568628, a: 1}
   Rare: {r: 0.2627451, g: 0.5647059, b: 0.8862745, a: 1}
@@ -51428,7 +51429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1248351557
 Transform:
   m_ObjectHideFlags: 0
@@ -62679,6 +62680,9 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 500480552}
   anim: {fileID: 366160311}
+  Healer1: {fileID: 1151862270}
+  Healer2: {fileID: 2003242931}
+  MiniGun: {fileID: 459203136}
 --- !u!43 &1708752854
 Mesh:
   m_ObjectHideFlags: 0

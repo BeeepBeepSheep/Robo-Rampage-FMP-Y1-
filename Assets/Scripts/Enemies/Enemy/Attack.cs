@@ -33,6 +33,7 @@ public class Attack : MonoBehaviour
     {
         attacking = true;
         yield return new WaitForSeconds(.50f);
+        
         //damageIndicator.SetActive(true);
 
         yield return new WaitForSeconds(.35f);

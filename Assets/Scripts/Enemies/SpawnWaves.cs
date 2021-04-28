@@ -5,7 +5,7 @@ public class SpawnWaves : MonoBehaviour
 {
     public GameObject enemyPrefab;
     private int enemyCount;
-    private int waveNumber = 1;
+    private int maxEnemiesForWave = 1;
 
     public float timeBetweenEnemySpawn;
     public float timeBetweenWaves;
@@ -16,9 +16,13 @@ public class SpawnWaves : MonoBehaviour
 
     public Animator anim;
 
+    public GameObject Healer1;
+    public GameObject Healer2;
+    public GameObject MiniGun;
+
     void Start()
     {
-        StartCoroutine(SpawnEnemyWave(waveNumber));
+        StartCoroutine(SpawnEnemyWave(maxEnemiesForWave));
     }
 
     void Update()
@@ -27,9 +31,9 @@ public class SpawnWaves : MonoBehaviour
 
         if (enemyCount == 0 && !spawningWave)
         {
-            waveNumber++;
+            maxEnemiesForWave++;
             KillLogic.wave++;
-            StartCoroutine(SpawnEnemyWave(waveNumber));
+            StartCoroutine(SpawnEnemyWave(maxEnemiesForWave));
         }
     }
 
@@ -37,6 +41,8 @@ public class SpawnWaves : MonoBehaviour
     {
         spawningWave = true;
         anim.SetBool("NewWave", true);
+        ResetConsumables();
+
         yield return new WaitForSeconds(timeBetweenWaves); //We wait here to pause between wave spawning
         for (int i = 0; i < enemiesToSpawn; i++)
         {
@@ -45,5 +51,16 @@ public class SpawnWaves : MonoBehaviour
         }
         spawningWave = false;
         anim.SetBool("NewWave", false);
+    }
+    void ResetConsumables()
+    {
+        Heal reset = Healer1.GetComponent<Heal>();
+        reset.ResetHealAmmount();
+
+        Heal reset2 = Healer2.GetComponent<Heal>();
+        reset2.ResetHealAmmount();
+
+        MiniGunShoot reset3 = MiniGun.GetComponent<MiniGunShoot>();
+        reset3.ResetAmmo();
     }
 }

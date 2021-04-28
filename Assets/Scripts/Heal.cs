@@ -19,7 +19,7 @@ public class Heal : MonoBehaviour
 
     void Start()
     {
-        currantHealAmmount = totalHealAmmount;
+        ResetHealAmmount();
     }
     void OnEnable()
     {
@@ -67,5 +67,9 @@ public class Heal : MonoBehaviour
         currantHealAmmount = currantHealAmmount - doHealValue;
         Health player = player1.GetComponent<Health>();
         player.TakeDamage(-doHealValue);
+    }
+    public void ResetHealAmmount()
+    {
+        currantHealAmmount = totalHealAmmount;
     }
 }

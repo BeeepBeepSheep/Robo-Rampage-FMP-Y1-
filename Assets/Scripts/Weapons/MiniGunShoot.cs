@@ -14,8 +14,10 @@ public class MiniGunShoot : MonoBehaviour
     public Animator HitReg;
 
     public int maxAmmo = 10;
-    private int currantAmmo;
+    public int currantAmmo;
     public Text ammoDisplay;
+
+
 
     public Color Common;
     public Color Rare;
@@ -33,7 +35,7 @@ public class MiniGunShoot : MonoBehaviour
     void Start()
     {
         gunShot = GetComponent<AudioSource>();
-        currantAmmo = maxAmmo;
+        ResetAmmo();
     }
     void OnEnable()
     {
@@ -92,7 +94,7 @@ public class MiniGunShoot : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
 
                 Health enemy = hit.transform.GetComponent<Health>();
                 if (enemy != null)
@@ -110,5 +112,9 @@ public class MiniGunShoot : MonoBehaviour
             }
             shootAnim.SetBool("Shooting", true);
         }
+    }
+    public void ResetAmmo()
+    {
+        currantAmmo = maxAmmo;
     }
 }
