@@ -26,8 +26,7 @@ public class Revolver : MonoBehaviour
     public Animator reloadAnim;
     public GameObject reloadSymbol;
 
-    public Animator muzzleFlashAnimAds;
-    public Animator muzzleFlashAnimHip;
+    public Animator muzzleFlashAnim;
     void Start()
     {
         gunShot = GetComponent<AudioSource>();
@@ -91,8 +90,7 @@ public class Revolver : MonoBehaviour
     void Shoot()
     {
         currantAmmo--;
-        //muzzleFlashAnimAds.SetTrigger("Flash");
-        //muzzleFlashAnimHip.SetTrigger("Flash");
+        muzzleFlashAnim.SetTrigger("Flash");
         gunShot.Play();
 
         RaycastHit hit;

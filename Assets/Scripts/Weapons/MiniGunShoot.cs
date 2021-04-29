@@ -29,11 +29,8 @@ public class MiniGunShoot : MonoBehaviour
     AudioSource gunShot;
 
     public Animator shootAnim;
-    public Animator reloadAnim;
-    public GameObject reloadSymbol;
 
-    public Animator muzzleFlashAnimAds;
-    public Animator muzzleFlashAnimHip;
+    public Animator muzzleFlashAnim;
     void Start()
     {
         gunShot = GetComponent<AudioSource>();
@@ -41,8 +38,6 @@ public class MiniGunShoot : MonoBehaviour
     }
     void OnEnable()
     {
-        reloadAnim.SetBool("Reloading", false);
-        reloadSymbol.SetActive(false);
 
         if (gameObject.tag == "Common")
         {
@@ -79,6 +74,7 @@ public class MiniGunShoot : MonoBehaviour
             if (Input.GetButtonUp("Fire1"))
             {
                 shootAnim.SetBool("Shooting", false);
+                muzzleFlashAnim.SetBool("MinigunShooting", false);
             }
         }
     }
@@ -91,8 +87,7 @@ public class MiniGunShoot : MonoBehaviour
         else
         {
             currantAmmo--;
-            //muzzleFlashAnimAds.SetTrigger("Flash");
-            //muzzleFlashAnimHip.SetTrigger("Flash");
+            muzzleFlashAnim.SetBool("MinigunShooting",true);
             gunShot.Play();
 
             RaycastHit hit;

@@ -105,8 +105,8 @@ public class Autamatic : MonoBehaviour
     void Shoot()
     {
         currantAmmo--;
-        //muzzleFlashAnimAds.SetTrigger("Flash");
-        //muzzleFlashAnimHip.SetTrigger("Flash");
+        muzzleFlashAnimAds.SetTrigger("LongFlash");
+        muzzleFlashAnimHip.SetTrigger("LongFlash");
         gunShot.Play();
 
         RaycastHit hit;

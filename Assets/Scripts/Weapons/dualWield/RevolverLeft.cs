@@ -26,8 +26,7 @@ public class RevolverLeft : MonoBehaviour
     public Animator reloadAnim;
     public GameObject reloadSymbol;
 
-    public Animator muzzleFlashAnimAds;
-    public Animator muzzleFlashAnimHip;
+    public Animator muzzleFlashAnim;
 
 
     void Start()
@@ -93,8 +92,7 @@ public class RevolverLeft : MonoBehaviour
     void Shoot()
     {
         currantAmmo--;
-        //muzzleFlashAnimAds.SetTrigger("Flash");
-        //muzzleFlashAnimHip.SetTrigger("Flash");
+        muzzleFlashAnim.SetTrigger("Flash");
 
 
         gunShot.Play();
