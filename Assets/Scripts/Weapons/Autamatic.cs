@@ -32,6 +32,8 @@ public class Autamatic : MonoBehaviour
     public Animator reloadAnim;
     public GameObject reloadSymbol;
 
+    public Animator muzzleFlashAnimAds;
+    public Animator muzzleFlashAnimHip;
     void Start()
     {
         gunShot = GetComponent<AudioSource>();
@@ -103,6 +105,8 @@ public class Autamatic : MonoBehaviour
     void Shoot()
     {
         currantAmmo--;
+        //muzzleFlashAnimAds.SetTrigger("Flash");
+        //muzzleFlashAnimHip.SetTrigger("Flash");
         gunShot.Play();
 
         RaycastHit hit;

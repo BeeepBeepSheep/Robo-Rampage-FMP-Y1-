@@ -32,6 +32,8 @@ public class MiniGunShoot : MonoBehaviour
     public Animator reloadAnim;
     public GameObject reloadSymbol;
 
+    public Animator muzzleFlashAnimAds;
+    public Animator muzzleFlashAnimHip;
     void Start()
     {
         gunShot = GetComponent<AudioSource>();
@@ -89,6 +91,8 @@ public class MiniGunShoot : MonoBehaviour
         else
         {
             currantAmmo--;
+            //muzzleFlashAnimAds.SetTrigger("Flash");
+            //muzzleFlashAnimHip.SetTrigger("Flash");
             gunShot.Play();
 
             RaycastHit hit;
