@@ -81,6 +81,8 @@ public class Autamatic : MonoBehaviour
         if (Input.GetButtonUp("Fire1"))
         {
             shootAnim.SetBool("Shooting", false);
+            muzzleFlashAnimAds.SetBool("AutamaticShooting", false);
+            muzzleFlashAnimHip.SetBool("AutamaticShooting", false);
         }
     }
     IEnumerator Reload()
@@ -105,8 +107,9 @@ public class Autamatic : MonoBehaviour
     void Shoot()
     {
         currantAmmo--;
-        muzzleFlashAnimAds.SetTrigger("LongFlash");
-        muzzleFlashAnimHip.SetTrigger("LongFlash");
+        muzzleFlashAnimAds.SetBool("AutamaticShooting", true);
+        muzzleFlashAnimHip.SetBool("AutamaticShooting", true);
+
         gunShot.Play();
 
         RaycastHit hit;
