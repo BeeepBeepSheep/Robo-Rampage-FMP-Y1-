@@ -8,13 +8,17 @@ public class Attack : MonoBehaviour
     public bool attacking;
     public Animator animator;
     public GameObject player1;
+
     //public GameObject damageIndicator;
+    AudioSource  attackSound;
 
     public float minDamage;
     public float maxDamage;
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("PlayerCapsual");
+        attackSound = GetComponent<AudioSource>();
+
         //damageIndicator = GameObject.FindGameObjectWithTag("DamageIndicator");
     }
     void Update()
@@ -33,8 +37,9 @@ public class Attack : MonoBehaviour
     {
         attacking = true;
         yield return new WaitForSeconds(.50f);
-        
+
         //damageIndicator.SetActive(true);
+        attackSound.Play();
 
         yield return new WaitForSeconds(.35f);
         Health player = player1.GetComponent<Health>();
