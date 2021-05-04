@@ -13,6 +13,7 @@ public class FOVController : MonoBehaviour
 
     public GameObject StopADS;
 
+    public Animator anim;
     void Start()
     {
         cam.fieldOfView = mainFov;
@@ -26,10 +27,12 @@ public class FOVController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             cam.fieldOfView = mainFov;
+            anim.SetBool("IsSprinting", false);
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             cam.fieldOfView = mainFov + 10f;
+            anim.SetBool("IsSprinting", true);
             return;
         }
         if(StopADS.activeInHierarchy == true)
