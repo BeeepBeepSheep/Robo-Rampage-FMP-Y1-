@@ -8,10 +8,12 @@ public class Health : MonoBehaviour
     public float currantHealth = 0f;
     public float maxHealth = 100f;
     public GameObject healthBar;
-    public Text healthDisplay;
+    public Image playerHealthBar;
     public GameObject lowHealthIndicator;
     public GameObject body;
     public GameObject deathMenu;
+
+
     void Start()
     {
         currantHealth = maxHealth;
@@ -24,15 +26,16 @@ public class Health : MonoBehaviour
     {
         if (gameObject.tag == "PlayerCapsual")
         {
-            healthDisplay.text = currantHealth.ToString("0");
-            if (currantHealth <= 25f)
-            {
-                lowHealthIndicator.SetActive(true);
-            }
-            else
-            {
-                lowHealthIndicator.SetActive(false);
-            }
+            //healthDisplay.text = currantHealth.ToString("0");
+            //if (currantHealth <= 25f)
+            //{
+            //    lowHealthIndicator.SetActive(true);
+            //}
+            //else
+            //{
+            //    lowHealthIndicator.SetActive(false);
+            //}
+            playerHealthBar.fillAmount = currantHealth / maxHealth;
         }
     }
     public void TakeDamage(float amount)
