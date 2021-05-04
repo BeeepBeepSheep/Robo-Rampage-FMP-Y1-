@@ -6540,6 +6540,8 @@ MonoBehaviour:
   lowHealthIndicator: {fileID: 701341125}
   body: {fileID: 1997606855}
   deathMenu: {fileID: 1477884571}
+  red: {r: 0.9339623, g: 0.4978195, b: 0.4978195, a: 1}
+  green: {r: 0.31359026, g: 0.8207547, b: 0.5778856, a: 1}
 --- !u!1 &138520367
 GameObject:
   m_ObjectHideFlags: 0
@@ -13115,7 +13117,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 100, y: -35}
-  m_SizeDelta: {x: 415, y: 85}
+  m_SizeDelta: {x: 415, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &565887092
 MonoBehaviour:
@@ -13130,7 +13132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -22158,7 +22160,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 100, y: -35}
-  m_SizeDelta: {x: 405, y: 75}
+  m_SizeDelta: {x: 405, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264143098
 MonoBehaviour:

@@ -13,10 +13,14 @@ public class Health : MonoBehaviour
     public GameObject body;
     public GameObject deathMenu;
 
+    public Color red;
+    public Color green;
+
 
     void Start()
     {
         currantHealth = maxHealth;
+        playerHealthBar.color = green;
         if (gameObject.tag == "PlayerCapsual")
         {
             deathMenu.SetActive(false);
@@ -26,16 +30,17 @@ public class Health : MonoBehaviour
     {
         if (gameObject.tag == "PlayerCapsual")
         {
-            //healthDisplay.text = currantHealth.ToString("0");
-            //if (currantHealth <= 25f)
-            //{
-            //    lowHealthIndicator.SetActive(true);
-            //}
-            //else
-            //{
-            //    lowHealthIndicator.SetActive(false);
-            //}
             playerHealthBar.fillAmount = currantHealth / maxHealth;
+            if (currantHealth <= 25f)
+            {
+                lowHealthIndicator.SetActive(true);
+                playerHealthBar.color = red;
+            }
+            else
+            {
+                lowHealthIndicator.SetActive(false);
+                playerHealthBar.color = green;
+            }
         }
     }
     public void TakeDamage(float amount)
