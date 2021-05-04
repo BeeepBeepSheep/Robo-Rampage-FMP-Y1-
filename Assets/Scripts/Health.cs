@@ -20,9 +20,9 @@ public class Health : MonoBehaviour
     void Start()
     {
         currantHealth = maxHealth;
-        playerHealthBar.color = green;
         if (gameObject.tag == "PlayerCapsual")
         {
+            playerHealthBar.color = green;
             deathMenu.SetActive(false);
         }
     }
