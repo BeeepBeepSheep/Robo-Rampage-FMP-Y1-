@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b213c1b72e3727b40a65f6282f16e377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 40
+  lookRadius: 160
   attackField: {fileID: 0}
   animController: {fileID: 3777656906467222288}
 --- !u!114 &3777656907830626579
