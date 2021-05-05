@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnWaves : MonoBehaviour
 {
     public GameObject enemyPrefab;
     private int enemyCount;
-    private int maxEnemiesForWave = 1;
+    public int maxEnemiesForWave = 1;
 
     public float timeBetweenEnemySpawn;
     public float timeBetweenWaves;
@@ -31,6 +32,7 @@ public class SpawnWaves : MonoBehaviour
 
         if (enemyCount == 0 && !spawningWave)
         {
+            Debug.Log("test");
             maxEnemiesForWave++;
             KillLogic.wave++;
             StartCoroutine(SpawnEnemyWave(maxEnemiesForWave));
