@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnWaves : MonoBehaviour
 {
@@ -16,9 +17,12 @@ public class SpawnWaves : MonoBehaviour
 
     public Animator anim;
 
-    public GameObject Healer1;
-    public GameObject Healer2;
-    public GameObject MiniGun;
+    public Image healer1_Icon;
+    public Image healer2_Icon;
+
+    public GameObject healer1;
+    public GameObject healer2;
+    public GameObject miniGun;
 
     void Start()
     {
@@ -54,14 +58,16 @@ public class SpawnWaves : MonoBehaviour
     }
     void ResetConsumables()
     {
-        Heal reset = Healer1.GetComponent<Heal>();
+        Heal reset = healer1.GetComponent<Heal>();
         reset.ResetHealAmmount();
 
-        Heal reset2 = Healer2.GetComponent<Heal>();
+        Heal reset2 = healer2.GetComponent<Heal>();
         reset2.ResetHealAmmount();
 
-        MiniGunShoot reset3 = MiniGun.GetComponent<MiniGunShoot>();
+        MiniGunShoot reset3 = miniGun.GetComponent<MiniGunShoot>();
         reset3.ResetAmmo();
+
+        healer1_Icon.fillAmount = 1f;
+        healer2_Icon.fillAmount = 1f;
     }
 }
-

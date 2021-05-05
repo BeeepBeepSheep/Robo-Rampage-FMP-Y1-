@@ -11,10 +11,10 @@ public class Heal : MonoBehaviour
 
     public float totalHealAmmount = 50f;
     public float currantHealAmmount;
-    public Text healAmmountDisplay;
 
     public float doHealValue = 1f;
 
+    public Image usageBar;
     public GameObject HealingIndicator;
 
     void Start()
@@ -26,9 +26,9 @@ public class Heal : MonoBehaviour
         anim.SetBool("IsHealing", false);
         HealingIndicator.SetActive(false);
     }
-    void Update()
+        void Update()
     {
-        healAmmountDisplay.text = currantHealAmmount.ToString();
+        usageBar.fillAmount = currantHealAmmount / totalHealAmmount;
         if (currantHealAmmount <= 0)
         {
             anim.SetBool("IsHealing", false);
