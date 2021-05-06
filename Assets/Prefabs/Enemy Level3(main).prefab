@@ -374,7 +374,6 @@ GameObject:
   - component: {fileID: 6476196945352036561}
   - component: {fileID: 6476196945352036566}
   - component: {fileID: 6476196945352036567}
-  - component: {fileID: 6476196945352036564}
   - component: {fileID: 6476196945352036565}
   - component: {fileID: 677792328838180161}
   - component: {fileID: 6476196945352036562}
@@ -432,24 +431,6 @@ MonoBehaviour:
   lookRadius: 160
   attackField: {fileID: 0}
   animController: {fileID: 6476196946118818519}
---- !u!114 &6476196945352036564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6476196945352036574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52ae0b51bf5d49c4c93261d1233d7575, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  attacking: 0
-  animator: {fileID: 6476196946118818519}
-  player1: {fileID: 0}
-  minDamage: 3
-  maxDamage: 8
 --- !u!114 &6476196945352036565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,6 +1032,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2915194815b04d41ae069755e26f7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1056263356993051681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477961400099339209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ae0b51bf5d49c4c93261d1233d7575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  attacking: 0
+  animator: {fileID: 6476196946118818519}
+  player1: {fileID: 0}
+  minDamage: 3
+  maxDamage: 8
 --- !u!1001 &6476196946375689173
 PrefabInstance:
   m_ObjectHideFlags: 0
