@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
     public GameObject body;
     public GameObject deathMenu;
 
+    public static bool isBlocking = false;
+
     public Color red;
     public Color green;
 
@@ -45,6 +47,11 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        if(isBlocking /*&& gameObject.tag == "PlayerCapsual"*/)
+        {
+            Debug.Log("Blocking");
+            return;
+        }
         currantHealth -= amount;
         if (currantHealth <= 0f)
         {
