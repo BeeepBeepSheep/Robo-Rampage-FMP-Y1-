@@ -8,7 +8,7 @@ public class Wave
     public string waveName;
     public int numberOfEnemes;
     public GameObject[] typeOfEnemies;
-    public float spawnInterval;
+    //public float spawnInterval;
 }
 public class oldSpawner : MonoBehaviour
 {
@@ -40,7 +40,7 @@ public class oldSpawner : MonoBehaviour
             Transform randomPoint = spawnPonts[Random.Range(0, spawnPonts.Length)];
             Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
             currantWave.numberOfEnemes--;
-            nextSpawnTime = Time.time + currantWave.spawnInterval;
+            //nextSpawnTime = Time.time + currantWave.spawnInterval;
 
             if (currantWave.numberOfEnemes == 0)
             {
