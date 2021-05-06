@@ -16,6 +16,7 @@ TagManager:
   - PlayerCapsual
   - DamageIndicator
   - Canvas
+  - MiniMapCam
   layers:
   - Default
   - TransparentFX

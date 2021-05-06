@@ -12,5 +12,6 @@ public class MinimapFollowPlayer : MonoBehaviour
         transform.position = newPosition;
 
         transform.rotation = Quaternion.Euler(90f, player.eulerAngles.y, 0f);
+
     }
 }
