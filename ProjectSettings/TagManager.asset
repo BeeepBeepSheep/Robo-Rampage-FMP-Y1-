@@ -17,6 +17,7 @@ TagManager:
   - DamageIndicator
   - Canvas
   - MiniMapCam
+  - hudICON
   layers:
   - Default
   - TransparentFX
