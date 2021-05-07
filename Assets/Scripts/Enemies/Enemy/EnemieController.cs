@@ -23,7 +23,16 @@ public class EnemieController : MonoBehaviour
         {
             //Debug.Log("chasing");
             animController.SetInteger("State", 3);
-
+            NavMeshPath path = new NavMeshPath(); //delete to go back
+            agent.CalculatePath(target.position, path);
+            if (path.status == NavMeshPathStatus.PathPartial)
+            {
+                Debug.Log("Cannot reach");
+            }
+            if (path.status != NavMeshPathStatus.PathPartial)
+            {
+                Debug.Log("Can reach");
+            }
             agent.SetDestination(target.position);
 
             if (distance <= agent.stoppingDistance)
