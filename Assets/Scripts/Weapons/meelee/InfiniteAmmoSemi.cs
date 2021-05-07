@@ -12,6 +12,7 @@ public class InfiniteAmmoSemi : MonoBehaviour
     public float impactForce = 30f;
     public Camera cam;
     public Animator HitReg;
+    public GameObject reloadSymbol;
 
     public Animator shootAnim;
     AudioSource gunShot;
@@ -25,8 +26,9 @@ public class InfiniteAmmoSemi : MonoBehaviour
     void OnEnable()
     {
         shootAnim.SetBool("Reloading", false);
+        reloadSymbol.SetActive(false);
     }
-        void Update()
+    void Update()
     {
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {

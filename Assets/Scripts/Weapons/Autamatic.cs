@@ -79,10 +79,12 @@ public class Autamatic : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     shootAnim.SetBool("Reloading", true);
+                    reloadAnim.SetBool("Reloading", false);
                 }
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     shootAnim.SetBool("Reloading", true);
+                    reloadAnim.SetBool("Reloading", false);
                 }
             }
             return;

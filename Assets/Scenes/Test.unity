@@ -7222,7 +7222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &181071542
 Transform:
   m_ObjectHideFlags: 0
@@ -7257,6 +7257,7 @@ MonoBehaviour:
   impactForce: 30
   cam: {fileID: 581068155}
   HitReg: {fileID: 1207787465}
+  reloadSymbol: {fileID: 972604237}
   shootAnim: {fileID: 646438517}
 --- !u!82 &181071544
 AudioSource:
@@ -11746,6 +11747,8 @@ MonoBehaviour:
   maxAmmo: 100
   currantAmmo: 0
   ammoDisplay: {fileID: 1358603986}
+  reloadAnim: {fileID: 972604239}
+  reloadSymbol: {fileID: 972604237}
   Common: {r: 0.23529412, g: 0.49019608, b: 0.21568628, a: 1}
   Rare: {r: 0.2627451, g: 0.5647059, b: 0.8862745, a: 1}
   Legendary: {r: 0.8784314, g: 0.7019608, b: 0.14509805, a: 1}
@@ -12645,7 +12648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &484393058
 Transform:
   m_ObjectHideFlags: 0
@@ -13780,9 +13783,12 @@ MonoBehaviour:
   damage: 75
   range: 7
   fireRate: 6
-  cam: {fileID: 581068155}
   HitRegAnim: {fileID: 1207787465}
   swordAnim: {fileID: 584071428}
+  cam: {fileID: 581068155}
+  reloadAnim: {fileID: 972604239}
+  shootAnim: {fileID: 646438517}
+  reloadSymbol: {fileID: 972604237}
 --- !u!95 &584071428
 Animator:
   serializedVersion: 3
@@ -22420,7 +22426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1248351557
 Transform:
   m_ObjectHideFlags: 0
@@ -24753,7 +24759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1440301329
 Transform:
   m_ObjectHideFlags: 0

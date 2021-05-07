@@ -10,15 +10,25 @@ public class Sword : MonoBehaviour
     public float fireRate = 30f;
     private float nextTimeToFire = 0f;
 
-    public Camera cam;
-
     public Animator HitRegAnim;
     public Animator swordAnim;
+
+    public Camera cam;
+
+    public Animator reloadAnim;
+    public Animator shootAnim;
+    public GameObject reloadSymbol;
+
     AudioSource stab;
     //void Start()
     //{
     //    gunShot = GetComponent<AudioSource>();
     //}
+    void OnEnable()
+    {
+        reloadAnim.SetBool("Reloading", false);
+        reloadSymbol.SetActive(false);
+    }
     void Update()
     {
         if (Input.GetButton("Fire2"))

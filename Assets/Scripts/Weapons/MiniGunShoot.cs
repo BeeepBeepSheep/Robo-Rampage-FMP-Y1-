@@ -16,8 +16,8 @@ public class MiniGunShoot : MonoBehaviour
     public int maxAmmo = 10;
     public int currantAmmo;
     public Text ammoDisplay;
-
-
+    public Animator reloadAnim;
+    public GameObject reloadSymbol;
 
     public Color Common;
     public Color Rare;
@@ -39,6 +39,7 @@ public class MiniGunShoot : MonoBehaviour
     void OnEnable()
     {
         shootAnim.SetBool("Reloading", false);
+        reloadSymbol.SetActive(false);
 
         if (gameObject.tag == "Common")
         {
@@ -58,6 +59,7 @@ public class MiniGunShoot : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             shootAnim.SetBool("Shooting", false);
+            reloadAnim.SetBool("Reloading", false);
         }
         if (currantAmmo <= -1)
         {

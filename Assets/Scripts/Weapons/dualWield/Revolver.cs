@@ -48,10 +48,12 @@ public class Revolver : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     shootAnim.SetBool("Reloading", false);
+                    reloadAnim.SetBool("Reloading", false);
                 }
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     shootAnim.SetBool("Reloading", false);
+                    reloadAnim.SetBool("Reloading", false);
                 }
             }
             if (PauseMenu2.GameISPaused)
