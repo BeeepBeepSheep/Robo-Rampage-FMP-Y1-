@@ -17,9 +17,20 @@ public class PauseMenu2 : MonoBehaviour
 
     public GameObject weaponInfo;
 
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameISPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (GameISPaused)
             {

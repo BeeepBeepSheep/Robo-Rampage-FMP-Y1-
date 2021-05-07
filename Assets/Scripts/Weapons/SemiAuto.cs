@@ -59,7 +59,31 @@ public class SemiAuto : MonoBehaviour
     {
         ammoDisplay.text = currantAmmo.ToString();
         if (isReloading)
+        {
+            if(!PauseMenu2.GameISPaused)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    shootAnim.SetBool("Reloading", false);
+                }
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    shootAnim.SetBool("Reloading", false);
+                }
+            }
+            if (PauseMenu2.GameISPaused)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    shootAnim.SetBool("Reloading", true);
+                }
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    shootAnim.SetBool("Reloading", true);
+                }
+            }
             return;
+        }
         if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
             StartCoroutine(Reload());

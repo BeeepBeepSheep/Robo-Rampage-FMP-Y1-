@@ -22,7 +22,11 @@ public class InfiniteAmmoSemi : MonoBehaviour
     {
         gunShot = GetComponent<AudioSource>();
     }
-    void Update()
+    void OnEnable()
+    {
+        shootAnim.SetBool("Reloading", false);
+    }
+        void Update()
     {
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
         {

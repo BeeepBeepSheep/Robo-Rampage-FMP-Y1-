@@ -38,6 +38,7 @@ public class MiniGunShoot : MonoBehaviour
     }
     void OnEnable()
     {
+        shootAnim.SetBool("Reloading", false);
 
         if (gameObject.tag == "Common")
         {
