@@ -18,27 +18,29 @@ public class EnemieController : MonoBehaviour
 
     void Update()
     {
+
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= lookRadius)
         {
             //Debug.Log("chasing");
             animController.SetInteger("State", 3);
-            NavMeshPath path = new NavMeshPath(); //delete to go back
+
+            NavMeshPath path = new NavMeshPath();
             agent.CalculatePath(target.position, path);
             if (path.status == NavMeshPathStatus.PathPartial)
             {
-                Debug.Log("Cannot reach");
+                TargetIsUnreachable();
             }
             if (path.status != NavMeshPathStatus.PathPartial)
             {
-                Debug.Log("Can reach");
-            }
-            agent.SetDestination(target.position);
+                //Debug.Log("Can reach");
 
-            if (distance <= agent.stoppingDistance)
-            {
-                Attack();
-                FaceTarget();
+                agent.SetDestination(target.position);
+                if (distance <= agent.stoppingDistance)
+                {
+                    FaceTarget();
+                    Attack();
+                }
             }
         }
         else
@@ -57,6 +59,15 @@ public class EnemieController : MonoBehaviour
     {
         //Debug.Log("attacking");
         animController.SetInteger("State", 2);
+    }
+    void TargetIsUnreachable()
+    {
+        //Debug.Log("Cannot reach");
+        animController.SetInteger("State", 1);
+
+        agent.SetDestination(transform.position);
+        FaceTarget();
+        return;
     }
     private void OnDrawGizmosSelected()
     {
