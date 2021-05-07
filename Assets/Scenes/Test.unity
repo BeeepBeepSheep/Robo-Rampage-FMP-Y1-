@@ -16572,7 +16572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &825564360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19973,7 +19973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32800a4048099344a93c8fc580b98442, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75d73d26d60b8b04594612a82d4cc62d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21312,7 +21312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32800a4048099344a93c8fc580b98442, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75d73d26d60b8b04594612a82d4cc62d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23142,7 +23142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1303080168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28772,8 +28772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f8de804265cb44eaeb0dc55faa5cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab:
-  - {fileID: 6476196945352036561, guid: f9282375f2ce3e940ae53ee9e730ad43, type: 3}
+  enemyPrefab: {fileID: 6476196945352036561, guid: f9282375f2ce3e940ae53ee9e730ad43,
+    type: 3}
   timeBetweenEnemySpawn: 0
   timeBetweenWaves: 3
   spawnPoints:
