@@ -88,7 +88,7 @@ public class PauseMenu2 : MonoBehaviour
     }
     public void QuitToDesktop()
     {
-        //Application.Quit();
+        Application.Quit();
         Debug.Log("Quit");
     }
     public void QuitToMenu()
