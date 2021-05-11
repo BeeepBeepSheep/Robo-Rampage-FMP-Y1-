@@ -20,37 +20,48 @@ public class EnemieController : MonoBehaviour
 
     void Update()
     {
+        Wallrun player = target.GetComponent<Wallrun>();
 
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= lookRadius)
         {
-            // Chasing state
-            animController.SetInteger("State", 3);
-
-            NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath(target.position, path);
-
-            if (path.status == NavMeshPathStatus.PathPartial)
+            if (player.isWallRunning2 == false)
             {
-                //Unreachable state
-                canReachTarget = false;
-                TargetIsUnreachable_State();
-            }
-            if (path.status != NavMeshPathStatus.PathPartial)
-            {
-                agent.SetDestination(target.position);
-                if (distance <= agent.stoppingDistance)
+                // Chasing state
+                animController.SetInteger("State", 3);
+
+                NavMeshPath path = new NavMeshPath();
+                agent.CalculatePath(target.position, path);
+
+                if (path.status == NavMeshPathStatus.PathPartial)
                 {
-                    // Attacking state
-                    FaceTarget();
-                    Punching_State();
+                    //Unreachable state
+                    canReachTarget = false;
+                    TargetIsUnreachable_State();
+                }
+                if (path.status != NavMeshPathStatus.PathPartial)
+                {
+                    canReachTarget = true;
+                    agent.SetDestination(target.position);
+                    if (distance <= agent.stoppingDistance)
+                    {
+                        // Attacking state
+                        FaceTarget();
+                        Punching_State();
+                    }
+                }
+                else
+                {
+                    animController.SetInteger("State", 1);
+                    //Debug.Log("idle");
                 }
             }
-        }
-        else
-        {
-            animController.SetInteger("State", 1);
-            //Debug.Log("idle");
+            else
+            {
+                FaceTarget();
+                Turret_State();
+            }
+
         }
     }
     void FaceTarget()
@@ -66,7 +77,7 @@ public class EnemieController : MonoBehaviour
     }
     void Turret_State()
     {
-        Debug.Log("turret");
+        //Debug.Log("turret");
         animController.SetInteger("State", 1);
 
         agent.SetDestination(transform.position);
@@ -75,9 +86,9 @@ public class EnemieController : MonoBehaviour
     {
         FaceTarget();
         RaycastHit hit;
-        if (Physics.Linecast(head.position, target.position,out hit))
+        if (Physics.Linecast(head.position, target.position, out hit))
         {
-            if(hit.transform.name == "Player")
+            if (hit.transform.name == "Player")
             {
                 canSeeTarget = true;
                 Turret_State();
@@ -86,10 +97,8 @@ public class EnemieController : MonoBehaviour
             {
                 canSeeTarget = false;
                 // Chasing state
-                agent.SetDestination(target.position);
-                Debug.Log("chasing");
                 animController.SetInteger("State", 3);
-                //Debug.Log(hit.transform.name);
+                agent.SetDestination(target.position);
             }
         }
     }

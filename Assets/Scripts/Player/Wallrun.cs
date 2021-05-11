@@ -13,6 +13,7 @@ public class Wallrun : MonoBehaviour
 
     //Used for effects etc.
     public static bool isWallRunning;
+    public bool isWallRunning2;
     //<<Summary>> Checks the distance from walls and takes the wall that is the closest to the player
     private float distanceFromLeftWall;
     private float distanceFromRightWall;
@@ -53,6 +54,7 @@ public class Wallrun : MonoBehaviour
 
     private void Update()
     {
+        isWallRunning2 = isWallRunning;
         wallChecker();
     }
 
