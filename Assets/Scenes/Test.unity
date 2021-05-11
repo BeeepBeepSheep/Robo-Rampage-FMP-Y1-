@@ -11817,7 +11817,7 @@ MonoBehaviour:
   impactForce: 30
   cam: {fileID: 581068155}
   HitReg: {fileID: 1207787465}
-  maxAmmo: 100
+  maxAmmo: 175
   currantAmmo: 0
   ammoDisplay: {fileID: 1358603986}
   reloadAnim: {fileID: 972604239}
@@ -33880,6 +33880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wallRunUpForce: 10
   _wallRunPushForce: 20
+  isWallRunning2: 0
   cam: {fileID: 581068152}
   head: {fileID: 1150882247}
 --- !u!114 &1997606861
