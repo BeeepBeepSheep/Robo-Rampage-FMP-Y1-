@@ -10,6 +10,8 @@ public class EnemieController : MonoBehaviour
     public Animator animController;
     //----------
     public Transform head;
+    public bool canReachTarget;
+    public bool canSeeTarget;
     void Start()
     {
         target = PlayerManeger.instance.player.transform;
@@ -31,6 +33,7 @@ public class EnemieController : MonoBehaviour
             if (path.status == NavMeshPathStatus.PathPartial)
             {
                 //Unreachable state
+                canReachTarget = false;
                 TargetIsUnreachable_State();
             }
             if (path.status != NavMeshPathStatus.PathPartial)
@@ -76,11 +79,12 @@ public class EnemieController : MonoBehaviour
         {
             if(hit.transform.name == "Player")
             {
+                canSeeTarget = true;
                 Turret_State();
-
             }
             else
             {
+                canSeeTarget = false;
                 // Chasing state
                 agent.SetDestination(target.position);
                 Debug.Log("chasing");
