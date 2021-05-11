@@ -21,6 +21,7 @@ public class RevolverLeft : MonoBehaviour
 
     AudioSource gunShot;
     private float nextTimeToFire = 0f;
+    private bool isSprinting;
 
     public Animator shootAnim;
     public Animator reloadAnim;
@@ -43,6 +44,27 @@ public class RevolverLeft : MonoBehaviour
     void Update()
     {
         ammoDisplay.text = currantAmmo.ToString();
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprinting = false;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSprinting = true;
+            if (isReloading)
+            {
+                StopCoroutine(Reload());
+                shootAnim.SetBool("Reloading", false);
+                reloadSymbol.SetActive(false);
+            }
+        }
+        if (isSprinting)
+        {
+            StopCoroutine(Reload());
+            isReloading = false;
+            shootAnim.SetBool("Reloading", false);
+            reloadSymbol.SetActive(false);
+        }
         if (isReloading)
         {
             if (!PauseMenu2.GameISPaused)
@@ -50,12 +72,12 @@ public class RevolverLeft : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     shootAnim.SetBool("Reloading", false);
-                    reloadAnim.SetBool("Reloading", false);
+                    reloadSymbol.SetActive(false);
                 }
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     shootAnim.SetBool("Reloading", false);
-                    reloadAnim.SetBool("Reloading", false);
+                    reloadSymbol.SetActive(false);
                 }
             }
             if (PauseMenu2.GameISPaused)
@@ -63,26 +85,30 @@ public class RevolverLeft : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     shootAnim.SetBool("Reloading", true);
+                    reloadSymbol.SetActive(false);
                 }
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     shootAnim.SetBool("Reloading", true);
+                    reloadSymbol.SetActive(false);
                 }
             }
             return;
         }
-        //if (currantAmmo <= 0)
-        //{
-        //    return;
-        //}
         if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
-            StartCoroutine(Reload());
+            if(currantAmmo == maxAmmo)
+            {
+                return;
+            }
+            if (!isSprinting)
+            {
+                StartCoroutine(Reload());
+            }
             return;
         }
         if (currantAmmo <= 0)
         {
-            StartCoroutine(Reload());
             return;
         }
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)

@@ -7296,7 +7296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &181071542
 Transform:
   m_ObjectHideFlags: 0
@@ -9609,7 +9609,6 @@ MonoBehaviour:
   Common: {r: 0.23529412, g: 0.49019608, b: 0.21568628, a: 1}
   Rare: {r: 0.2627451, g: 0.5647059, b: 0.8862745, a: 1}
   Legendary: {r: 0.8784314, g: 0.7019608, b: 0.14509805, a: 1}
-  isSprinting: 0
   shootAnim: {fileID: 646438517}
   reloadAnim: {fileID: 646438517}
   reloadSymbol: {fileID: 972604237}
@@ -18478,7 +18477,6 @@ MonoBehaviour:
   Common: {r: 0.23529412, g: 0.49019608, b: 0.21568628, a: 1}
   Rare: {r: 0.2627451, g: 0.5647059, b: 0.8862745, a: 1}
   Legendary: {r: 0.8784314, g: 0.7019608, b: 0.14509805, a: 1}
-  isSprinting: 0
   shootAnim: {fileID: 646438517}
   reloadAnim: {fileID: 646438517}
   reloadSymbol: {fileID: 972604237}
@@ -19498,7 +19496,6 @@ MonoBehaviour:
   Common: {r: 0.23529412, g: 0.49019608, b: 0.21568628, a: 1}
   Rare: {r: 0.2627451, g: 0.5647059, b: 0.8862745, a: 1}
   Legendary: {r: 0.8784314, g: 0.7019608, b: 0.14509805, a: 1}
-  isSprinting: 0
   shootAnim: {fileID: 646438517}
   reloadAnim: {fileID: 646438517}
   reloadSymbol: {fileID: 972604237}
@@ -31868,7 +31865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1885400779
 Transform:
   m_ObjectHideFlags: 0

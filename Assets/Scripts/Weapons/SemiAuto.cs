@@ -24,6 +24,7 @@ public class SemiAuto : MonoBehaviour
 
     AudioSource gunShot;
     private float nextTimeToFire = 0f;
+    private bool isSprinting;
 
     public Animator shootAnim;
     public Animator reloadAnim;
@@ -58,19 +59,40 @@ public class SemiAuto : MonoBehaviour
     void Update()
     {
         ammoDisplay.text = currantAmmo.ToString();
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprinting = false;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSprinting = true;
+            if (isReloading)
+            {
+                StopCoroutine(Reload());
+                shootAnim.SetBool("Reloading", false);
+                reloadSymbol.SetActive(false);
+            }
+        }
+        if (isSprinting)
+        {
+            StopCoroutine(Reload());
+            isReloading = false;
+            shootAnim.SetBool("Reloading", false);
+            reloadSymbol.SetActive(false);
+        }
         if (isReloading)
         {
-            if(!PauseMenu2.GameISPaused)
+            if (!PauseMenu2.GameISPaused)
             {
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     shootAnim.SetBool("Reloading", false);
-                    reloadAnim.SetBool("Reloading", false);
+                    reloadSymbol.SetActive(false);
                 }
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     shootAnim.SetBool("Reloading", false);
-                    reloadAnim.SetBool("Reloading", false);
+                    reloadSymbol.SetActive(false);
                 }
             }
             if (PauseMenu2.GameISPaused)
@@ -78,22 +100,30 @@ public class SemiAuto : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     shootAnim.SetBool("Reloading", true);
+                    reloadSymbol.SetActive(false);
                 }
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
                     shootAnim.SetBool("Reloading", true);
+                    reloadSymbol.SetActive(false);
                 }
             }
             return;
         }
         if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
-            StartCoroutine(Reload());
+            if (currantAmmo == maxAmmo)
+            {
+                return;
+            }
+            if (!isSprinting)
+            {
+                StartCoroutine(Reload());
+            }
             return;
         }
         if (currantAmmo <= 0)
         {
-            StartCoroutine(Reload());
             return;
         }
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
@@ -108,24 +138,38 @@ public class SemiAuto : MonoBehaviour
     }
     IEnumerator Reload()
     {
-        isReloading = true;
-        Debug.Log("Reloading");
-        shootAnim.SetBool("Shooting", false);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSprinting = true;
 
+        }
+        if (!isSprinting)
+        {
+            isReloading = true;
+            shootAnim.SetBool("Shooting", false);
 
-        reloadAnim.SetBool("Reloading", true);
-        reloadSymbol.SetActive(true);
+            reloadAnim.SetBool("Reloading", true);
+            reloadSymbol.SetActive(true);
+            if (isSprinting)
+            {
+                reloadAnim.SetBool("Reloading", false);
+                reloadSymbol.SetActive(false);
+            }
+            yield return new WaitForSeconds(reloadTime - .25f);
+            if (!isSprinting)
+            {
+                reloadAnim.SetBool("Reloading", false);
+            }
+            yield return new WaitForSeconds(.25f);
 
-        yield return new WaitForSeconds(reloadTime - .25f);
-
-        reloadAnim.SetBool("Reloading", false);
-        yield return new WaitForSeconds(.25f);
-
-        reloadSymbol.SetActive(false);
-        currantAmmo = maxAmmo;
-        isReloading = false;
+            reloadSymbol.SetActive(false);
+            if (!isSprinting)
+            {
+                currantAmmo = maxAmmo;
+            }
+            isReloading = false;
+        }
     }
-
     void Shoot()
     {
         currantAmmo--;
@@ -136,8 +180,6 @@ public class SemiAuto : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
-
             Health enemy = hit.transform.GetComponent<Health>();
             if (enemy != null)
             {
