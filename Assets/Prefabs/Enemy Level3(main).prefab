@@ -432,6 +432,8 @@ MonoBehaviour:
   attackField: {fileID: 0}
   animController: {fileID: 6476196946118818519}
   head: {fileID: 6476196946003635186}
+  canReachTarget: 0
+  canSeeTarget: 0
 --- !u!114 &6476196945352036565
 MonoBehaviour:
   m_ObjectHideFlags: 0
