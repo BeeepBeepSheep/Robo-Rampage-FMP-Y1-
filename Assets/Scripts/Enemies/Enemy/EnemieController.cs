@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemieController : MonoBehaviour
@@ -10,6 +8,8 @@ public class EnemieController : MonoBehaviour
     NavMeshAgent agent;
     public GameObject attackField;
     public Animator animController;
+    //----------
+    public Transform head;
     void Start()
     {
         target = PlayerManeger.instance.player.transform;
@@ -22,24 +22,25 @@ public class EnemieController : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= lookRadius)
         {
-            //Debug.Log("chasing");
+            // Chasing state
             animController.SetInteger("State", 3);
 
             NavMeshPath path = new NavMeshPath();
             agent.CalculatePath(target.position, path);
+
             if (path.status == NavMeshPathStatus.PathPartial)
             {
-                TargetIsUnreachable();
+                //Unreachable state
+                TargetIsUnreachable_State();
             }
             if (path.status != NavMeshPathStatus.PathPartial)
             {
-                //Debug.Log("Can reach");
-
                 agent.SetDestination(target.position);
                 if (distance <= agent.stoppingDistance)
                 {
+                    // Attacking state
                     FaceTarget();
-                    Attack();
+                    Punching_State();
                 }
             }
         }
@@ -55,19 +56,38 @@ public class EnemieController : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
-    void Attack()
+    void Punching_State()
     {
         //Debug.Log("attacking");
         animController.SetInteger("State", 2);
     }
-    void TargetIsUnreachable()
+    void Turret_State()
     {
-        //Debug.Log("Cannot reach");
+        Debug.Log("turret");
         animController.SetInteger("State", 1);
 
         agent.SetDestination(transform.position);
+    }
+    void TargetIsUnreachable_State()
+    {
         FaceTarget();
-        return;
+        RaycastHit hit;
+        if (Physics.Linecast(head.position, target.position,out hit))
+        {
+            if(hit.transform.name == "Player")
+            {
+                Turret_State();
+
+            }
+            else
+            {
+                // Chasing state
+                agent.SetDestination(target.position);
+                Debug.Log("chasing");
+                animController.SetInteger("State", 3);
+                //Debug.Log(hit.transform.name);
+            }
+        }
     }
     private void OnDrawGizmosSelected()
     {
