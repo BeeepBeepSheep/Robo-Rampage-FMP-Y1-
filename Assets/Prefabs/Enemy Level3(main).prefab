@@ -611,7 +611,7 @@ MonoBehaviour:
   head: {fileID: 4352311739832747291}
   laserRange: 100
   damage: 1
-  laserFireRate: 30
+  laserFireRate: 5
   canReachTarget: 0
   canSeeTarget: 0
 --- !u!114 &6476196945352036565

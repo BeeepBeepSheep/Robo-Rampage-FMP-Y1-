@@ -52,9 +52,9 @@ public class EnemieController : MonoBehaviour
                 }
                 if (path.status != NavMeshPathStatus.PathPartial)
                 {
+                    head.SetActive(false);
                     canReachTarget = true;
                     agent.SetDestination(target.position);
-                    head.SetActive(false);
 
                     if (distance <= agent.stoppingDistance)
                     {
@@ -140,6 +140,7 @@ public class EnemieController : MonoBehaviour
             }
             else
             {
+                head.SetActive(false);
                 canSeeTarget = false;
                 // Chasing state
                 animController.SetInteger("State", 3);

@@ -11810,7 +11810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f2b528d56124c4d8fc6ec4fd8712ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 17
   range: 77
   fireRate: 30
   impactEffect: {fileID: 86068072}
@@ -13825,7 +13825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &584071426
 Transform:
   m_ObjectHideFlags: 0
@@ -14599,6 +14599,7 @@ GameObject:
   - component: {fileID: 646438515}
   - component: {fileID: 646438516}
   - component: {fileID: 646438518}
+  - component: {fileID: 646438519}
   - component: {fileID: 646438517}
   m_Layer: 8
   m_Name: WeaponHolder
@@ -14692,6 +14693,18 @@ MonoBehaviour:
   TertararyAmmoDisplay: {fileID: 473814455}
   MainAmmoDisplay: {fileID: 627204918}
   revolvers: {fileID: 1885400778}
+--- !u!114 &646438519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646438513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a165162da746649be9e6b9bf1f3392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &663069649
 GameObject:
   m_ObjectHideFlags: 0
@@ -33959,7 +33972,7 @@ MonoBehaviour:
   anim: {fileID: 499630093}
   player1: {fileID: 134493272}
   healRate: 5
-  totalHealAmmount: 300
+  totalHealAmmount: 200
   currantHealAmmount: 0
   doHealValue: 5
   usageBar: {fileID: 732050813}
