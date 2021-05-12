@@ -9,12 +9,13 @@ public class EnemieController : MonoBehaviour
     public GameObject attackField;
     public Animator animController;
     //----------
-    public Transform head;
+    public GameObject head;
     private GameObject playerCapsual;
     public float laserRange = 100f;
     public float damage = 1f;
     public float laserFireRate;
     private float nextTimeToFire;
+    private LineRenderer lineRenderer;
 
     public bool canReachTarget;
     public bool canSeeTarget;
@@ -23,6 +24,7 @@ public class EnemieController : MonoBehaviour
         target = PlayerManeger.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
 
+        lineRenderer = head.GetComponent<LineRenderer>();
         playerCapsual = GameObject.FindGameObjectWithTag("PlayerCapsual");
 
     }
@@ -52,6 +54,8 @@ public class EnemieController : MonoBehaviour
                 {
                     canReachTarget = true;
                     agent.SetDestination(target.position);
+                    head.SetActive(false);
+
                     if (distance <= agent.stoppingDistance)
                     {
                         // Attacking state
@@ -90,9 +94,13 @@ public class EnemieController : MonoBehaviour
         animController.SetInteger("State", 1);
 
         agent.SetDestination(transform.position);
-        Vector3 direcetion = target.position - head.position;
+
+        Vector3 direcetion = target.position - head.transform.position;
         Quaternion rotation = Quaternion.LookRotation(direcetion);
-        head.rotation = rotation;
+        head.transform.rotation = rotation;
+
+        head.SetActive(true);
+
 
         if (Time.time >= nextTimeToFire)
         {
@@ -102,10 +110,19 @@ public class EnemieController : MonoBehaviour
             if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, laserRange))
             {
                 //Debug.Log(hit.transform.tag);
-                if (hit.transform.tag == "Player")
+                if(hit.collider)
                 {
-                    Health player1 = playerCapsual.GetComponent<Health>();
-                    player1.TakeDamage(damage);
+                    lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
+                    
+                    if (hit.transform.tag == "Player")
+                    {
+                        Health player1 = playerCapsual.GetComponent<Health>();
+                        player1.TakeDamage(damage);
+                    }
+                }
+                else
+                {
+                    lineRenderer.SetPosition(1, new Vector3(0, 0, laserRange));
                 }
             }
         }
@@ -114,7 +131,7 @@ public class EnemieController : MonoBehaviour
     {
         FaceTarget();
         RaycastHit hit;
-        if (Physics.Linecast(head.position, target.position, out hit))
+        if (Physics.Linecast(head.transform.position, target.position, out hit))
         {
             if (hit.transform.name == "Player")
             {
