@@ -18,6 +18,8 @@ TagManager:
   - Canvas
   - MiniMapCam
   - hudICON
+  - FxTemporaire
+  - HealthPack
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ public class SpawnWaves : MonoBehaviour
 {
     public Transform enemyPrefab;
     private int enemyCount;
+    private int healCount;
     private int maxEnemiesForWave = 1;
 
     public float timeBetweenEnemySpawn;
@@ -24,6 +25,8 @@ public class SpawnWaves : MonoBehaviour
     public GameObject healer2;
     public GameObject miniGun;
 
+    public bool isEnemySpawner;
+
     void Start()
     {
         StartCoroutine(SpawnEnemyWave(maxEnemiesForWave));
@@ -32,20 +35,35 @@ public class SpawnWaves : MonoBehaviour
     void Update()
     {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        healCount = GameObject.FindGameObjectsWithTag("HealthPack").Length;
 
-        if (enemyCount == 0 && !spawningWave)
+        if (isEnemySpawner)
         {
-            maxEnemiesForWave++;
-            KillLogic.wave++;
-            StartCoroutine(SpawnEnemyWave(maxEnemiesForWave));
+            if (enemyCount == 0 && !spawningWave)
+            {
+                maxEnemiesForWave++;
+                KillLogic.wave++;
+                StartCoroutine(SpawnEnemyWave(maxEnemiesForWave));
+            }
+        }
+        if (!isEnemySpawner)
+        {
+            if(healCount == 0 && !spawningWave)
+            {
+                StartCoroutine(SpawnEnemyWave(1));
+
+            }
         }
     }
 
     IEnumerator SpawnEnemyWave(int enemiesToSpawn)
     {
         spawningWave = true;
-        anim.SetBool("NewWave", true);
-        ResetConsumables();
+        if (isEnemySpawner)
+        {
+            anim.SetBool("NewWave", true);
+            ResetConsumables();
+        }
 
         yield return new WaitForSeconds(timeBetweenWaves); //We wait here to pause between wave spawning
         for (int i = 0; i < enemiesToSpawn; i++)
@@ -54,7 +72,10 @@ public class SpawnWaves : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenEnemySpawn); //We wait here to give a bit of time between each enemy spawn
         }
         spawningWave = false;
-        anim.SetBool("NewWave", false);
+        if (isEnemySpawner)
+        {
+            anim.SetBool("NewWave", false);
+        }
     }
     void ResetConsumables()
     {
