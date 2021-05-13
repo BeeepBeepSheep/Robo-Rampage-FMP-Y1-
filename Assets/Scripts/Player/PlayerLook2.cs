@@ -1,11 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLook2 : MonoBehaviour
 {
     [SerializeField] private float sensX = 100f;
     [SerializeField] private float sensY = 100f;
+    public bool invertX = false;
+    public bool invertY = false;
+    public GameObject tickX;
+    public GameObject tickY;
 
     [SerializeField] Transform cam;
     [SerializeField] Transform orientation;
@@ -30,6 +34,15 @@ public class PlayerLook2 : MonoBehaviour
         mouseX = Input.GetAxisRaw("Mouse X");
         mouseY = Input.GetAxisRaw("Mouse Y");
 
+        if (invertX)
+        {
+            mouseX = -mouseX;
+        }
+        if (invertY)
+        {
+            mouseY = -mouseY;
+        }
+
         yRotation += mouseX * sensX * multiplier;
         xRotation -= mouseY * sensY * multiplier;
 
@@ -41,7 +54,6 @@ public class PlayerLook2 : MonoBehaviour
         //aiming sensivity
         Aim();
     }
-
     void Aim()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -51,6 +63,39 @@ public class PlayerLook2 : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             multiplier = 0.01f;
+        }
+    }
+    public void AjustSens_Both(float newsens)
+    {
+        sensX = newsens;
+        sensY = newsens;
+    }
+    public void Invert_X_Axis()
+    {
+        Debug.Log("InvertedX");
+        if(invertX)
+        {
+            invertX = false;
+            tickX.SetActive(false);
+        }
+        else
+        {
+            invertX = true;
+            tickX.SetActive(true);
+        }
+    }
+    public void Invert_Y_Axis()
+    {
+        Debug.Log("InvertedX");
+        if(invertY)
+        {
+            invertY = false;
+            tickY.SetActive(false);
+        }
+        else
+        {
+            invertY = true;
+            tickY.SetActive(true);
         }
     }
 }
