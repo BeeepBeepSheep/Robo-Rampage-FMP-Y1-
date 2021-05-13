@@ -1,1 +1,18 @@
-12/05/2021 correctect version coppy - needs to go to broken branch
+list
+
+
+container runable side
+container runnable corner *2
+
+damaged container type1
+damaged container type2
+
+crane high
+crane low
+
+fence
+ship
+concrete base
+concrete base level 2
+concrete stairs forward
+concrete stairs side

@@ -9,6 +9,7 @@ public class RevolverLeft : MonoBehaviour
     public float fireRate = 30f;
 
     public GameObject impactEffect;
+    public GameObject impactEffectConcrete;
     public float impactForce = 30f;
     public Camera cam;
     public Animator HitReg;
@@ -165,8 +166,16 @@ public class RevolverLeft : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
-            GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGameObject, 2f);
+            if (hit.transform.tag == "Enemy")
+            {
+                GameObject impactGameObject = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGameObject, 1f);
+            }
+            else
+            {
+                GameObject impactGameObject = Instantiate(impactEffectConcrete, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGameObject, 1f);
+            }
         }
         shootAnim.SetBool("Shooting", true);
     }
