@@ -52,8 +52,6 @@ public class PlayerLook2 : MonoBehaviour
 
         cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
-
-        //aiming sensivity
         Aim();
     }
     void Aim()
