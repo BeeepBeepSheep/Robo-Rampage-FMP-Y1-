@@ -20,6 +20,7 @@ TagManager:
   - hudICON
   - FxTemporaire
   - HealthPack
+  - uiPrompt
   layers:
   - Default
   - TransparentFX

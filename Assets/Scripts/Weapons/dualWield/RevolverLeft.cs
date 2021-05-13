@@ -19,6 +19,7 @@ public class RevolverLeft : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading;
     public Text ammoDisplay;
+    public GameObject reloadPrompt;
 
     AudioSource gunShot;
     private float nextTimeToFire = 0f;
@@ -98,7 +99,7 @@ public class RevolverLeft : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
-            if(currantAmmo == maxAmmo)
+            if (currantAmmo == maxAmmo)
             {
                 return;
             }
@@ -110,6 +111,7 @@ public class RevolverLeft : MonoBehaviour
         }
         if (currantAmmo <= 0)
         {
+            reloadPrompt.SetActive(true);
             return;
         }
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
@@ -132,6 +134,7 @@ public class RevolverLeft : MonoBehaviour
         reloadAnim.SetBool("Reloading", true);
         reloadSymbol.SetActive(true);
 
+        reloadPrompt.SetActive(true);
         yield return new WaitForSeconds(reloadTime - .25f);
 
         reloadAnim.SetBool("Reloading", false);

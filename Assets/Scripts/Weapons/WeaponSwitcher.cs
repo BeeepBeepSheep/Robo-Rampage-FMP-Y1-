@@ -7,6 +7,7 @@ public class WeaponSwitcher : MonoBehaviour
     public GameObject Primary;
     public GameObject Secondary;
     public GameObject Tertarary;
+    public GameObject reloadPrompt;
 
     public bool PrimaryActive;
 
@@ -49,6 +50,7 @@ public class WeaponSwitcher : MonoBehaviour
         Secondary.SetActive(false);
         Tertarary.SetActive(false);
         //Debug.Log(PrimaryActive);
+        reloadPrompt.SetActive(false);
         PrimaryActive = true;
     }
     void SwitchToSecondary()
@@ -57,6 +59,7 @@ public class WeaponSwitcher : MonoBehaviour
         Secondary.SetActive(true);
         Tertarary.SetActive(false);
         //Debug.Log(PrimaryActive);
+        reloadPrompt.SetActive(false);
         PrimaryActive = false;
     }
     void SwitchToTertarary()
@@ -67,6 +70,7 @@ public class WeaponSwitcher : MonoBehaviour
             Secondary.SetActive(false);
             Tertarary.SetActive(true);
             //Debug.Log(PrimaryActive);
+            reloadPrompt.SetActive(false);
             PrimaryActive = false;
         }
     }

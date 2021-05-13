@@ -18,6 +18,7 @@ public class SemiAuto : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading;
     public Text ammoDisplay;
+    public GameObject reloadPrompt;
 
     public Color Common;
     public Color Rare;
@@ -125,6 +126,7 @@ public class SemiAuto : MonoBehaviour
         }
         if (currantAmmo <= 0)
         {
+            reloadPrompt.SetActive(true);
             return;
         }
         if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
@@ -151,6 +153,8 @@ public class SemiAuto : MonoBehaviour
 
             reloadAnim.SetBool("Reloading", true);
             reloadSymbol.SetActive(true);
+
+            reloadPrompt.SetActive(false);
             if (isSprinting)
             {
                 reloadAnim.SetBool("Reloading", false);

@@ -19,6 +19,7 @@ public class Autamatic : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading;
     public Text ammoDisplay;
+    public GameObject reloadPrompt;
 
     public Color Common;
     public Color Rare;
@@ -127,6 +128,7 @@ public class Autamatic : MonoBehaviour
         }
         if (currantAmmo <= 0)
         {
+            reloadPrompt.SetActive(true);
             return;
         }
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
@@ -155,7 +157,9 @@ public class Autamatic : MonoBehaviour
 
             reloadAnim.SetBool("Reloading", true);
             reloadSymbol.SetActive(true);
-            if(isSprinting)
+
+            reloadPrompt.SetActive(false);
+            if (isSprinting)
             {
                 reloadAnim.SetBool("Reloading", false);
                 reloadSymbol.SetActive(false);
