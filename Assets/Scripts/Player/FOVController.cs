@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FOVController : MonoBehaviour
 {
@@ -9,20 +10,21 @@ public class FOVController : MonoBehaviour
     public GameObject Cross;
 
     public Camera cam;
-    public float mainFov = 70f;
+    private float mainFov = 70f;
 
     public GameObject StopADS;
 
     public Animator anim;
+    public Text fovText;
     void Start()
     {
         cam.fieldOfView = mainFov;
     }
 
-
     void Update()
     {
-
+        cam.fieldOfView = mainFov;
+        fovText.text = mainFov.ToString();
         //sprinting fov
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -55,5 +57,9 @@ public class FOVController : MonoBehaviour
 
             cam.fieldOfView = mainFov;
         }
+    }
+    public void Ajust_FOV(float newFOV)
+    {
+        mainFov = newFOV;
     }
 }

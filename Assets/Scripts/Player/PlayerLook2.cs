@@ -10,6 +10,7 @@ public class PlayerLook2 : MonoBehaviour
     public bool invertY = false;
     public GameObject tickX;
     public GameObject tickY;
+    public Text sensText;
 
     [SerializeField] Transform cam;
     [SerializeField] Transform orientation;
@@ -33,6 +34,7 @@ public class PlayerLook2 : MonoBehaviour
     {
         mouseX = Input.GetAxisRaw("Mouse X");
         mouseY = Input.GetAxisRaw("Mouse Y");
+        sensText.text = sensX.ToString();
 
         if (invertX)
         {
@@ -65,14 +67,13 @@ public class PlayerLook2 : MonoBehaviour
             multiplier = 0.01f;
         }
     }
-    public void AjustSens_Both(float newsens)
+    public void AjustSens_Both(float newSens)
     {
-        sensX = newsens;
-        sensY = newsens;
+        sensX = newSens;
+        sensY = newSens;
     }
     public void Invert_X_Axis()
     {
-        Debug.Log("InvertedX");
         if(invertX)
         {
             invertX = false;
