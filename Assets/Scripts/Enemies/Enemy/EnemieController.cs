@@ -8,7 +8,7 @@ public class EnemieController : MonoBehaviour
     NavMeshAgent agent;
     public GameObject attackField;
     public Animator animController;
-    //----------
+
     public GameObject head;
     private GameObject playerCapsual;
     public float laserRange = 100f;
@@ -16,6 +16,7 @@ public class EnemieController : MonoBehaviour
     public float laserFireRate;
     private float nextTimeToFire;
     private LineRenderer lineRenderer;
+    public AudioSource laserSFX;
 
     public bool canReachTarget;
     public bool canSeeTarget;
@@ -113,9 +114,10 @@ public class EnemieController : MonoBehaviour
                 if(hit.collider)
                 {
                     lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
-                    
+
                     if (hit.transform.tag == "Player")
                     {
+                        laserSFX.Play();
                         Health player1 = playerCapsual.GetComponent<Health>();
                         player1.TakeDamage(damage);
                     }

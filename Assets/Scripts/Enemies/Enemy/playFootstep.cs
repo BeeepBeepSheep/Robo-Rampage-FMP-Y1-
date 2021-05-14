@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class playFootstep : MonoBehaviour
 {
-    AudioSource step;
+    public AudioSource punch;
     void Start()
     {
-        step = GetComponent<AudioSource>();
+        //punch = GetComponent<AudioSource>();
     }
-    public void PlayStep()
+    public void PlayPunch()
     {
-        step.Play();
+        punch.Play();
     }
 }
