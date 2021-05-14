@@ -17,6 +17,10 @@ public class PauseMenu2 : MonoBehaviour
 
     public GameObject weaponInfo;
 
+    public AudioSource mainMusic;
+    public AudioSource lowHealthMusic;
+
+
     void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -59,15 +63,15 @@ public class PauseMenu2 : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
 
-        //tabDeathMenu.SetActive(false);
 
         weaponInfo.SetActive(true);
-        //Debug.Log("resume");
+
+        mainMusic.Play();
+        lowHealthMusic.Play();
     }
 
     public void Pause()
     {
-        //Debug.Log("pause");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -78,11 +82,13 @@ public class PauseMenu2 : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        //tabDeathMenu.SetActive(false);
 
         weaponInfo.SetActive(false);
         Settings.SetActive(false);
         Equipment.SetActive(false);
+
+        mainMusic.Pause();
+        lowHealthMusic.Pause();
     }
     public void OpenSettings()
     {

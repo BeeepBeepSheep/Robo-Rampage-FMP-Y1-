@@ -46,13 +46,14 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
+        
         if (gameObject.tag == "PlayerCapsual")
         {
             playerHealthBar.fillAmount = currantHealth / maxHealth;
             if (currantHealth <= 25f)
             {
                 mainMusic.loop = false;
-                mainMusic.Stop();
+                mainMusic.Pause();
                 lowHealthMusic.loop = true;
                 if (lowHealthMusicCanPlay)
                 {
@@ -72,10 +73,11 @@ public class Health : MonoBehaviour
                 mainMusic.loop = true;
                 if (mainMusicCanPlay)
                 {
-                    mainMusic.Play();
+                    mainMusic.UnPause();
                     lowHealthMusicCanPlay = true;
                     mainMusicCanPlay = false;
                 }
+
 
                 lowHealthIndicator.SetActive(false);
                 playerHealthBar.color = green;

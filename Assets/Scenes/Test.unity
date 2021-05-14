@@ -7394,6 +7394,8 @@ MonoBehaviour:
   Settings: {fileID: 1871819458}
   player: {fileID: 1997606855}
   weaponInfo: {fileID: 825564359}
+  mainMusic: {fileID: 134493279}
+  lowHealthMusic: {fileID: 134493280}
 --- !u!114 &366160310
 MonoBehaviour:
   m_ObjectHideFlags: 0
