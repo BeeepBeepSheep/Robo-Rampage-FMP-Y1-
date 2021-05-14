@@ -1786,6 +1786,8 @@ MonoBehaviour:
   deathMenu: {fileID: 0}
   explosion: {fileID: 0}
   oof: {fileID: 0}
+  mainMusic: {fileID: 0}
+  lowHealthMusic: {fileID: 0}
   red: {r: 0, g: 0, b: 0, a: 0}
   green: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3486957037472412446
@@ -1810,7 +1812,8 @@ AudioSource:
   m_GameObject: {fileID: 4646188500473300747}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6dbd8143637808a4588dba7d2ce41a91,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 0481e5b3e84f6e14c8b363d081e71782, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
@@ -1906,7 +1909,8 @@ AudioSource:
   m_GameObject: {fileID: 4646188500473300747}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6dbd8143637808a4588dba7d2ce41a91,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 423fdfca4d4724b43b0b833c99ca9000, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
