@@ -23,7 +23,7 @@ public class FOVController : MonoBehaviour
 
     void Update()
     {
-        cam.fieldOfView = mainFov;
+        //cam.fieldOfView = mainFov;
         fovText.text = mainFov.ToString();
         //sprinting fov
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -61,5 +61,6 @@ public class FOVController : MonoBehaviour
     public void Ajust_FOV(float newFOV)
     {
         mainFov = newFOV;
+        cam.fieldOfView = mainFov;
     }
 }

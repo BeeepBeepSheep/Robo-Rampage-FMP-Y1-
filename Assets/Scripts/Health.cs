@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currantHealth = maxHealth;
+        explosion = GameObject.FindGameObjectWithTag("explosion");
         if (gameObject.tag == "PlayerCapsual")
         {
             playerHealthBar.color = green;
@@ -67,18 +68,12 @@ public class Health : MonoBehaviour
     }
     void Die()
     {
-        if (gameObject.tag == "Head")
-        {
-            body.tag = "Enemy";
-            KillLogic.kills++;
-            GameObject explosionEffect = Instantiate(explosion, transform.position, Quaternion.LookRotation(hit.normal));
-            Destroy(explosionEffect, 1f);
-            //body.SetActive(false);
-            Destroy(body);
-        }
         if (gameObject.tag == "Enemy")
         {
             gameObject.tag = "DeadEnemy";
+            GameObject impactGameObject = Instantiate(explosion, transform.position, explosion.transform.rotation);
+            Destroy(impactGameObject, 1f);
+
             KillLogic.kills++;
             //gameObject.SetActive(false);
             Destroy(gameObject);
