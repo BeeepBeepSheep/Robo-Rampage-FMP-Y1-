@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public GameObject lowHealthIndicator;
     public GameObject body;
     public GameObject deathMenu;
+    public GameObject explosion;
 
     public static bool isBlocking = false;
 
@@ -70,6 +71,8 @@ public class Health : MonoBehaviour
         {
             body.tag = "Enemy";
             KillLogic.kills++;
+            GameObject explosionEffect = Instantiate(explosion, transform.position, Quaternion.LookRotation(hit.normal));
+            Destroy(explosionEffect, 1f);
             //body.SetActive(false);
             Destroy(body);
         }

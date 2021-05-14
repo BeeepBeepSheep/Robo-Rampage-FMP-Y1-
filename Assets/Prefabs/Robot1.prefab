@@ -1784,6 +1784,7 @@ MonoBehaviour:
   lowHealthIndicator: {fileID: 0}
   body: {fileID: 0}
   deathMenu: {fileID: 0}
+  explosion: {fileID: 0}
   red: {r: 0, g: 0, b: 0, a: 0}
   green: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3486957037472412446
