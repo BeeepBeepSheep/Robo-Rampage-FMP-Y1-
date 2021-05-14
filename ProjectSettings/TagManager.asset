@@ -21,6 +21,7 @@ TagManager:
   - FxTemporaire
   - HealthPack
   - uiPrompt
+  - explosion
   layers:
   - Default
   - TransparentFX

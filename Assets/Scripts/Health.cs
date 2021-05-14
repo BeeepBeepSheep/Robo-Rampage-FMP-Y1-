@@ -13,6 +13,12 @@ public class Health : MonoBehaviour
     public GameObject body;
     public GameObject deathMenu;
     public GameObject explosion;
+    public AudioSource oof;
+
+    private bool mainMusicCanPlay;
+    public AudioSource mainMusic;
+    private bool lowHealthMusicCanPlay;
+    public AudioSource lowHealthMusic;
 
     public static bool isBlocking = false;
 
@@ -26,6 +32,14 @@ public class Health : MonoBehaviour
         explosion = GameObject.FindGameObjectWithTag("explosion");
         if (gameObject.tag == "PlayerCapsual")
         {
+            mainMusic.loop = true;
+            mainMusic.Play();
+            lowHealthMusic.loop = false;
+            lowHealthMusic.Stop();
+
+            lowHealthMusicCanPlay = true;
+            mainMusicCanPlay = false;
+
             playerHealthBar.color = green;
             deathMenu.SetActive(false);
         }
@@ -37,11 +51,32 @@ public class Health : MonoBehaviour
             playerHealthBar.fillAmount = currantHealth / maxHealth;
             if (currantHealth <= 25f)
             {
+                mainMusic.loop = false;
+                mainMusic.Stop();
+                lowHealthMusic.loop = true;
+                if (lowHealthMusicCanPlay)
+                {
+                    lowHealthMusic.Play();
+                    lowHealthMusicCanPlay = false;
+                    mainMusicCanPlay = true;
+                }
+
+
                 lowHealthIndicator.SetActive(true);
                 playerHealthBar.color = red;
             }
             else
             {
+                lowHealthMusic.loop = false;
+                lowHealthMusic.Stop();
+                mainMusic.loop = true;
+                if (mainMusicCanPlay)
+                {
+                    mainMusic.Play();
+                    lowHealthMusicCanPlay = true;
+                    mainMusicCanPlay = false;
+                }
+
                 lowHealthIndicator.SetActive(false);
                 playerHealthBar.color = green;
             }
@@ -53,6 +88,10 @@ public class Health : MonoBehaviour
         {
             Debug.Log("Blocking");
             return;
+        }
+        if(gameObject.tag == "PlayerCapsual")
+        {
+            oof.Play();
         }
         currantHealth -= amount;
         if (currantHealth <= 0f)
