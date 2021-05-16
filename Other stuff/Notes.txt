@@ -1,18 +1,18 @@
 list
 
 
-container runable side
-container runnable corner *2
+container runable side x
+container runnable corner *2 x
 
-damaged container type1
-damaged container type2
+damaged container type1 x
+damaged container type2 x
 
-crane high
-crane low
+crane high x
+crane low x
 
-fence
+fence x
 ship
-concrete base
-concrete base level 2
-concrete stairs forward
-concrete stairs side
+concrete base x
+concrete base level 2 x
+concrete stairs forward x
+concrete stairs side x
