@@ -11,7 +11,7 @@ crane high x
 crane low x
 
 fence x
-ship
+ship x
 concrete base x
 concrete base level 2 x
 concrete stairs forward x
