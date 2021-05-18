@@ -49,6 +49,10 @@ public class Health : MonoBehaviour
         
         if (gameObject.tag == "PlayerCapsual")
         {
+            if(transform.position.y < -5)
+            {
+                TakeDamage(1000);
+            }
             playerHealthBar.fillAmount = currantHealth / maxHealth;
             if (currantHealth <= 25f)
             {
