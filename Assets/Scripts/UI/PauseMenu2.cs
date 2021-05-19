@@ -116,4 +116,8 @@ public class PauseMenu2 : MonoBehaviour
     {
 
     }
+    public void ReloadLevel()
+    {
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
 }
