@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9216682026203360421}
   - component: {fileID: 7505722502383317028}
   - component: {fileID: 7505722502383317029}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: healthpack
   m_TagString: HealthPack
   m_Icon: {fileID: 0}
@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  healAmmount: -25
 --- !u!1 &7505722502971263742
 GameObject:
   m_ObjectHideFlags: 0

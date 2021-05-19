@@ -20,6 +20,7 @@ public class PauseMenu2 : MonoBehaviour
     public AudioSource mainMusic;
     public AudioSource lowHealthMusic;
 
+    public Transform playerPos;
 
     void LateUpdate()
     {
@@ -50,6 +51,7 @@ public class PauseMenu2 : MonoBehaviour
     public void Start()
     {
         Resume();
+        ResetPlayerPos();
     }
 
     public void Resume()
@@ -115,5 +117,9 @@ public class PauseMenu2 : MonoBehaviour
     public void ReloadScene()
     {
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
+    public void ResetPlayerPos()
+    {
+        player.transform.position = playerPos.position;
     }
 }
