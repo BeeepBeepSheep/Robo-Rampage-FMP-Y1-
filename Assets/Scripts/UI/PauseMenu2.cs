@@ -110,13 +110,9 @@ public class PauseMenu2 : MonoBehaviour
     }
     public void QuitToMenu()
     {
-        //SceneManager.LoadScene("");
+        SceneManager.LoadScene("Main Menu");
     }
-    public void Quit()
-    {
-
-    }
-    public void ReloadLevel()
+    public void ReloadScene()
     {
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
