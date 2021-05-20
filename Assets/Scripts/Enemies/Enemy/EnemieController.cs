@@ -20,6 +20,8 @@ public class EnemieController : MonoBehaviour
 
     public bool canReachTarget;
     public bool canSeeTarget;
+
+    public string dificulty;
     void Start()
     {
         target = PlayerManeger.instance.player.transform;
@@ -27,7 +29,6 @@ public class EnemieController : MonoBehaviour
 
         lineRenderer = head.GetComponent<LineRenderer>();
         playerCapsual = GameObject.FindGameObjectWithTag("PlayerCapsual");
-
     }
 
     void Update()
@@ -92,39 +93,40 @@ public class EnemieController : MonoBehaviour
     void Turret_State()
     {
         //Debug.Log("turret");
-        animController.SetInteger("State", 1);
-
-        agent.SetDestination(transform.position);
-
-        Vector3 direcetion = target.position - head.transform.position;
-        Quaternion rotation = Quaternion.LookRotation(direcetion);
-        head.transform.rotation = rotation;
-
-        head.SetActive(true);
-
-
-        if (Time.time >= nextTimeToFire)
+        if (dificulty != "Easy")
         {
-            nextTimeToFire = Time.time + 1f / laserFireRate;
+            animController.SetInteger("State", 1);
 
-            RaycastHit hit;
-            if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, laserRange))
+            agent.SetDestination(transform.position);
+
+            Vector3 direcetion = target.position - head.transform.position;
+            Quaternion rotation = Quaternion.LookRotation(direcetion);
+            head.transform.rotation = rotation;
+
+            head.SetActive(true);
+            if (Time.time >= nextTimeToFire)
             {
-                //Debug.Log(hit.transform.tag);
-                if(hit.collider)
-                {
-                    lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
+                nextTimeToFire = Time.time + 1f / laserFireRate;
 
-                    if (hit.transform.tag == "Player")
-                    {
-                        laserSFX.Play();
-                        Health player1 = playerCapsual.GetComponent<Health>();
-                        player1.TakeDamage(damage);
-                    }
-                }
-                else
+                RaycastHit hit;
+                if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, laserRange))
                 {
-                    lineRenderer.SetPosition(1, new Vector3(0, 0, laserRange));
+                    //Debug.Log(hit.transform.tag);
+                    if (hit.collider)
+                    {
+                        lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
+
+                        if (hit.transform.tag == "Player")
+                        {
+                            laserSFX.Play();
+                            Health player1 = playerCapsual.GetComponent<Health>();
+                            player1.TakeDamage(damage);
+                        }
+                    }
+                    else
+                    {
+                        lineRenderer.SetPosition(1, new Vector3(0, 0, laserRange));
+                    }
                 }
             }
         }
