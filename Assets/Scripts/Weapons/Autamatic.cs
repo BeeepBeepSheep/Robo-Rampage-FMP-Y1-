@@ -148,7 +148,6 @@ public class Autamatic : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isSprinting = true;
-            
         }
         if (!isSprinting)
         {
@@ -177,6 +176,7 @@ public class Autamatic : MonoBehaviour
                 currantAmmo = maxAmmo;
             }
             isReloading = false;
+            reloadPrompt.SetActive(false);
         }
     }
 

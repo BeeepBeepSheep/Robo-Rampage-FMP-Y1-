@@ -144,7 +144,6 @@ public class SemiAuto : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isSprinting = true;
-
         }
         if (!isSprinting)
         {
@@ -173,6 +172,7 @@ public class SemiAuto : MonoBehaviour
                 currantAmmo = maxAmmo;
             }
             isReloading = false;
+            reloadPrompt.SetActive(false);
         }
     }
     void Shoot()
