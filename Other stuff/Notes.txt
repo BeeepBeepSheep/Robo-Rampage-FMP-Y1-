@@ -1,18 +1,1 @@
-list
-
-
-container runable side x
-container runnable corner *2 x
-
-damaged container type1 x
-damaged container type2 x
-
-crane high x
-crane low x
-
-fence x
-ship x
-concrete base x
-concrete base level 2 x
-concrete stairs forward x
-concrete stairs side x
+need to fix player healing over 100 on hard
