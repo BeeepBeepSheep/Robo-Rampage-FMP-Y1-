@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class Settings : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Settings : MonoBehaviour
     public Slider masterVolSlider;
     public Text liveMasterVol;
     public AudioMixer masterMixer;
+
     private float a;
     private float b;
 
