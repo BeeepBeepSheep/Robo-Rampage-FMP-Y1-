@@ -6,34 +6,20 @@ public class Aim : MonoBehaviour
 {
     public GameObject ADS;
     public GameObject HIP;
-    bool canAim;
 
-    public GameObject muzleflashHip;
-    public GameObject muzleflasAim;
-
-
-    private void Start()
+    void Start()
     {
-        canAim = true;
     }
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            canAim = true;
-        }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            canAim = false;
             StopAim();
+            return;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1) && canAim)
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            ADS.SetActive(true);
-            //muzleflasAim.SetActive(true);
-
-            HIP.SetActive(false);
-            //muzleflashHip.SetActive(false);
+            AimDownSights();
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
@@ -43,9 +29,15 @@ public class Aim : MonoBehaviour
     void StopAim()
     {
         HIP.SetActive(true);
-        //muzleflashHip.SetActive(true);
 
         ADS.SetActive(false);
-        //muzleflasAim.SetActive(false);
+    }
+    void AimDownSights()
+    {
+        {
+            ADS.SetActive(true);
+
+            HIP.SetActive(false);
+        }
     }
 }

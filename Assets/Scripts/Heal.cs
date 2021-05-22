@@ -37,9 +37,9 @@ public class Heal : MonoBehaviour
         }
 
         Health player = player1.GetComponent<Health>();
-        if (player.currantHealth >=100)
+        if (player.currantHealth >= player.maxHealth)
         {
-            player.currantHealth = 100f;
+            player.currantHealth = player.maxHealth;
             anim.SetBool("IsHealing", false);
             HealingIndicator.SetActive(false);
             return;

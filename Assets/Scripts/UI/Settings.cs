@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.VFX;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Settings : MonoBehaviour
 {
@@ -19,6 +22,7 @@ public class Settings : MonoBehaviour
     public Slider masterVolSlider;
     public Text liveMasterVol;
     public AudioMixer masterMixer;
+
     private float a;
     private float b;
 
@@ -29,6 +33,10 @@ public class Settings : MonoBehaviour
     private float d;
 
     public Dropdown resolutionDropdown;
+
+    public Volume volume;
+    public GameObject GlobalVolume;
+    public GameObject postProcessTick;
 
     Resolution[] resolutions;
     void Start()
@@ -68,7 +76,7 @@ public class Settings : MonoBehaviour
 
         a = masterVolSlider.value + 80f;
         b = masterVolSlider.maxValue + 80f;
-        liveMasterVol.text = Mathf.RoundToInt((a/b)*100).ToString() + "%";
+        liveMasterVol.text = Mathf.RoundToInt((a / b) * 100).ToString() + "%";
 
         //liveMasterVol.text = masterVolSlider.value.ToString();
     }
@@ -116,6 +124,19 @@ public class Settings : MonoBehaviour
             Screen.fullScreen = isFullScreen;
             fullscreenTick.SetActive(true);
             //Debug.Log("fullscreen" + isFullScreen.ToString());
+        }
+    }
+    public void PostPrecessing_Toggle()
+    {
+        if (GlobalVolume.activeInHierarchy == true)
+        {
+            postProcessTick.SetActive(false);
+            GlobalVolume.SetActive(false);
+        }
+        else
+        {
+            postProcessTick.SetActive(true);
+            GlobalVolume.SetActive(true);
         }
     }
 }
