@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
 public class EnemieController : MonoBehaviour
@@ -21,9 +22,10 @@ public class EnemieController : MonoBehaviour
     public bool canReachTarget;
     public bool canSeeTarget;
 
-    public string dificulty;
+    public int dificulty;
     void Start()
     {
+        dificulty = SceneManager.GetActiveScene().buildIndex;
         target = PlayerManeger.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
 
@@ -74,7 +76,10 @@ public class EnemieController : MonoBehaviour
             else
             {
                 FaceTarget();
-                Turret_State();
+                if(dificulty != 1)
+                {
+                    Turret_State();
+                }
             }
 
         }
@@ -93,42 +98,41 @@ public class EnemieController : MonoBehaviour
     void Turret_State()
     {
         //Debug.Log("turret");
-        if (dificulty != "Easy")
+
+        animController.SetInteger("State", 1);
+
+        agent.SetDestination(transform.position);
+
+        Vector3 direcetion = target.position - head.transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direcetion);
+        head.transform.rotation = rotation;
+
+        head.SetActive(true);
+        if (Time.time >= nextTimeToFire)
         {
-            animController.SetInteger("State", 1);
+            nextTimeToFire = Time.time + 1f / laserFireRate;
 
-            agent.SetDestination(transform.position);
-
-            Vector3 direcetion = target.position - head.transform.position;
-            Quaternion rotation = Quaternion.LookRotation(direcetion);
-            head.transform.rotation = rotation;
-
-            head.SetActive(true);
-            if (Time.time >= nextTimeToFire)
+            RaycastHit hit;
+            if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, laserRange))
             {
-                nextTimeToFire = Time.time + 1f / laserFireRate;
-
-                RaycastHit hit;
-                if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, laserRange))
+                //Debug.Log(hit.transform.tag);
+                if (hit.collider)
                 {
-                    //Debug.Log(hit.transform.tag);
-                    if (hit.collider)
-                    {
-                        lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
+                    lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
 
-                        if (hit.transform.tag == "Player")
-                        {
-                            laserSFX.Play();
-                            Health player1 = playerCapsual.GetComponent<Health>();
-                            player1.TakeDamage(damage);
-                        }
-                    }
-                    else
+                    if (hit.transform.tag == "Player")
                     {
-                        lineRenderer.SetPosition(1, new Vector3(0, 0, laserRange));
+                        laserSFX.Play();
+                        Health player1 = playerCapsual.GetComponent<Health>();
+                        player1.TakeDamage(damage);
                     }
                 }
+                else
+                {
+                    lineRenderer.SetPosition(1, new Vector3(0, 0, laserRange));
+                }
             }
+
         }
     }
     void TargetIsUnreachable_State()
